@@ -1,0 +1,115 @@
+##############################################################
+# Reset to default state
+
+record(bo, "$(P)-RSSMX100A-$(DEVICE_INST):STATUS:Reset") {
+  field(DESC, "Reset to default state")
+  field(DTYP, "stream")
+  field(ZNAM, "0")
+  field(ONAM, "1")
+  field(OUT, "@rssmx100a.proto outRst $(PORT)")
+}
+
+##############################################################
+# FREQUENCY
+
+record(ai, "$(P)-RSSMX100A-$(DEVICE_INST):STATUS:Freq_RBV") {
+  field(DESC, "Get Freq")
+  field(SCAN, "1 second")
+  field(DTYP, "stream")
+  field(PREC, "1")
+  field(LINR, "NO CONVERSION")
+  field(EGU, "Hz")
+  field(INP, "@rssmx100a.proto inFrq $(PORT)")
+}
+
+record(ao, "$(P)-RSSMX100A-$(DEVICE_INST):STATUS:Freq") {
+  field(DESC, "Set Freq")
+  field(DTYP, "stream")
+  field(EGU, "Hz")
+  field(OUT, "@rssmx100a.proto outFrq($1) $(PORT)")
+  field(FLNK,"$(P)-RSSMX100A-$(DEVICE_INST):STATUS:Freq_RBV")
+}
+
+##############################################################
+# LEVEL
+
+record(ai, "$(P)-RSSMX100A-$(DEVICE_INST):STATUS:Level_RBV") {
+  field(DESC, "Get Level")
+  field(SCAN, "1 second")
+  field(DTYP, "stream")
+  field(PREC, "1")
+  field(LINR, "NO CONVERSION")
+  field(EGU, "dBm")
+  field(INP, "@rssmx100a.proto inLvl $(PORT)")
+}
+
+record(ao, "$(P)-RSSMX100A-$(DEVICE_INST):STATUS:Level") {
+  field(DESC, "Set Level")
+  field(DTYP, "stream")
+  field(EGU, "dBm")
+  field(OUT, "@rssmx100a.proto outLvl($1) $(PORT)")
+  field(FLNK,"$(P)-RSSMX100A-$(DEVICE_INST):STATUS:Level_RBV")
+}
+
+##############################################################
+# RD STATUS
+
+record(bi, "$(P)-RSSMX100A-$(DEVICE_INST):STATUS:RF_RBV") {
+  field(DESC, "Get RF Status (OFF/ON)")
+  field(SCAN, "1 second")
+  field(DTYP, "stream")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  field(INP, "@rssmx100a.proto inRFStat $(PORT)")
+}
+
+record(bo, "$(P)-RSSMX100A-$(DEVICE_INST):STATUS:RF") {
+  field(DESC, "Enable/Disable RF (OFF/ON)")
+  field(DTYP, "stream")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  field(OUT, "@rssmx100a.proto outRFStat($1) $(PORT)")
+  field(FLNK,"$(P)-RSSMX100A-$(DEVICE_INST):STATUS:RF_RBV")
+}
+
+##############################################################
+# AM Status
+
+record(bi, "$(P)-RSSMX100A-$(DEVICE_INST):MOD:AMStat_RBV") {
+  field(DESC, "Get AM Status (OFF/ON)")
+  field(SCAN, "1 second")
+  field(DTYP, "stream")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  field(INP, "@rssmx100a.proto inAMState $(PORT)")
+}
+
+record(bo, "$(P)-RSSMX100A-$(DEVICE_INST):MOD:AMStat") {
+  field(DESC, "Enable/Disable AM (OFF/ON)")
+  field(DTYP, "stream")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  field(OUT, "@rssmx100a.proto outAMState($1) $(PORT)")
+  field(FLNK,"$(P)-RSSMX100A-$(DEVICE_INST):MOD:AMStat_RBV")
+}
+
+##############################################################
+# FM Status
+
+record(bi, "$(P)-RSSMX100A-$(DEVICE_INST):MOD:FMStat_RBV") {
+  field(DESC, "Get FM Status (OFF/ON)")
+  field(SCAN, "1 second")
+  field(DTYP, "stream")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  field(INP, "@rssmx100a.proto inFMState $(PORT)")
+}
+
+record(bo, "$(P)-RSSMX100A-$(DEVICE_INST):MOD:FMStat") {
+  field(DESC, "Enable/Disable FM (OFF/ON)")
+  field(DTYP, "stream")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  field(OUT, "@rssmx100a.proto outFMState($1) $(PORT)")
+  field(FLNK,"$(P)-RSSMX100A-$(DEVICE_INST):MOD:FMStat_RBV")
+}

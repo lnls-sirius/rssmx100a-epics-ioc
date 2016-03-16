@@ -1,0 +1,483 @@
+###########
+
+################################################################################
+#
+# INFN - LNL
+#
+# Protocol file to Rohde&Schwarz SMA100A
+#
+# Author: Mauro Giacchini
+# Email : mauro.giacchini@lnl.infn.it
+#
+# Based on previous version from Benjamin (BESSY)
+#
+# Edited by Vitor Finotti Ferreira (LNLS)
+#
+################################################################################
+#
+# Communication setup
+#
+OutTerminator = CR LF;
+InTerminator = LF;
+ExtraInput = Ignore;
+#
+#
+################################################################################
+#
+setupSweepMode {
+    out "SOUR:SWE:FREQ:MODE STEP";
+    out "SOUR:SWE:FREQ:SPAC LIN";
+    out "TRIG:FSW:SOUR EXT";
+}
+################################################################################
+#
+inFrq {
+    out "FREQ?";
+    in "%f";
+}
+################################################################################
+#
+outFrq {
+    out "FREQ %f";
+    @init { inFrq; };
+}
+################################################################################
+#
+inStartFrq {
+    out "FREQ:STAR?";
+    in "%f";
+}
+################################################################################
+#
+outStartFrq {
+    out "FREQ:STAR %f";
+    @init { inStartFrq; };
+}
+################################################################################
+#
+inStopFrq {
+    out "FREQ:STOP?";
+    in "%f";
+}
+################################################################################
+#
+outStopFrq {
+    out "FREQ:STOP %f";
+    @init { inStopFrq; };
+}
+################################################################################
+#
+inStepFrq {
+    out "SWE:FREQ:STEP:LIN?";
+    in "%f";
+}
+################################################################################
+#
+outStepFrq {
+    out "SWE:FREQ:STEP:LIN %f";
+    @init { inStepFrq; };
+}
+################################################################################
+#
+inLvl {
+    out "LEVEL?";
+    in "%f"
+}
+################################################################################
+#
+outLvl {
+    out "LEVEL %f";
+    @init { inLvl; };
+}
+################################################################################
+#
+inFmFrq {
+    out "FM?";
+    in "%f"
+}
+################################################################################
+#
+outFmFrq {
+    out "FM %f";
+    @init { inFmFrq; };
+}
+################################################################################
+# get identification
+inIdn {
+    out "*IDN?";
+    in "%s";
+}
+################################################################################
+# reset to default state
+outRst {
+    out "%{|*RST; *WAI}";
+}
+################################################################################
+# phase continuous frequency setting
+inPhasCont {
+    out "FREQ:PHAS:CONT:STAT?";
+    in "%i";
+}
+################################################################################
+#
+outPhasCont {
+    out "FREQ:PHAS:CONT:STAT %{OFF|ON}";
+    @init { inPhasCont; }
+}
+################################################################################
+# for quickly testing new commands and queries
+test {
+    out "%s"; in "%39c"
+}
+################################################################################
+#
+inFrqMode {
+    out "FREQ:MODE?";
+    in  "%{CW|SWE|LIST}";
+}
+################################################################################
+#
+outFrqMode {
+    setupSweepMode;
+    out "FREQ:MODE %{CW|SWE|LIST}";
+    @init {
+        setupSweepMode;
+        inFrqMode;
+    }
+}
+################################################################################
+# Read the RF status  pag 390
+
+inRFStat {
+    out "OUTP?";
+    in "%i";
+}
+################################################################################
+# Set the RF status  pag 390
+
+outRFStat {
+    out "OUTP %{OFF|ON}";
+    @init { inRFStat; };
+}
+################################################################################
+# Read the RF output level pag. 560
+
+inRFLevel {
+    out "SOUR:POW:LEV:IMM:AMPL?";
+    in "%f";
+}
+################################################################################
+# Set the RF output level pag. 560
+
+outRFLevel {
+    out "SOUR:POW:LEV:IMM:AMPL %f";
+    @init { inRFLevel; };
+}
+
+################################################################################
+# storing current setting like set0.txt
+
+strSet0 {
+    out "*SAV 0";
+    out "MMEM:STOR:STAT 0, '/var/user/pwrtests/set0.txt'";
+}
+################################################################################
+# Store current SMA100A configuration on file selected by $1:setupFileName.VAL
+
+strSetup {
+    out "*SAV 0";
+    out "MMEM:STOR:STAT 0, '/var/user/pwrtests/%(\$1:setupFileName.VAL)s.txt'";
+}
+################################################################################
+# Load current SMA100A configuration on file selected by $1:setupFileName.VAL
+
+lodSetup {
+    out "MMEM:LOAD:STAT 0, '/var/user/pwrtests/%(\$1:setupFileName.VAL)s.txt'";
+    out "*RCL 0";
+}
+
+
+################################################################################
+# loading current setting like set0.txt
+
+lodSet0 {
+    out "MMEM:LOAD:STAT 0, '/var/user/pwrtests/set0.txt'";
+    out "*RCL 0";
+}
+
+################################################################################
+# storing current setting like set1.txt
+
+strSet1 {
+    out "*SAV 1";
+    out "MMEM:STOR:STAT 1, '/var/user/pwrtests/set1.txt'";
+}
+################################################################################
+# loading current setting like set0.txt
+
+lodSet1 {
+    out "MMEM:LOAD:STAT 1, '/var/user/pwrtests/set1.txt'";
+    out "*RCL 1";
+}
+################################################################################
+# Read the amplitude modulation status pag.457
+
+inAMState {
+    out "SOUR:AM:STAT?";
+        in "%i"
+}
+################################################################################
+# Set the amplitude modulation status pag.457
+
+outAMState {
+    out "SOUR:AM:STAT %{OFF|ON}";
+    @init { inAMState; };
+}
+################################################################################
+# Read the amplitude modulation source pag.456
+
+inAMSour {
+    out "SOUR:AM:SOUR?";
+    in  "%{INT|EXT}";
+}
+################################################################################
+# Set the amplitude modulation source pag.456
+
+outAMSour {
+    out "SOUR:AM:SOUR %{INT|EXT}";
+    @init { inAMSour; };
+}
+################################################################################
+# Read the amplitude modulation source pag.455
+
+inAMSourInt {
+    out "SOUR:AM:INT:SOUR?";
+    in  "%#{LF12=2|NOIS=3|LF1N=4|LF2N=5|LF1=0|LF2=1}";
+}
+################################################################################
+# Set the amplitude modulation source pag.455
+
+outAMSourInt {
+     out "SOUR:AM:INT:SOUR %{LF1|LF2|LF12|NOIS|LF1N|LF2N}";
+     @init { inAMSourInt; };
+}
+################################################################################
+# Read the pulse generation status pag.560
+
+inPGState {
+    out "SOUR:PGEN:STAT?";
+        in "%i"
+}
+################################################################################
+# Set the pulse generation status pag.560
+
+outPGState {
+    out "SOUR:PGEN:STAT %{OFF|ON}";
+    @init { inPGState; };
+}
+################################################################################
+# Read the frequency modulation status pag.496
+
+inFMState {
+    out "SOUR:FM:STAT?";
+        in "%i"
+}
+################################################################################
+# Set the frequency modulation status pag.496
+
+outFMState {
+    out "SOUR:FM:STAT %{OFF|ON}";
+    @init { inFMState; };
+}
+################################################################################
+# Read the frequency of the LF output generator pag.526
+
+inLFFrq {
+    out "SOUR:LFO%(\$1:inc.VAL)s:FREQ?";
+        in "%i"
+}
+################################################################################
+# Read the frequency of the LF output generator pag.526
+
+outLFFrq {
+    out "SOUR:LFO%(\$1:inc.VAL)s:FREQ %i";
+#    @init { wait 500; inLFFrq; };
+}
+################################################################################
+# Read the shape of the LF output generator pag.535
+
+inLFShap {
+    out "SOUR:LFO%(\$1:inc.VAL)s:SHAP?";
+    in  "%{SINE|SQU|TRI|TRAP}";
+}
+################################################################################
+# Set the shape of the LF output generator pag.535
+
+outLFShap {
+    out "SOUR:LFO%(\$1:inc.VAL)s:SHAP %{SINE|SQU|TRI|TRAP}";
+#    @init { inLFShap; };
+}
+################################################################################
+# Read the frequency modulation source pag.499
+
+inFMSour {
+    out "SOUR:FM:SOUR?";
+    in  "%#{INT,EXT=2|EXT=1|INT=0|EDIG=3}";
+}
+################################################################################
+# Set the frequency modulation source pag.499
+
+outFMSour {
+     out "SOUR:FM:SOUR %{INT|EXT|INT,EXT|EDIG}";
+     @init { inFMSour; };
+}
+################################################################################
+# Read the frequency modulation sensitivity pag.499
+
+inFMSens {
+    out "SOUR:FM:SENS?";
+        in "%f"
+}
+################################################################################
+# Read the frequency modulation mode pag.498
+
+inFMMode {
+    out "SOUR:FM:MODE?";
+    in  "%#{NORM|LNO}";
+}
+################################################################################
+# Set the frequency modulation mode pag.498
+
+outFMMode {
+    out "SOUR:FM:MODE %{NORM|LNO}";
+    @init { inFMMode; };
+}
+################################################################################
+# Read the frequency modulation deviation pag.496
+
+inFMDev {
+    out "SOUR:FM:DEV?";
+    in  "%i"
+}
+################################################################################
+# Set the frequency modulation deviation pag.496
+
+outFMDev {
+    out "SOUR:FM:DEV %i";
+    @init { inFMDev; };
+}
+################################################################################
+# Read the pulse modulation status pag.581
+
+inPMState {
+    out "SOUR:PULM:STAT?";
+        in "%i"
+}
+################################################################################
+# Set the pulse modulation status pag.581
+
+outPMState {
+    out "SOUR:PULM:STAT %{OFF|ON}";
+    @init { inPMState; };
+}
+################################################################################
+# Read the pulse modulation width pag.591
+
+inPMWidt {
+    out "SOUR:PULM:WIDTH?";
+        in "%f"
+}
+################################################################################
+# Set the pulse modulation width pag.591
+
+outPMWidt {
+    out "SOUR:PULM:WIDTH %f";
+    @init { inPMWidt; };
+}
+################################################################################
+# Read the pulse modulation polarity pag.580
+
+inPMPol {
+    out "SOUR:PULM:POL?";
+    in  "%{NORM|INV}";
+}
+################################################################################
+# Set the pulse modulation polarity pag.580
+
+outPMPol {
+    out "SOUR:PULM:POL %{NORM|INV}";
+    @init { inPMPol; };
+}
+################################################################################
+# Read the pulse modulation period pag.579
+
+inPMPer {
+    out "SOUR:PULM:PER?";
+        in "%f"
+}
+################################################################################
+# Set the pulse modulation period pag.579
+
+outPMPer {
+    out "SOUR:PULM:PER %f";
+    @init { inPMPer; };
+}
+################################################################################
+# Read the pulse modulation mode pag.579
+
+inPMMod {
+    out "SOUR:PULM:MODE?";
+    in  "%{SING|DOUB|PTR}";
+}
+################################################################################
+# Set the pulse modulation mode pag.579
+
+outPMMod {
+    out "SOUR:PULM:MODE %{SING|DOUB|PTR}";
+    @init { inPMMod; };
+}
+################################################################################
+# Read the modulation subsystems status pag.557
+
+inMOStat {
+    out "SOUR:MOD:ALL:STAT?";
+    in  "%i";
+}
+################################################################################
+# Set the modulation subsystems status pag.557
+
+outMOStat {
+    out "SOUR:MOD:ALL:STAT %{OFF|ON}";
+    @init { inMOStat; };
+}
+################################################################################
+# Set the instrument on LOCAL operation mode pag.323
+
+Local {
+    out "%{|&GTL}";
+}
+
+#################################################################################################
+# Refresh the value of ao/bo records after the switch between local -to- remote of $(DEV):LocRmt
+
+Refresh {
+    out "FREQ?";
+    in "%(\$1:ConvValues.DO1)f";                                                # pointer to record $(DEVN):outRfq
+    out "SOUR:PULM:WIDTH?";
+    in "%(\$1:ConvValues.DO2)f";                                                # pointer to record $(DEVN):outPMWidt
+    out "SOUR:PULM:PER?";
+    in "%(\$1:ConvValues.DO3)f";                                                # pointer to record $(DEVN):outPMPer
+    out "SOUR:LFO%(\$1:inc.VAL)s:FREQ?";
+    in "%(\$1:ConvValues.DO4)f";                                                # pointer to record $(DEVN):outLFFrq
+    out "SOUR:LFO%(\$1:inc.VAL)s:SHAP?";
+        in  "%(\$1:ConvValues.DO5){SINE|SQU|TRI|TRAP}";         # pointer to record $(DEVN):outLFShap
+        out "SOUR:POW:LEV:IMM:AMPL?";
+        in "%(\$1:ConvValues.DO6)f";                                            # pointer to record $(DEVN):outRFlevel
+        out "OUTP?";
+        in "%(\$1:ConvValues.DO7)i";                                            # pointer to record $(DEVN):outRFstat
+}
+##################################################################################################
+
+
+
+###########
