@@ -75,7 +75,7 @@ record(bo, "$(P)-RSSMX100A-$(DEVICE_INST):GENERAL:RFState") {
 ######################################################################
 # AM State
 
-record(bi, "$(P)-RSSMX100A-$(DEVICE_INST):MOD:AMStat_RBV") {
+record(bi, "$(P)-RSSMX100A-$(DEVICE_INST):MOD:AMState_RBV") {
   field(DESC, "Get AM State (OFF|ON)")
   field(SCAN, "1 second")
   field(DTYP, "stream")
@@ -84,19 +84,19 @@ record(bi, "$(P)-RSSMX100A-$(DEVICE_INST):MOD:AMStat_RBV") {
   field(INP, "@rssmx100a.proto inAMState $(PORT)")
 }
 
-record(bo, "$(P)-RSSMX100A-$(DEVICE_INST):MOD:AMStat") {
-  field(DESC, "Enable/Disable AM (OFF/ON)")
+record(bo, "$(P)-RSSMX100A-$(DEVICE_INST):MOD:AMState") {
+  field(DESC, "Enable/Disable AM (OFF|ON)")
   field(DTYP, "stream")
   field(ZNAM, "OFF")
   field(ONAM, "ON")
   field(OUT, "@rssmx100a.proto outAMState($1) $(PORT)")
-  field(FLNK,"$(P)-RSSMX100A-$(DEVICE_INST):MOD:AMStat_RBV")
+  field(FLNK,"$(P)-RSSMX100A-$(DEVICE_INST):MOD:AMState_RBV")
 }
 
 ######################################################################
 # FM State
 
-record(bi, "$(P)-RSSMX100A-$(DEVICE_INST):MOD:FMStat_RBV") {
+record(bi, "$(P)-RSSMX100A-$(DEVICE_INST):MOD:FMState_RBV") {
   field(DESC, "Get FM State (OFF|ON)")
   field(SCAN, "1 second")
   field(DTYP, "stream")
@@ -105,11 +105,14 @@ record(bi, "$(P)-RSSMX100A-$(DEVICE_INST):MOD:FMStat_RBV") {
   field(INP, "@rssmx100a.proto inFMState $(PORT)")
 }
 
-record(bo, "$(P)-RSSMX100A-$(DEVICE_INST):MOD:FMStat") {
-  field(DESC, "Enable/Disable FM (OFF/ON)")
+record(bo, "$(P)-RSSMX100A-$(DEVICE_INST):MOD:FMState") {
+  field(DESC, "Enable/Disable FM (OFF|ON)")
   field(DTYP, "stream")
   field(ZNAM, "OFF")
   field(ONAM, "ON")
   field(OUT, "@rssmx100a.proto outFMState($1) $(PORT)")
-  field(FLNK,"$(P)-RSSMX100A-$(DEVICE_INST):MOD:FMStat_RBV")
+  field(FLNK,"$(P)-RSSMX100A-$(DEVICE_INST):MOD:FMState_RBV")
+}
+
+######################################################################
 }
