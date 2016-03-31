@@ -1,4 +1,4 @@
-##############################################################
+######################################################################
 # Reset to default state
 
 record(bo, "$(P)-RSSMX100A-$(DEVICE_INST):STATUS:Reset") {
@@ -9,7 +9,7 @@ record(bo, "$(P)-RSSMX100A-$(DEVICE_INST):STATUS:Reset") {
   field(OUT, "@rssmx100a.proto outRst $(PORT)")
 }
 
-##############################################################
+######################################################################
 # FREQUENCY
 
 record(ai, "$(P)-RSSMX100A-$(DEVICE_INST):STATUS:Freq_RBV") {
@@ -30,7 +30,7 @@ record(ao, "$(P)-RSSMX100A-$(DEVICE_INST):STATUS:Freq") {
   field(FLNK,"$(P)-RSSMX100A-$(DEVICE_INST):STATUS:Freq_RBV")
 }
 
-##############################################################
+######################################################################
 # LEVEL
 
 record(ai, "$(P)-RSSMX100A-$(DEVICE_INST):STATUS:Level_RBV") {
@@ -51,7 +51,7 @@ record(ao, "$(P)-RSSMX100A-$(DEVICE_INST):STATUS:Level") {
   field(FLNK,"$(P)-RSSMX100A-$(DEVICE_INST):STATUS:Level_RBV")
 }
 
-##############################################################
+######################################################################
 # RD STATUS
 
 record(bi, "$(P)-RSSMX100A-$(DEVICE_INST):STATUS:RF_RBV") {
@@ -72,7 +72,7 @@ record(bo, "$(P)-RSSMX100A-$(DEVICE_INST):STATUS:RF") {
   field(FLNK,"$(P)-RSSMX100A-$(DEVICE_INST):STATUS:RF_RBV")
 }
 
-##############################################################
+######################################################################
 # AM Status
 
 record(bi, "$(P)-RSSMX100A-$(DEVICE_INST):MOD:AMStat_RBV") {
@@ -93,7 +93,7 @@ record(bo, "$(P)-RSSMX100A-$(DEVICE_INST):MOD:AMStat") {
   field(FLNK,"$(P)-RSSMX100A-$(DEVICE_INST):MOD:AMStat_RBV")
 }
 
-##############################################################
+######################################################################
 # FM Status
 
 record(bi, "$(P)-RSSMX100A-$(DEVICE_INST):MOD:FMStat_RBV") {
