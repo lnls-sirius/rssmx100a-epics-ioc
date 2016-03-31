@@ -252,7 +252,7 @@ outAMSour {
 
 inAMSourInt {
     out "SOUR:AM:INT:SOUR?";
-    in  "%#{LF12=2|NOIS=3|LF1N=4|LF2N=5|LF1=0|LF2=1}";
+    in  "%{LF1|LF2|LF12|NOIS|LF1N|LF2N}";
 }
 ################################################################################
 # Set the amplitude modulation source pag.455
@@ -322,7 +322,7 @@ outLFShap {
 
 inFMSour {
     out "SOUR:FM:SOUR?";
-    in  "%#{INT,EXT=2|EXT=1|INT=0|EDIG=3}";
+    in  "%{INT|INT,EXT|EXT|EDIG}";
 }
 ################################################################################
 # Set the frequency modulation source pag.499
@@ -343,7 +343,7 @@ inFMSens {
 
 inFMMode {
     out "SOUR:FM:MODE?";
-    in  "%#{NORM|LNO}";
+    in  "%{NORM|LNO}";
 }
 ################################################################################
 # Set the frequency modulation mode pag.498
