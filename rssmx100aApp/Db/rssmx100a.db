@@ -52,10 +52,10 @@ record(ao, "$(P)-RSSMX100A-$(DEVICE_INST):STATUS:Level") {
 }
 
 ######################################################################
-# RD STATUS
+# RF STATE
 
 record(bi, "$(P)-RSSMX100A-$(DEVICE_INST):STATUS:RF_RBV") {
-  field(DESC, "Get RF Status (OFF/ON)")
+  field(DESC, "Get RF State (OFF|ON)")
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(ZNAM, "OFF")
@@ -73,10 +73,10 @@ record(bo, "$(P)-RSSMX100A-$(DEVICE_INST):STATUS:RF") {
 }
 
 ######################################################################
-# AM Status
+# AM State
 
 record(bi, "$(P)-RSSMX100A-$(DEVICE_INST):MOD:AMStat_RBV") {
-  field(DESC, "Get AM Status (OFF/ON)")
+  field(DESC, "Get AM State (OFF|ON)")
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(ZNAM, "OFF")
@@ -94,10 +94,10 @@ record(bo, "$(P)-RSSMX100A-$(DEVICE_INST):MOD:AMStat") {
 }
 
 ######################################################################
-# FM Status
+# FM State
 
 record(bi, "$(P)-RSSMX100A-$(DEVICE_INST):MOD:FMStat_RBV") {
-  field(DESC, "Get FM Status (OFF/ON)")
+  field(DESC, "Get FM State (OFF|ON)")
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(ZNAM, "OFF")
