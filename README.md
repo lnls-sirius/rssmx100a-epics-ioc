@@ -3,14 +3,14 @@
 ## Overall
 
 Repository containing the EPICS IOC support for the R&S SMA100A and
-SMB100A signal generators. Some functinalities haven't been
+SMB100A signal generators. Some functionalities haven't been
 implemented due to been exclusive to SMA100A, although they can be
 added through adding the specific records to the *.db* file.
 
 ## PV Structures
 
 The PVs have 3 parameters: The device identifier, the functionality
-group andthe functionality name, all separater by colons as shown
+group and the functionality name, all separated by colons as shown
 below.
 
 ```
@@ -48,7 +48,7 @@ be unique to differenciate the device from similars.
 An example of writing frequency is given below:
 
 ```
-$ caget DIG-RSSMX100A-0:GENERAL:Freq_RBV
+$ caput DIG-RSSMX100A-0:GENERAL:Freq 1e8
 ```
 
 ### Caget
@@ -56,7 +56,7 @@ $ caget DIG-RSSMX100A-0:GENERAL:Freq_RBV
 An example of reading frequency is given below:
 
 ```
-$ caput DIG-RSSMX100A-0:GENERAL:Freq 1e8
+$ caget DIG-RSSMX100A-0:GENERAL:Freq_RBV
 ```
 
 ## Implemented Functionalities
