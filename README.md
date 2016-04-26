@@ -3,14 +3,14 @@
 ## Overall
 
 Repository containing the EPICS IOC support for the R&S SMA100A and
-SMB100A signal generators. Some functinalities haven't been
+SMB100A signal generators. Some functionalities haven't been
 implemented due to been exclusive to SMA100A, although they can be
 added through adding the specific records to the *.db* file.
 
 ## PV Structures
 
 The PVs have 3 parameters: The device identifier, the functionality
-group andthe functionality name, all separater by colons as shown
+group and the functionality name, all separated by colons as shown
 below.
 
 ```
@@ -43,12 +43,27 @@ The *DEVICE_IP* and *DEVICE_INST* specify the instrument IP and the
 instantiation tag, which will be present at the *DEVICE_IDN* and should
 be unique to differenciate the device from similars.
 
+In some situations is desired to run the process using the procServ,
+which enables the IOC to be controlled by the system. This is done
+through the following commands:
+
+```sh
+$ make clean &&
+$ make uninstall &&
+$ make &&
+$ cd iocBoot/iocrssmx100a &&
+$ procServ -n "RSSMX100A" -f -i ^C^D 20000 ./run.sh 10.0.18.34 0
+```
+
+It is important to notice that the *DEVICE_IP* and *DEVICE_INST*
+arguments are passed after the */run.sh* in the last line.
+
 ### Caput
 
 An example of writing frequency is given below:
 
 ```
-$ caget DIG-RSSMX100A-0:GENERAL:Freq_RBV
+$ caput DIG-RSSMX100A-0:GENERAL:Freq 1e8
 ```
 
 ### Caget
@@ -56,7 +71,7 @@ $ caget DIG-RSSMX100A-0:GENERAL:Freq_RBV
 An example of reading frequency is given below:
 
 ```
-$ caput DIG-RSSMX100A-0:GENERAL:Freq 1e8
+$ caget DIG-RSSMX100A-0:GENERAL:Freq_RBV
 ```
 
 ## Implemented Functionalities

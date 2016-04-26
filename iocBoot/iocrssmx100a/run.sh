@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# Tests if variable EPICS_HOST_ARCH exists. If not, how message
 : ${EPICS_HOST_ARCH:?"Environment variable needs to be set"}
 
 # Select device IP.
@@ -14,7 +15,7 @@ fi
 DEVICE_INST=$2
 
 if [ -z "$DEVICE_INST" ]; then
-    echo "\"DEVICE_INST\" variable unset. "$VALID_DEVICE_INSTS_STR
+    echo "\"DEVICE_INST\" variable unset."
     exit 1
 fi
 
