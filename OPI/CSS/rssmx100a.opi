@@ -263,7 +263,7 @@
         <name>Text Update_3</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:RFLevel_RBV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-RFLvl_RBV</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -355,7 +355,7 @@ $(pv_value)</tooltip>
         <name>Text Update_4</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:Idn</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-Idn</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -447,7 +447,7 @@ $(pv_value)</tooltip>
         <name>Text Update</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:Freq_RBV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-Freq_RBV</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -499,7 +499,7 @@ $(pv_value)</tooltip>
         <name>Text Update_2</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:RFState_RBV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-RFState_RBV</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -681,7 +681,7 @@ $(pv_value)</tooltip>
         <on_label>ON</on_label>
         <password></password>
         <push_action_index>0</push_action_index>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:Reset</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-Reset</pv_name>
         <pv_value />
         <released_action_index>0</released_action_index>
         <rules />
@@ -776,7 +776,7 @@ $(pv_value)</tooltip>
         <name>Text Input</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:Freq</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-Freq</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -873,7 +873,7 @@ $(pv_value)</tooltip>
         <name>Text Input_2</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:RFLevel</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-RFLvl</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules>
@@ -982,7 +982,7 @@ $(pv_value)</tooltip>
         <on_label>ON</on_label>
         <password></password>
         <push_action_index>0</push_action_index>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:RFState</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-RFState</pv_name>
         <pv_value />
         <released_action_index>0</released_action_index>
         <rules />
@@ -1477,7 +1477,7 @@ $(pv_value)</tooltip>
         <name>Text Update_1</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:MOD:AMState_RBV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:MOD-AMState_RBV</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -1569,7 +1569,7 @@ $(pv_value)</tooltip>
         <name>Text Update_3</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:MOD:AllState_RBV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:MOD-AllState_RBV</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -1661,7 +1661,7 @@ $(pv_value)</tooltip>
         <name>Text Update_4</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:MOD:PMPeriod_RBV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:MOD-PMPeriod_RBV</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -1753,7 +1753,7 @@ $(pv_value)</tooltip>
         <name>Text Update</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:MOD:AMSource_RBV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:MOD-AMSrc_RBV</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -1805,7 +1805,7 @@ $(pv_value)</tooltip>
         <name>Text Update_2</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:MOD:PMWidth_RBV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:MOD-PMWidth_RBV</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -1897,7 +1897,7 @@ $(pv_value)</tooltip>
         <name>Text Update_7</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:MOD:FMState_RBV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:MOD-FMState_RBV</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -1989,7 +1989,7 @@ $(pv_value)</tooltip>
         <name>Text Update_9</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:MOD:PGState_RBV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:MOD-PGState_RBV</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -2081,7 +2081,7 @@ $(pv_value)</tooltip>
         <name>Text Update_10</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:MOD:PMPol_RBV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:MOD-PMPol_RBV</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -2173,7 +2173,7 @@ $(pv_value)</tooltip>
         <name>Text Update_11</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:MOD:PMState_RBV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:MOD-PMState_RBV</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -2265,7 +2265,7 @@ $(pv_value)</tooltip>
         <name>Text Update_12</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:MOD:FMSource_RBV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:MOD-FMSrc_RBV</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -2357,7 +2357,7 @@ $(pv_value)</tooltip>
         <name>Text Update_13</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:MOD:PMMode_RBV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:MOD-PMMode_RBV</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -2566,7 +2566,7 @@ $(pv_value)</tooltip>
         <height>31</height>
         <items_from_pv>true</items_from_pv>
         <name>Combo</name>
-        <pv_name>DIG-RSSMX100A-0:MOD:AllState</pv_name>
+        <pv_name>DIG:RSSMX100A-0:MOD-AllState</pv_name>
         <pv_value />
         <rules />
         <scale_options>
@@ -2648,7 +2648,7 @@ $(pv_value)</tooltip>
         <height>31</height>
         <items_from_pv>true</items_from_pv>
         <name>Combo_1</name>
-        <pv_name>DIG-RSSMX100A-0:MOD:PMState</pv_name>
+        <pv_name>DIG:RSSMX100A-0:MOD-PMState</pv_name>
         <pv_value />
         <rules />
         <scale_options>
@@ -2730,7 +2730,7 @@ $(pv_value)</tooltip>
         <height>31</height>
         <items_from_pv>true</items_from_pv>
         <name>Combo_2</name>
-        <pv_name>DIG-RSSMX100A-0:MOD:PMMode</pv_name>
+        <pv_name>DIG:RSSMX100A-0:MOD-PMMode</pv_name>
         <pv_value />
         <rules />
         <scale_options>
@@ -2821,7 +2821,7 @@ $(pv_value)</tooltip>
         <name>Text Input</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:MOD:PMPeriod</pv_name>
+        <pv_name>DIG:RSSMX100A-0:MOD-PMPeriod</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -2918,7 +2918,7 @@ $(pv_value)</tooltip>
         <name>Text Input_1</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:MOD:PMWidth</pv_name>
+        <pv_name>DIG:RSSMX100A-0:MOD-PMWidth</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -3006,7 +3006,7 @@ $(pv_value)</tooltip>
         <height>31</height>
         <items_from_pv>true</items_from_pv>
         <name>Combo_3</name>
-        <pv_name>DIG-RSSMX100A-0:MOD:AMState</pv_name>
+        <pv_name>DIG:RSSMX100A-0:MOD-AMState</pv_name>
         <pv_value />
         <rules />
         <scale_options>
@@ -3088,7 +3088,7 @@ $(pv_value)</tooltip>
         <height>31</height>
         <items_from_pv>true</items_from_pv>
         <name>Combo_4</name>
-        <pv_name>DIG-RSSMX100A-0:MOD:AMSource</pv_name>
+        <pv_name>DIG:RSSMX100A-0:MOD-AMSrc</pv_name>
         <pv_value />
         <rules />
         <scale_options>
@@ -3170,7 +3170,7 @@ $(pv_value)</tooltip>
         <height>31</height>
         <items_from_pv>true</items_from_pv>
         <name>Combo_5</name>
-        <pv_name>DIG-RSSMX100A-0:MOD:FMState</pv_name>
+        <pv_name>DIG:RSSMX100A-0:MOD-FMState</pv_name>
         <pv_value />
         <rules />
         <scale_options>
@@ -3252,7 +3252,7 @@ $(pv_value)</tooltip>
         <height>31</height>
         <items_from_pv>true</items_from_pv>
         <name>Combo_6</name>
-        <pv_name>DIG-RSSMX100A-0:MOD:FMSource</pv_name>
+        <pv_name>DIG:RSSMX100A-0:MOD-FMSrc</pv_name>
         <pv_value />
         <rules />
         <scale_options>
@@ -3334,7 +3334,7 @@ $(pv_value)</tooltip>
         <height>31</height>
         <items_from_pv>true</items_from_pv>
         <name>Combo_7</name>
-        <pv_name>DIG-RSSMX100A-0:MOD:PMPol</pv_name>
+        <pv_name>DIG:RSSMX100A-0:MOD-PMPol</pv_name>
         <pv_value />
         <rules />
         <scale_options>
@@ -3416,7 +3416,7 @@ $(pv_value)</tooltip>
         <height>31</height>
         <items_from_pv>true</items_from_pv>
         <name>Combo_8</name>
-        <pv_name>DIG-RSSMX100A-0:MOD:PGState</pv_name>
+        <pv_name>DIG:RSSMX100A-0:MOD-PGState</pv_name>
         <pv_value />
         <rules />
         <scale_options>
@@ -3587,7 +3587,7 @@ $(pv_value)</tooltip>
         <name>Text Update_3</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:FREQ:StartFreq_RBV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:FREQ-StartFreq_RBV</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -3679,7 +3679,7 @@ $(pv_value)</tooltip>
         <name>Text Update_4</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:FREQ:FreqMode_RBV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:FREQ-FreqMode_RBV</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -3771,7 +3771,7 @@ $(pv_value)</tooltip>
         <name>Text Update_11</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:FREQ:StopFreq_RBV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:FREQ-StopFreq_RBV</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -3863,7 +3863,7 @@ $(pv_value)</tooltip>
         <name>Text Update_13</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:FREQ:StepFreq_RBV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:FREQ-StepFreq_RBV</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -3926,6 +3926,48 @@ $(pv_value)</tooltip>
         <wuid>-40e328dc:1567ab5bd5a:-6cd2</wuid>
         <x>15</x>
         <y>6</y>
+      </widget>
+      <widget typeId="org.csstudio.opibuilder.widgets.combo" version="1.0.0">
+        <actions hook="false" hook_all="false" />
+        <alarm_pulsing>false</alarm_pulsing>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color red="255" green="255" blue="255" />
+        </background_color>
+        <border_alarm_sensitive>true</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>0</border_style>
+        <border_width>1</border_width>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Ubuntu" height="11" style="0">Default</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color red="0" green="0" blue="0" />
+        </foreground_color>
+        <height>31</height>
+        <items_from_pv>true</items_from_pv>
+        <name>Combo</name>
+        <pv_name>DIG:RSSMX100A-0:MOD-PMMode_RBV</pv_name>
+        <pv_value />
+        <rules />
+        <scale_options>
+          <width_scalable>true</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <visible>true</visible>
+        <widget_type>Combo</widget_type>
+        <width>100</width>
+        <wuid>-60762c19:15c11272c81:-7ecf</wuid>
+        <x>156</x>
+        <y>156</y>
       </widget>
     </widget>
     <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
@@ -4072,7 +4114,7 @@ $(pv_value)</tooltip>
         <height>31</height>
         <items_from_pv>true</items_from_pv>
         <name>Combo_2</name>
-        <pv_name>DIG-RSSMX100A-0:FREQ:FreqMode</pv_name>
+        <pv_name>DIG:RSSMX100A-0:FREQ-FreqMode</pv_name>
         <pv_value />
         <rules />
         <scale_options>
@@ -4163,7 +4205,7 @@ $(pv_value)</tooltip>
         <name>Text Input</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:FREQ:StartFreq</pv_name>
+        <pv_name>DIG:RSSMX100A-0:FREQ-StartFreq</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -4260,7 +4302,7 @@ $(pv_value)</tooltip>
         <name>Text Input_1</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:FREQ:StopFreq</pv_name>
+        <pv_name>DIG:RSSMX100A-0:FREQ-StopFreq</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -4357,7 +4399,7 @@ $(pv_value)</tooltip>
         <name>Text Input_2</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:FREQ:StepFreq</pv_name>
+        <pv_name>DIG:RSSMX100A-0:FREQ-StepFreq</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />

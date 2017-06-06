@@ -162,16 +162,16 @@ outRFStat {
 ################################################################################
 # Read the RF output level pag. 560
 
-inRFLevel {
+inRFLvl {
     out "SOUR:POW:LEV:IMM:AMPL?";
     in "%f";
 }
 ################################################################################
 # Set the RF output level pag. 560
 
-outRFLevel {
+outRFLvl {
     out "SOUR:POW:LEV:IMM:AMPL %f";
-    @init { inRFLevel; };
+    @init { inRFLvl; };
 }
 
 ################################################################################
@@ -454,9 +454,440 @@ outMOStat {
 # Set the instrument on LOCAL operation mode pag.323
 
 Local {
-    out "%{|&GTL}";
+	out "%{|&GTL}";
 }
+################################################################################
+# Read the synchronization bandwidth for an external reference signal
 
+inExtBwid {
+	out "SOUR:ROSC:EXT:SBAN?";
+	in "%{WIDE|NARR}";
+}
+################################################################################
+# Set the synchronization bandwidth for an external reference signal
+
+outExtBwid {
+	out "SOUR:ROSC:EXT:SBAN %{WIDE|NARR}";
+	@init { inExtBwid; };
+}	
+################################################################################
+# Read the reference frequency source
+
+inRoscSrc {
+	out "SOUR:ROSC:SOUR?";
+	in "%{INT|EXT}";
+}
+################################################################################
+# Set the reference frequency source
+
+outRoscSrc {
+	out "SOUR:ROSC:SOUR %{INT|EXT}";
+	@init { inRoscSrc; };
+}
+################################################################################
+# Read the frequency of the clock synthesis output signal
+
+inCsynFreq {
+	out "CSYN:FREQ?";
+	in "%f";
+}
+################################################################################
+# Set the frequency of the clock synthesis output signal
+
+outCsynFreq {
+	out "CSYN:FREQ %f";
+	@init { inCsynFreq; };
+}
+################################################################################
+# Read if generation of a system clock for differential outputs is activated/deactivated
+
+inCsynState {
+	out "CSYN:STAT?";
+	in "%i";
+}
+################################################################################
+# Activate/deactivate generation of a system clock for differential outputs
+
+outCsynState {
+	out "CSYN:STAT %{OFF|ON}";
+	@init { inCsynState; };
+}
+#################################################################################
+# Read the trigger source for the RF level sweep
+
+inTrigSrc {
+	out "TRIG:PSW:SOUR?";
+	in "%{AUTO|SING|EXT|EAUT}";
+}
+#################################################################################
+# Set the trigger source for the RF level sweep
+
+outTrigSrc {
+	out "TRIG:PSW:SOUR %{AUTO|SING|EXT|EAUT}";
+	@init { inTrigSrc; };
+}
+##################################################################################
+# Read the modulation depth of the AM signal in percent
+
+inAMDepth {
+	out "SOUR:AM:DEPT?";
+	in "%f";
+}
+#################################################################################
+# Set the modulation depth of the AM signal in percent
+
+outAMDepth {
+	out "SOUR:AM:DEPT %f";
+	@init { inAMDepth; };
+}
+#################################################################################
+# Read the coupling mode for the external AM signal
+
+inAMExtCoup {
+	out "SOUR:AM:EXT:COUP?";
+	in "%{AC|DC}";
+}
+#################################################################################
+# Set the coupling mode for the external AM signal
+
+outAMExtCoup {
+	out "SOUR:AM:EXT:COUP %{AC|DC}";
+	@init { inAMExtCoup; };
+}
+##################################################################################
+# Read the depth of the internal AM signal in Hz
+
+inAMIntDepth {
+	out "SOUR:AM:INT:DEPT?";
+	in "%f";
+}
+##################################################################################
+# Set the depth of the internal AM signal in Hz
+
+outAMIntDepth {
+	out "SOUR:AM:INT:DEPT %f";
+	@init { inAMIntDepth; };
+}
+##################################################################################
+# Read AM sensitivity in percent
+
+inAMSens {
+	out "SOUR:AM:SENS?";
+	in "%f";
+}
+##################################################################################
+# Read PM delay
+
+inPMDelay {
+	out "SOUR:PULM:DEL?";
+	in "%f";
+}
+##################################################################################
+# Set PM Delay
+
+outPMDelay {
+	out "SOUR:PULM:DEL %f";
+	@init { inPMDelay; };
+}
+###################################################################################
+# Read the source for the PM signal
+
+inPMSrc {
+	out "SOUR:PULM:SOUR?";
+	in "%{INT|EXT}";
+}
+##################################################################################
+# Set the source for the PM signal
+
+outPMSrc {
+	out "SOUR:PULM:SOUR %{INT|EXT}";
+	@init { inPMSrc; };
+}
+##################################################################################
+# Read trigger mode for PM signal
+
+inPMTrigMode {
+	out "SOUR:PULM:TRIG:MODE?";
+	in "%{AUTO|EXT|EGAT}";
+}
+##################################################################################
+# Set trigger mode for PM signal
+
+outPMTrigMode {
+	out "SOUR:PULM:TRIG:MODE %{AUTO|EXT|EGAT}";
+	@init { inPMTrigMode; };
+}
+##################################################################################
+# Read noise level in the system bandwidth
+
+inNoisBwid {
+	out "SOUR:NOIS:BWID?";
+	in "%f";
+}
+###################################################################################
+# Set noise level in the system bandwidth
+
+outNoisBwid {
+	out "SOUR:NOIS:BWID %f";
+	@init { inNoisBwid; };
+}
+###################################################################################
+# Read the noise power density distribution of the noise
+
+inNoisDist {
+	out "SOUR:NOIS:DIST?";
+	in "%{GAUS|EQU}";
+}
+###################################################################################
+# Set the noise power density distribution of the noise
+
+outNoisDist {
+	out "SOUR:NOIS:DIST %{GAUS|EQU}";
+	@init { inNoisDist; };
+}
+####################################################################################
+# Read the center frequency of the RF sweep range
+
+inFreqCentr {
+	out "SOUR:FREQ:CENT?";
+	in "%f";
+}
+####################################################################################
+# Set the center frequency of the RF sweep range
+
+outFreqCentr {
+	out "SOUR:FREQ:CENT %f";
+	@init { inFreqCentr; };
+}
+####################################################################################
+# Read the frequency manually written
+
+inFreqMan {
+	out "SOUR:FREQ:MAN?";
+	in "%f";
+}
+####################################################################################
+# Set the frequency manually
+
+outFreqMan {
+	out "SOUR:FREQ:MAN %f";
+	@init { inFreqMan; };
+}
+####################################################################################
+# Read the extent of the frequency sweep range
+
+inFreqSpan {
+	out "SOUR:FREQ:SPAN?";
+	in "%f";
+}
+####################################################################################
+# Set the extent of the frequency sweep range
+
+outFreqSpan {
+	out "SOUR:FREQ:SPAN %f";
+	@init { inFreqSpan; };
+}
+####################################################################################
+# Read the step width
+
+inFStepWid {
+	out "SOUR:FREQ:STEP:INCR?";
+	in "%f";
+}
+####################################################################################
+# Set the step width
+
+outFStepWid {
+	out "SOUR:FREQ:STEP:INCR %f";
+	@init { inFStepWid; };
+}
+####################################################################################
+# Read frequency range mode
+
+inModeFreq {
+	out "SOUR:FREQ:PHAS:CONT:MODE?";
+	in "%{NARR|WIDE}";
+}
+####################################################################################
+# Set frequency range mode
+
+outModeFreq {
+	out "SOUR:FREQ:PHAS:CONT:MODE ${NARR|WIDE}";
+	@init { inModeFreq; };
+}
+####################################################################################
+# Read dwell time
+
+inFDwellTime {
+	out "SOUR:SWE:POW:DWEL?";
+	in "%f";
+}
+#####################################################################################
+# Set dwell time
+
+outFDwellTime {
+	out "SOUR:SWE:POW:DWEL %f";
+	@init { inFDwellTime; };
+}
+#####################################################################################
+# Read cycle mode of the level sweep
+
+inFCycleMode {
+	out "SOUR:SWE:POW:MODE?";
+	in "%{AUTO|MAN|STEP}";
+}
+#####################################################################################
+# Set cycle mode of the level sweep
+
+outFCycleMode {
+	out "SOUR:SWE:POW:MODE %{AUTO|MAN|STEP}";
+	@init { inFCycleMode; };
+}
+######################################################################################
+# Read the number of points for the level sweep
+
+inSweepPts {
+	out "SOUR:SWE:POW:POIN?";
+	in "%i";
+}
+######################################################################################
+# Set the number of points for the level sweep
+
+outSweepPts {
+	out "SOUR:SWE:POW:POIN %i";
+	@init { inSweepPts; };
+}
+######################################################################################
+# Read the state of the power retrace
+
+inFPwrRetr {
+	out "SOUR:SWE:POW:RETR?";
+	in "%i";
+}
+######################################################################################
+# Set the state of the power retrace
+
+outFPwrRetr {
+	out "SOUR:SWE:POW:RETR %{OFF|ON}";
+	@init { inFPwrRetr; };
+}
+#######################################################################################
+# Read the current state of the level sweep mode
+
+inFPwrRun {
+	out "SOUR:SWE:POW:RUNN?";
+	in "%i";
+}
+#######################################################################################
+# Read the cycle mode for a sweep sequence
+
+inFPwrShp {
+	out "SOUR:SWE:POW:SHAP?";
+	in "%{SAWT|TRI}";
+}
+########################################################################################
+# Set the cycle mode for a sweep sequence
+
+outFPwrShp {
+	out "SOUR:SWE:POW:SHAP %{SAWT|TRI}";
+	@init { inFPwrShp; };
+}
+########################################################################################
+# Read a logarithmically determined sweep step size for the RF level sweep
+
+inFStepLog {
+	out "SOUR:SWE:POW:STEP:LOG?";
+	in "%f";
+}
+########################################################################################
+# Set a logarithmically determined sweep step size for the RF level sweep
+
+outFStepLog {
+	out "SOUR:SWE:POW:STEP:LOG %f";
+	@init { inFStepLog; };
+}
+########################################################################################
+# Trigger Pulse
+
+Pulse {
+	out "TRIG:PSW:IMM";
+}
+########################################################################################
+# Read user defined step width
+
+inFStepMode {
+	out "SOUR:FREQ:STEP:MODE?";
+	in "%{DEC|USER}";
+}
+########################################################################################
+# Set user defined step width
+
+outFStepMode {
+	out "SOUR:FREQ:STEP:MODE %{DEC|USER}";
+	@init { inFStepMode; };
+}
+########################################################################################
+# Execute single sweep
+
+ExeSweep {
+	out "SOUR:SWE:POW:EXEC";
+}
+########################################################################################
+# Queries the sweep spacing mode
+
+SpacMode {
+	out "SOUR:SWE:POW:SPAC:MODE?";
+	in "%{LIN}";
+}
+########################################################################################
+# Resets all active sweeps to the starting point
+
+RstAllSweep {
+	out "SOUR:SWE:RES:ALL";
+}
+########################################################################################
+# Read the state of the bandwidth limitation of noise
+
+inNBwidState {
+	out "SOUR:NOIS:BWID:STAT?";
+	in "%i";
+}
+########################################################################################
+# Enables/Disables the bandwidth limitation of noise
+
+outNBwidState {
+	out "SOUR:NOIS:BWID:STAT %{OFF|ON}";
+	@init { inNBwidState; };
+}
+########################################################################################
+# Read the DC offset which is added to both clock synthesis output signals
+
+inCsynOffset {
+	out "CSYN:OFFS?";
+	in "%f";
+}
+########################################################################################
+# Set the DC offset which is added to both clock synthesis output signals
+
+outCsynOffset {
+	out "CSYN:OFFS %f";
+	@init { inCsynOffset; };
+}
+########################################################################################
+# Read the state of the clock synthesis DC offset
+
+inOffsetState {
+	out "CSYN:OFFS:STAT?";
+	in "%i";
+}
+########################################################################################
+# Set the state of the clock synthesis DC offset
+
+outOffsetState {
+	out "CSYN:OFFS:STAT %{OFF|ON}";
+	@init { inOffsetState; };
+}
+########################################################################################
 #################################################################################################
 # Refresh the value of ao/bo records after the switch between local -to- remote of $(DEV):LocRmt
 
@@ -472,7 +903,7 @@ Refresh {
     out "SOUR:LFO%(\$1:inc.VAL)s:SHAP?";
         in  "%(\$1:ConvValues.DO5){SINE|SQU|TRI|TRAP}";         # pointer to record $(DEVN):outLFShap
         out "SOUR:POW:LEV:IMM:AMPL?";
-        in "%(\$1:ConvValues.DO6)f";                                            # pointer to record $(DEVN):outRFlevel
+        in "%(\$1:ConvValues.DO6)f";                                            # pointer to record $(DEVN):outRFLvl
         out "OUTP?";
         in "%(\$1:ConvValues.DO7)i";                                            # pointer to record $(DEVN):outRFstat
 }

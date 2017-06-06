@@ -16,5 +16,5 @@
 
     <!-- This changes the default data source to Channel Access, while leaving
         the default delimiter to :// -->
-    <!--<compositeDataSource defaultDataSource="ca" />-->
+    <compositeDataSource defaultDataSource="ca" />
 </dataSources>

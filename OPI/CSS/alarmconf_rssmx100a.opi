@@ -143,8 +143,8 @@
     <widget_type>Tabbed Container</widget_type>
     <width>277</width>
     <wuid>-40e328dc:1567ab5bd5a:-430b</wuid>
-    <x>0</x>
-    <y>54</y>
+    <x>6</x>
+    <y>42</y>
     <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
       <actions hook="false" hook_all="false" />
       <background_color>
@@ -452,13 +452,13 @@
         <height>25</height>
         <horizontal_alignment>0</horizontal_alignment>
         <limits_from_pv>false</limits_from_pv>
-        <maximum>Infinity</maximum>
-        <minimum>-Infinity</minimum>
+        <maximum>1.7976931348623157E308</maximum>
+        <minimum>-1.7976931348623157E308</minimum>
         <multiline_input>false</multiline_input>
         <name>Text Input</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:Freq_RBV.HIHI</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-Freq_RBV.HIHI</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -515,7 +515,7 @@ $(pv_value)</tooltip>
         <name>Text Input_1</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:Freq_RBV.HIGH</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-Freq_RBV.HIGH</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -572,7 +572,7 @@ $(pv_value)</tooltip>
         <name>Text Input_2</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:Freq_RBV.LOW</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-Freq_RBV.LOW</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -629,7 +629,7 @@ $(pv_value)</tooltip>
         <name>Text Input_3</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:Freq_RBV.LOLO</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-Freq_RBV.LOLO</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -677,7 +677,7 @@ $(pv_value)</tooltip>
         <height>31</height>
         <items_from_pv>true</items_from_pv>
         <name>Combo</name>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:Freq_RBV.HHSV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-Freq_RBV.HHSV</pv_name>
         <pv_value />
         <rules />
         <scale_options>
@@ -719,7 +719,7 @@ $(pv_value)</tooltip>
         <height>31</height>
         <items_from_pv>true</items_from_pv>
         <name>Combo_1</name>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:Freq_RBV.HSV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-Freq_RBV.HSV</pv_name>
         <pv_value />
         <rules />
         <scale_options>
@@ -761,7 +761,7 @@ $(pv_value)</tooltip>
         <height>31</height>
         <items_from_pv>true</items_from_pv>
         <name>Combo_2</name>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:Freq_RBV.LSV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-Freq_RBV.LSV</pv_name>
         <pv_value />
         <rules />
         <scale_options>
@@ -803,7 +803,7 @@ $(pv_value)</tooltip>
         <height>31</height>
         <items_from_pv>true</items_from_pv>
         <name>Combo_3</name>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:Freq_RBV.LLSV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-Freq_RBV.LLSV</pv_name>
         <pv_value />
         <rules />
         <scale_options>
@@ -1134,7 +1134,7 @@ $(pv_value)</tooltip>
         <name>Text Input_8</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:RFLevel_RBV.HIHI</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-RFLvl_RBV.HIHI</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -1191,7 +1191,7 @@ $(pv_value)</tooltip>
         <name>Text Input_9</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:RFLevel_RBV.HIGH</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-RFLvl_RBV.HIGH</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -1248,7 +1248,7 @@ $(pv_value)</tooltip>
         <name>Text Input_10</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:RFLevel_RBV.LOW</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-RFLvl_RBV.LOW</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -1305,7 +1305,7 @@ $(pv_value)</tooltip>
         <name>Text Input_11</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:RFLevel_RBV.LOLO</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-RFLvl_RBV.LOLO</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -1353,7 +1353,7 @@ $(pv_value)</tooltip>
         <height>31</height>
         <items_from_pv>true</items_from_pv>
         <name>Combo_8</name>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:RFLevel_RBV.HHSV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-RFLvl_RBV.HHSV</pv_name>
         <pv_value />
         <rules />
         <scale_options>
@@ -1395,7 +1395,7 @@ $(pv_value)</tooltip>
         <height>31</height>
         <items_from_pv>true</items_from_pv>
         <name>Combo_9</name>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:RFLevel_RBV.HSV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-RFLvl_RBV.HSV</pv_name>
         <pv_value />
         <rules />
         <scale_options>
@@ -1437,7 +1437,7 @@ $(pv_value)</tooltip>
         <height>31</height>
         <items_from_pv>true</items_from_pv>
         <name>Combo_10</name>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:RFLevel_RBV.LSV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-RFLvl_RBV.LSV</pv_name>
         <pv_value />
         <rules />
         <scale_options>
@@ -1479,7 +1479,7 @@ $(pv_value)</tooltip>
         <height>31</height>
         <items_from_pv>true</items_from_pv>
         <name>Combo_11</name>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:RFLevel_RBV.LLSV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-RFLvl_RBV.LLSV</pv_name>
         <pv_value />
         <rules />
         <scale_options>
@@ -1811,7 +1811,7 @@ $(pv_value)</tooltip>
         <name>Text Input</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:Freq_RBV.HIHI</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-Freq_RBV.HIHI</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -1868,7 +1868,7 @@ $(pv_value)</tooltip>
         <name>Text Input_1</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:Freq_RBV.HIGH</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-Freq_RBV.HIGH</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -1925,7 +1925,7 @@ $(pv_value)</tooltip>
         <name>Text Input_2</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:Freq_RBV.LOW</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-Freq_RBV.LOW</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -1982,7 +1982,7 @@ $(pv_value)</tooltip>
         <name>Text Input_3</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:Freq_RBV.LOLO</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-Freq_RBV.LOLO</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -2030,7 +2030,7 @@ $(pv_value)</tooltip>
         <height>31</height>
         <items_from_pv>true</items_from_pv>
         <name>Combo</name>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:Freq_RBV.HHSV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-Freq_RBV.HHSV</pv_name>
         <pv_value />
         <rules />
         <scale_options>
@@ -2072,7 +2072,7 @@ $(pv_value)</tooltip>
         <height>31</height>
         <items_from_pv>true</items_from_pv>
         <name>Combo_1</name>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:Freq_RBV.HSV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-Freq_RBV.HSV</pv_name>
         <pv_value />
         <rules />
         <scale_options>
@@ -2114,7 +2114,7 @@ $(pv_value)</tooltip>
         <height>31</height>
         <items_from_pv>true</items_from_pv>
         <name>Combo_2</name>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:Freq_RBV.LSV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-Freq_RBV.LSV</pv_name>
         <pv_value />
         <rules />
         <scale_options>
@@ -2156,7 +2156,7 @@ $(pv_value)</tooltip>
         <height>31</height>
         <items_from_pv>true</items_from_pv>
         <name>Combo_3</name>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:Freq_RBV.LLSV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-Freq_RBV.LLSV</pv_name>
         <pv_value />
         <rules />
         <scale_options>
@@ -2447,7 +2447,7 @@ $(pv_value)</tooltip>
         <name>Text Input_4</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:Level_RBV.HIHI</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-Lvl_RBV.HIHI</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -2504,7 +2504,7 @@ $(pv_value)</tooltip>
         <name>Text Input_5</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:Level_RBV.HIGH</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-Lvl_RBV.HIGH</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -2561,7 +2561,7 @@ $(pv_value)</tooltip>
         <name>Text Input_6</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:Level_RBV.LOW</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-Lvl_RBV.LOW</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -2618,7 +2618,7 @@ $(pv_value)</tooltip>
         <name>Text Input_7</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:Level_RBV.LOLO</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-Lvl_RBV.LOLO</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -2666,7 +2666,7 @@ $(pv_value)</tooltip>
         <height>31</height>
         <items_from_pv>true</items_from_pv>
         <name>Combo_4</name>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:Level_RBV.HHSV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-Lvl_RBV.HHSV</pv_name>
         <pv_value />
         <rules />
         <scale_options>
@@ -2708,7 +2708,7 @@ $(pv_value)</tooltip>
         <height>31</height>
         <items_from_pv>true</items_from_pv>
         <name>Combo_5</name>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:Level_RBV.HSV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-Lvl_RBV.HSV</pv_name>
         <pv_value />
         <rules />
         <scale_options>
@@ -2750,7 +2750,7 @@ $(pv_value)</tooltip>
         <height>31</height>
         <items_from_pv>true</items_from_pv>
         <name>Combo_6</name>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:Level_RBV.LSV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-Lvl_RBV.LSV</pv_name>
         <pv_value />
         <rules />
         <scale_options>
@@ -2792,7 +2792,7 @@ $(pv_value)</tooltip>
         <height>31</height>
         <items_from_pv>true</items_from_pv>
         <name>Combo_7</name>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:Level_RBV.LLSV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-Lvl_RBV.LLSV</pv_name>
         <pv_value />
         <rules />
         <scale_options>
@@ -3083,7 +3083,7 @@ $(pv_value)</tooltip>
         <name>Text Input_8</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:RFLevel_RBV.HIHI</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-RFLvl_RBV.HIHI</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -3140,7 +3140,7 @@ $(pv_value)</tooltip>
         <name>Text Input_9</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:RFLevel_RBV.HIGH</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-RFLvl_RBV.HIGH</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -3197,7 +3197,7 @@ $(pv_value)</tooltip>
         <name>Text Input_10</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:RFLevel_RBV.LOW</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-RFLvl_RBV.LOW</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -3254,7 +3254,7 @@ $(pv_value)</tooltip>
         <name>Text Input_11</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:RFLevel_RBV.LOLO</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-RFLvl_RBV.LOLO</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -3302,7 +3302,7 @@ $(pv_value)</tooltip>
         <height>31</height>
         <items_from_pv>true</items_from_pv>
         <name>Combo_8</name>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:RFLevel_RBV.HHSV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-RFLvl_RBV.HHSV</pv_name>
         <pv_value />
         <rules />
         <scale_options>
@@ -3344,7 +3344,7 @@ $(pv_value)</tooltip>
         <height>31</height>
         <items_from_pv>true</items_from_pv>
         <name>Combo_9</name>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:RFLevel_RBV.HSV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-RFLvl_RBV.HSV</pv_name>
         <pv_value />
         <rules />
         <scale_options>
@@ -3386,7 +3386,7 @@ $(pv_value)</tooltip>
         <height>31</height>
         <items_from_pv>true</items_from_pv>
         <name>Combo_10</name>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:RFLevel_RBV.LSV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-RFLvl_RBV.LSV</pv_name>
         <pv_value />
         <rules />
         <scale_options>
@@ -3428,7 +3428,7 @@ $(pv_value)</tooltip>
         <height>31</height>
         <items_from_pv>true</items_from_pv>
         <name>Combo_11</name>
-        <pv_name>DIG-RSSMX100A-0:GENERAL:RFLevel_RBV.LLSV</pv_name>
+        <pv_name>DIG:RSSMX100A-0:GENERAL-RFLvl_RBV.LLSV</pv_name>
         <pv_value />
         <rules />
         <scale_options>

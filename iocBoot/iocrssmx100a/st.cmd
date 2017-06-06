@@ -17,7 +17,7 @@ rssmx100a_registerRecordDeviceDriver pdbbase
 
 
 ## Load record instances
-dbLoadRecords("${TOP}/rssmx100aApp/Db/rssmx100a.db", "P=DIG, DEVICE_INST = $(DEVICE_INST), PORT=rssmx100a_port, ADDR=0, TIMEOUT=1")
+dbLoadRecords("${TOP}/rssmx100aApp/Db/rssmx100a.db", "P=DIG, R=RSSMX100A-$(DEVICE_INST):, DEVICE_INST = $(DEVICE_INST), PORT=rssmx100a_port, ADDR=0, TIMEOUT=1")
 
 # Create the asyn port to talk to the eiger on port 111.
 vxi11Configure("rssmx100a_port","$(DEVICE_IP)",1,1000,"inst")
