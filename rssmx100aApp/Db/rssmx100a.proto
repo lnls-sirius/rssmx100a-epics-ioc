@@ -12,7 +12,7 @@
 # Based on previous version from Benjamin (BESSY)
 #
 # Edited by Vitor Finotti Ferreira (LNLS)
-# Edited by Letícia Garcez Capovilla
+# Edited by Letícia Garcez Capovilla (LNLS)
 #
 ################################################################################
 # This file contains 7 categories of PVs, which are:
@@ -434,18 +434,18 @@ outFreqSpan {
 	@init { inFreqSpan; };
 }
 ###############################################################################
-# Read the step width
+# Read the step variation
 
-inFStepWid {
+inFStepVar {
 	out "SOUR:FREQ:STEP:INCR?";
 	in "%f";
 }
 #
-# Set the step width
+# Set the step variation
 
-outFStepWid {
+outFStepVar {
 	out "SOUR:FREQ:STEP:INCR %f";
-	@init { inFStepWid; };
+	@init { inFStepVar; };
 }
 ################################################################################
 # Read frequency range mode
@@ -458,7 +458,7 @@ inModeFreq {
 # Set frequency range mode
 
 outModeFreq {
-	out "SOUR:FREQ:PHAS:CONT:MODE ${NARR|WIDE}";
+	out "SOUR:FREQ:PHAS:CONT:MODE %{NARR|WIDE}";
 	@init { inModeFreq; };
 }
 ################################################################################
@@ -553,18 +553,18 @@ outPStepLog {
 	@init { inPStepLog; };
 }
 ################################################################################
-# Read user defined step width
+# Read user defined step variation mode
 
-inFStepMode {
+inFVarMode {
 	out "SOUR:FREQ:STEP:MODE?";
 	in "%{DEC|USER}";
 }
 #
-# Set user defined step width
+# Set user defined step variation mode
 
-outFStepMode {
+outFVarMode {
 	out "SOUR:FREQ:STEP:MODE %{DEC|USER}";
-	@init { inFStepMode; };
+	@init { inFVarMode; };
 }
 ################################################################################
 # Execute power single sweep
@@ -711,6 +711,135 @@ outFExeSweep {
 	out "SOUR:SWE:FREQ:EXEC";
 }
 ################################################################################
+# Read the LF frequency sweep state
+
+inFLFMode {
+	out "SOUR:LFO:FREQ:MODE?";
+	in "%{CW|SWE}";
+}
+# Set the LF frequency sweep state
+
+outFLFMode {
+	out "SOUR:LFO:FREQ:MODE %{CW|SWE}";
+	@init { inFLFMode; };
+}
+################################################################################
+# Read the LF sweep source
+
+inFLFSweepSrc {
+	out "SOUR:LFO:SWE:FREQ:LFS?";
+	in "%{LF1|LF2}";
+}
+# Set the LF sweep source
+
+outFLFSweepSrc {
+	out "SOUR:LFO:SWE:FREQ:LFS %{LF1|LF2}";
+	@init {inFLFSweepSrc; };
+}
+################################################################################
+# Read the LF start frequency for the sweep
+
+inFLFStartFreq {
+	out "SOUR:LFO:FREQ:STAR?";
+	in "%f";
+}
+# Set the LF start frequency for the sweep
+
+outFLFStartFreq {
+	out "SOUR:LFO:FREQ:STAR %f";
+	@init { inFLFStartFreq; };
+}
+################################################################################
+# Read the stop frequency for the LF sweep
+
+inFLFStopFreq {
+	out "SOUR:LFO:FREQ:STOP?";
+	in "%f";
+}
+# Set the stop frequency for the LF sweep
+
+outFLFStopFreq {
+	out "SOUR:LFO:FREQ:STOP %f";
+	@init { inFLFStopFreq; };
+}
+################################################################################
+# Read the LF sweep spacing mode
+
+inFLFSpac {
+	out "SOUR:LFO:SWE:FREQ:SPAC?";
+	in "%{LIN|LOG}";
+}
+# Seth the LF sweep spacing mode
+
+outFLFSpac {
+	out "SOUR:LFO:SWE:FREQ:SPAC %{LIN|LOG}";
+	@init { inFLFSpac; };
+}
+################################################################################
+# Read the sweep shape
+
+inFLFShp {
+	out "SOUR:LFO:SWE:FREQ:SHAP?";
+	in "%{SAWT|TRI}";
+}
+# Set the sweep shape
+
+outFLFShp {
+	out "SOUR:LFO:SWE:FREQ:SHAP %{SAWT|TRI}";
+	@init { inFLFShp; };
+}
+################################################################################
+# Read the LF sweep linear step
+
+inFLFStepLin {
+	out "SOUR:LFO:SWE:FREQ:STEP:LIN?";
+	in "%f";
+}
+# Set the LF sweep linear step
+
+outFLFStepLin {
+	out "SOUR:LFO:SWE:FREQ:STEP:LIN %f";
+	@init { inFLFStepLin; };
+}
+################################################################################
+# Read the LF sweep logarithmic step
+
+inFLFStepLog {
+	out "SOUR:LFO:SWE:FREQ:STEP:LOG?";
+	in "%f";
+}
+# Set the LF sweep logarithmic step
+
+outFLFStepLog {
+	out "SOUR:LFO:SWE:FREQ:STEP:LOG %f";
+	@init { inFLFStepLog; };
+}
+################################################################################
+# Read the LF sweep dwell time
+
+inFLFDwellTime {
+	out "SOUR:LFO:SWE:FREQ:DWEL?";
+	in "%f";
+}
+# Set the LF sweep dwell time
+ outFLFDwellTime {
+	out "SOUR:LFO:SWE:FREQ:DWEL %f";
+	@init { inFLFDwellTime; };
+}
+################################################################################
+# Read the phase continuous state
+
+inFPhsContState { 
+	out "SOUR:FREQ:PHAS:CONT:STAT?";
+	in "%i";
+}
+# Set the phase continuous state
+
+outFPhsContState {
+	out "SOUR:FREQ:PHAS:CONT:STAT %i";
+	@init { inFPhsContState; };
+}
+################################################################################
 #
 ################################ MODULATION ####################################
 #
@@ -731,31 +860,31 @@ outAMState {
 ################################################################################
 # Read the amplitude modulation source
 
-inAMSour {
+inAMSrc {
     out "SOUR:AM:SOUR?";
     in  "%{INT|EXT|INT,EXT}";
 }
 #
 # Set the amplitude modulation source
 
-outAMSour {
+outAMSrc {
     out "SOUR:AM:SOUR %{INT|EXT|INT,EXT}";
-    @init { inAMSour; };
+    @init { inAMSrc; };
 }
 ################################################################################
 # Read the internal amplitude modulation source
-#
-#inAMSrcInt {
-#    out "SOUR:AM:INT:SOUR?";
-#    in  "%{LF1|LF2|LF12|NOIS|LF1N|LF2N}";
-#}
-#
+
+inAMSrcInt {
+    out "SOUR:AM:INT:SOUR?";
+    in  "%{NONE|LF1|LF2|LF12|NOIS|LF1N|LF2N}";
+}
+
 # Set the amplitude modulation source
-#
-#outAMSrcInt {
-#     out "SOUR:AM:INT:SOUR %{LF1|LF2|LF12|NOIS|LF1N|LF2N}";
-#     @init { inAMSrcInt; };
-#}
+
+outAMSrcInt {
+     out "SOUR:AM:INT:SOUR %{NONE|LF1|LF2|LF12|NOIS|LF1N|LF2N}";
+     @init { inAMSrcInt; };
+}
 ################################################################################
 # Read the pulse generation state
 
@@ -824,7 +953,7 @@ inFMSour {
 
 outFMSour {
      out "SOUR:FM:SOUR %{INT|EXT|INT,EXT|EDIG}";
-     @init { inAMSour; };
+     @init { inFMSour; };
 }
 ################################################################################
 # Queries the frequency modulation sensitivity (no record)
@@ -1169,13 +1298,40 @@ outMFMInpImpd {
 	@init { inMFMInpImpd; };
 }
 ################################################################################
+# Read the LF output state
+
+inMLFOutState {
+	out "SOUR:LFO:STAT?";
+	in "%i";
+}
+#
+# Set the LF output state
+
+outMLFOutState {
+	out "SOUR:LFO:STAT %{OFF|ON}";
+	@init { inMLFOutState; };
+}
+################################################################################
+# Read the internal source for the LF output signal
+
+inMLFOutSrc {
+	out "SOUR:LFO:SOUR?";
+	in "%{LF1|LF2|LF12|NOIS|LF1N|LF2N}";
+}
+# Set the internal source for the LF output signal
+
+outMLFOutSrc {
+	out "SOUR:FLO:SOUR %{LF1|LF2|LF12|NOIS|LF1N|LF2N}";
+	@init { inMLFOutSrc; };
+}
+################################################################################
 #
 ################################ TRIGGER #######################################
 #
 ################################################################################
 # Read the power trigger source for the RF level sweep
 # There is a problem with option "EAUT" in the command, so it was removed,
-# as it's not being used right now. SMA treats "EAUT" as an out of range value
+# as it is not being used right now. SMA treats "EAUT" as an out of range value
 
 inPTrigSrc {
 	out "TRIG:PSW:SOUR?";
