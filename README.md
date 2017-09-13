@@ -3,14 +3,12 @@
 ## Overall
 
 Repository containing the EPICS IOC support for the R&S SMA100A and
-SMB100A signal generators. Some functionalities haven't been
-implemented due to been exclusive to SMA100A, although they can be
-added through adding the specific records to the *.db* file.
+SMB100A signal generators. Some functionalities are exclusive to SMA100A.
 
 ## PV Structures
 
 The PVs have 3 parameters: The device identifier, the functionality
-group and the functionality name, all separated by colons and a dash
+group and the functionality name, all separated by colons and a dash,
 as shown below.
 
 ```
