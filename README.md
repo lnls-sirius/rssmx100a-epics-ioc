@@ -10,11 +10,11 @@ added through adding the specific records to the *.db* file.
 ## PV Structures
 
 The PVs have 3 parameters: The device identifier, the functionality
-group and the functionality name, all separated by colons as shown
-below.
+group and the functionality name, all separated by colons and a dash
+as shown below.
 
 ```
-DEVICE_IDN:GROUP:NAME
+DEVICE_IDN:GROUP-NAME
 ```
 
 The DEVICE_IDN is set on the *st.cmd* file, and can be easily
@@ -74,35 +74,43 @@ An example of reading frequency is given below:
 $ caget DIG-RSSMX100A-0:GENERAL:Freq_RBV
 ```
 
-## Implemented Functionalities
+## Some Implemented Functionalities
 
-The functionalities are divided in 3 major groups: GENERAL, MOD and
-FREQ. To set values, use the given name. To read them, add *_RBV*
-after it.
+The functionalities are divided in 7 major groups: GENERAL, FREQ, MOD,
+TRIG, ROSC, CSYN and NOIS. To set values, use the given name. To read
+them, add *_RBV* after it.
 
 - **GENERAL** - General functionalities
  - **Reset**: Reset the device to default state
  - **Idn**: Get the device identification
- - **Freq**: Set device frequency (Hz)
- - **Level**: Set device level (dBm)
+ - **Freq**: Get/Set device frequency (Hz)
+ - **Lvl**: Set device level (dBm)
  - **RFState**: Enable/Disable RF (OFF|ON)
- - **RFLevel**: Set RF Level (dBm)
-
-- **MOD** - Funcitionalities related to MODulation
- - **AMState**: Enable/Disable AM (OFF|ON)
- - **AMSource**: Select AM source (INT|EXT)
- - **FMState**: Enable/Disable FM (OFF|ON)
- - **FMSource**: Select FM source (INT|INT,EXT|EXT|EDIG)
- - **PGState**: Enable/Disable pulse generation (OFF|ON)
- - **PMState**: Enable/Disable PM (OFF|ON)
- - **PMWidth**: Set PM width (rad)
- - **PMPol**: Select PM polarity (NORMz|INV)
- - **PMPeriod**: Set PM period (seconds)
- - **PMMode**: Select PM mode (SING|DOUB|PTR)
- - **AllState**: Enable/Disable all modulations (OFF|ON)
+ - **RFLvl**: Get/Set RF Level (dBm)
 
 - **FREQ** - Functionalities related to FREQuency
- - **FreqMode**: Select frequency mode (CW|SWE|LIST)
- - **StartFreq**: Set start frequency (Hz)
- - **StopFreq**: Set stop frequency (Hz)
- - **StepFreq**: Set frequency step (Hz)
+ - **FreqMode**: Get/Select frequency mode (CW|SWE|LIST)
+ - **StartFreq**: Get/Set start frequency (Hz)
+ - **StopFreq**: Get/Set stop frequency (Hz)
+ - **StepFreq**: Get/Set frequency step (Hz)
+
+- **MOD** - Functionalities related to MODulation
+ - **AMState**: Enable/Disable AM (OFF|ON)
+ - **AMSrc**: Get/Select AM source (INT|EXT)
+ - **FMState**: Enable/Disable FM (OFF|ON)
+ - **FMSrc**: Get/Select FM source (INT|INT,EXT|EXT|EDIG)
+ - **PGState**: Enable/Disable pulse generation (OFF|ON)
+ - **PulMState**: Enable/Disable PulM (OFF|ON)
+ - **PulMWidth**: Get/Set PulM width (rad)
+ - **PulMPol**: Get/Select PulM polarity (NORMz|INV)
+ - **PulMPeriod**: Get/Set PulM period (seconds)
+ - **PulMMode**: Get/Select PulM mode (SING|DOUB|PTR)
+ - **AllState**: Enable/Disable all modulations (OFF|ON)
+
+- **TRIG** - Functionalities related to TRIGgering
+
+- **ROSC** - Functionalities related to Reference OSCillator
+
+- **CSYN** - Functionalities related to Clock SYNthesis
+
+- **NOIS** - Functionalities related to NOISe
