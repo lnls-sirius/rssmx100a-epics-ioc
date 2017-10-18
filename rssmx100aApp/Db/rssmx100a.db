@@ -62,7 +62,6 @@ record(ai, "$(P):$(R)GENERAL-Freq_RBV") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "1")
-  field(LINR, "NO CONVERSION")
   field(EGU, "Hz")
   field(INP, "@rssmx100a.proto inFrq $(PORT)")
 }
@@ -121,7 +120,7 @@ record(ai, "$(P):$(R)GENERAL-RFLvl_RBV") {
   field(DESC, "Get RF Output Level")
   field(SCAN, "1 second")
   field(DTYP, "stream")
-  field(PREC, "1")
+  field(PREC, "2")
   field(LINR, "NO CONVERSION")
   field(EGU, "dBm")
   field(INP, "@rssmx100a.proto inRFLvl $(PORT)")
@@ -130,6 +129,7 @@ record(ai, "$(P):$(R)GENERAL-RFLvl_RBV") {
 record(ao, "$(P):$(R)GENERAL-RFLvl") {
   field(DESC, "Set RF Output Level")
   field(DTYP, "stream")
+  field(PREC, "2")
   field(EGU, "dBm")
   field(OUT, "@rssmx100a.proto outRFLvl($1) $(PORT)")
   field(FLNK,"$(P):$(R)GENERAL-RFLvl_RBV")
@@ -155,7 +155,7 @@ record(bo, "$(P):$(R)GENERAL-SearchOnce") {
   field(OUT, "@rssmx100a.proto outGSearchOnce($1) $(PORT)")
 }
 ##########################################################################
-# automatic level control state
+# AUTOMATIC LEVEL CONTROL STATE
 
 record(mbbi, "$(P):$(R)GENERAL-AlcState_RBV") {
   field(DESC, "Get Alc State (ON|OFF|AUTO)")
@@ -225,22 +225,22 @@ record(ao, "$(P):$(R)GENERAL-PwrLim") {
 ##########################################################################
 # INSTRUMENT OPERATING MODE
 
-record(bi, "$(P):$(R)GENERAL-PwrMode_RBV") {
-  field(DESC, "Get Instrument Operating Mode (CW|SWE)")
+record(bi, "$(P):$(R)GENERAL-PSweepState_RBV") {
+  field(DESC, "Get Power Sweep State (CW|SWE)")
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(ZNAM, "CW")
   field(ONAM, "SWE")
-  field(INP, "@rssmx100a.proto inGPwrMode $(PORT)")
+  field(INP, "@rssmx100a.proto inGPSweepState $(PORT)")
 }
 
-record(bo, "$(P):$(R)GENERAL-PwrMode") {
-  field(DESC, "Set Instrument Operating Mode (CW|SWE)")
+record(bo, "$(P):$(R)GENERAL-PSweepState") {
+  field(DESC, "Set Power Sweep State (CW|SWE)")
   field(DTYP, "stream")
   field(ZNAM, "CW")
   field(ONAM, "SWE")
-  field(OUT, "@rssmx100a.proto outGPwrMode($1) $(PORT)")
-  field(FLNK,"$(P):$(R)GENERAL-PwrMode_RBV")
+  field(OUT, "@rssmx100a.proto outGPSweepState($1) $(PORT)")
+  field(FLNK,"$(P):$(R)GENERAL-PSweepState_RBV")
 }
 ##########################################################################
 # RF LEVEL OF THE RF OUTPUT
@@ -265,22 +265,22 @@ record(ao, "$(P):$(R)GENERAL-PPwr") {
 ##########################################################################
 # START LEVEL FOR THE RF SWEEP
 
-record(ai, "$(P):$(R)GENERAL-PwrStart_RBV") {
+record(ai, "$(P):$(R)GENERAL-LvlStart_RBV") {
   field(DESC, "Get RF Start Level")
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "1")
   field(LINR, "NO CONVERSION")
   field(EGU, "dBm")
-  field(INP, "@rssmx100a.proto inGPwrStart $(PORT)")
+  field(INP, "@rssmx100a.proto inGLvlStart $(PORT)")
 }
 
-record(ao, "$(P):$(R)GENERAL-PwrStart") {
+record(ao, "$(P):$(R)GENERAL-LvlStart") {
   field(DESC, "Set RF Start Level")
   field(DTYP, "stream")
   field(EGU, "dBm")
-  field(OUT, "@rssmx100a.proto outGPwrStart($1) $(PORT)")
-  field(FLNK,"$(P):$(R)GENERAL-PwrStart_RBV")
+  field(OUT, "@rssmx100a.proto outGLvlStart($1) $(PORT)")
+  field(FLNK,"$(P):$(R)GENERAL-LvlStart_RBV")
 }
 ##########################################################################
 # STEP WIDTH
@@ -289,16 +289,17 @@ record(ai, "$(P):$(R)GENERAL-PwrStep_RBV") {
   field(DESC, "Get Step Width")
   field(SCAN, "1 second")
   field(DTYP, "stream")
-  field(PREC, "1")
+  field(PREC, "2")
   field(LINR, "NO CONVERSION")
-  field(EGU, "dBm")
+  field(EGU, "dB")
   field(INP, "@rssmx100a.proto inGPwrStep $(PORT)")
 }
 
 record(ao, "$(P):$(R)GENERAL-PwrStep") {
   field(DESC, "Set Step Width")
   field(DTYP, "stream")
-  field(EGU, "dBm")
+  field(PREC, "2")
+  field(EGU, "dB")
   field(OUT, "@rssmx100a.proto outGPwrStep($1) $(PORT)")
   field(FLNK,"$(P):$(R)GENERAL-PwrStep_RBV")
 }
@@ -325,22 +326,22 @@ record(bo, "$(P):$(R)GENERAL-PwrStepMode") {
 ##########################################################################
 # RF STOP LEVEL
 
-record(ai, "$(P):$(R)GENERAL-PwrStop_RBV") {
+record(ai, "$(P):$(R)GENERAL-LvlStop_RBV") {
   field(DESC, "Get RF Stop Level")
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "1")
   field(LINR, "NO CONVERSION")
   field(EGU, "dBm")
-  field(INP, "@rssmx100a.proto inGPwrStop $(PORT)")
+  field(INP, "@rssmx100a.proto inGLvlStop $(PORT)")
 }
 
-record(ao, "$(P):$(R)GENERAL-PwrStop") {
+record(ao, "$(P):$(R)GENERAL-LvlStop") {
   field(DESC, "Set RF Stop Level")
   field(DTYP, "stream")
   field(EGU, "dBm")
-  field(OUT, "@rssmx100a.proto outGPwrStop($1) $(PORT)")
-  field(FLNK,"$(P):$(R)GENERAL-PwrStop_RBV")
+  field(OUT, "@rssmx100a.proto outGLvlStop($1) $(PORT)")
+  field(FLNK,"$(P):$(R)GENERAL-LvlStop_RBV")
 }
 ##########################################################################
 # MINIMUM LEVEL WITH FIXED ATTENUATOR
@@ -349,7 +350,7 @@ record(ai, "$(P):$(R)GENERAL-AttFixLow_RBV") {
   field(DESC, "Get Minumum Level With Fixed Attenuator")
   field(SCAN, "1 second")
   field(DTYP, "stream")
-  field(PREC, "1")
+  field(PREC, "2")
   field(LINR, "NO CONVERSION")
   field(EGU, "dBm")
   field(INP, "@rssmx100a.proto inGAttFixLow $(PORT)")
@@ -361,7 +362,7 @@ record(ai, "$(P):$(R)GENERAL-AttFixUpp_RBV") {
   field(DESC, "Get Maximum Level With Fixed Attenuator")
   field(SCAN, "1 second")
   field(DTYP, "stream")
-  field(PREC, "1")
+  field(PREC, "2")
   field(LINR, "NO CONVERSION")
   field(EGU, "dBm")
   field(INP, "@rssmx100a.proto inGAttFixUpp $(PORT)")
@@ -424,16 +425,18 @@ record(mbbi, "$(P):$(R)GENERAL-FMode_RBV") {
   field(FRST, "EXT STEP")
   field(FVVL, "5")
   field(FVST, "EXT START/STOP")
+  field(SXVL, "6")
+  field(SXST, "INVALID")
   field(INP, "$(P):$(R)GENERAL-CalcFMode")
 }
 
 record(calc, "$(P):$(R)GENERAL-CalcFMode") {
-  field(DESC, "Calc for frequency mode")
+  field(DESC, "Calc for Frequency Mode")
   field(SCAN, "1 second")
   field(INPA, "$(P):$(R)FREQ-FSweepMode_RBV")
   field(INPB, "$(P):$(R)TRIG-FSweepSrc_RBV")
-  field(CALC, "A=1?2:(A=2?4:(B=0?0:(B=1?1:(B=2?3:5))))")
-  field(OUT, "$(P):$(R)GENERAL-FMode")
+  field(CALC, "A=1?2:(B=0?0:(A=2?(2*B):(2*B-1)))")
+  field(FLNK, "$(P):$(R)GENERAL-FMode_RBV")
 }
 ##########################################################################
 # CALC FOR LEVEL SWEEP MODE
@@ -459,8 +462,8 @@ record(calc, "$(P):$(R)GENERAL-CalcPMode") {
   field(SCAN, "1 second")
   field(INPA, "$(P):$(R)FREQ-PSweepMode_RBV")
   field(INPB, "$(P):$(R)TRIG-PSweepSrc_RBV")
-  field(CALC, "A=1?2:(A=2?4:(B=0?0:(B=1?1:(B=2?3:5))))")
-  field(OUT, "$(P):$(R)GENERAL-PMode")
+  field(CALC, "A=1?2:(B=0?0:(A=2?(2*B):(2*B-1)))")
+  field(FLNK, "$(P):$(R)GENERAL-PMode_RBV")
 }
 ##########################################################################
 # CALC FOR LF SWEEP MODE
@@ -480,6 +483,8 @@ record(mbbi, "$(P):$(R)GENERAL-LFMode_RBV") {
   field(FRST, "EXT STEP")
   field(FVVL, "5")
   field(FVST, "EXT START/STOP")
+  field(SXVL, "6")
+  field(SXST, "INVALID")
   field(INP, "$(P):$(R)GENERAL-CalcLFMode")
 }
 
@@ -488,8 +493,48 @@ record(calc, "$(P):$(R)GENERAL-CalcLFMode") {
   field(SCAN, "1 second")
   field(INPA, "$(P):$(R)FREQ-LFSweepMode_RBV")
   field(INPB, "$(P):$(R)TRIG-LFSweepSrc_RBV")
-  field(CALC, "A=1?2:(A=2?4:(B=0?0:(B=1?1:(B=2?3:5))))")
-  field(OUT, "$(P):$(R)GENERAL-LFMode")
+  field(CALC, "A=1?2:(B=0?0:(A=2?(2*B):(2*B-1)))")
+  field(FLNK, "$(P):$(R)GENERAL-LFMode_RBV")
+}
+##########################################################################
+# FREQUENCY SWEEP STATE
+
+record(bi, "$(P):$(R)GENERAL-FSweepState_RBV") {
+  field(DESC, "Get Frequency Sweep State (CW|SWE)")
+  field(SCAN, "1 second")
+  field(DTYP, "stream")
+  field(ZNAM, "CW")
+  field(ONAM, "SWE")
+  field(INP, "@rssmx100a.proto inGFSweepState $(PORT)")
+}
+
+record(bo, "$(P):$(R)GENERAL-FSweepState") {
+  field(DESC, "Set Frequency Sweep State (CW|SWE)")
+  field(DTYP, "stream")
+  field(ZNAM, "CW")
+  field(ONAM, "SWE")
+  field(OUT, "@rssmx100a.proto outGFSweepState($1) $(PORT)")
+  field(FLNK,"$(P):$(R)GENERAL-FSweepState_RBV")
+}
+##########################################################################
+# USER CORRECTION STATE
+
+record(bi, "$(P):$(R)GENERAL-UsrCorrState_RBV") {
+  field(DESC, "Get User Correction State (OFF|ON)")
+  field(SCAN, "1 second")
+  field(DTYP, "stream")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  field(INP, "@rssmx100a.proto inGUsrCorrState $(PORT)")
+}
+
+record(bo, "$(P):$(R)GENERAL-UsrCorrState") {
+  field(DESC, "Set User Correction State (OFF|ON)")
+  field(DTYP, "stream")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  field(OUT, "@rssmx100a.proto outGUsrCorrState($1) $(PORT)")
+  field(FLNK,"$(P):$(R)GENERAL-UsrCorrState_RBV")
 }
 ##########################################################################
 #
@@ -499,61 +544,62 @@ record(calc, "$(P):$(R)GENERAL-CalcLFMode") {
 # START FREQUENCY
 
 record(ai, "$(P):$(R)FREQ-StartFreq_RBV") {
-  field(DESC, "Get Start Freq")
+  field(DESC, "Get Start Frequency for the Freq. Sweep")
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "1")
   field(LINR, "NO CONVERSION")
   field(EGU, "Hz")
-  field(INP, "@rssmx100a.proto inStartFrq $(PORT)")
+  field(INP, "@rssmx100a.proto inFStartFreq $(PORT)")
 }
 
 record(ao, "$(P):$(R)FREQ-StartFreq") {
-  field(DESC, "Set Start Freq")
+  field(DESC, "Set Start Frequency for the Freq. Sweep")
   field(DTYP, "stream")
   field(EGU, "Hz")
-  field(OUT, "@rssmx100a.proto outStartFrq($1) $(PORT)")
+  field(OUT, "@rssmx100a.proto outFStartFreq($1) $(PORT)")
   field(FLNK,"$(P):$(R)FREQ-StartFreq_RBV")
 }
 ##########################################################################
 # STOP FREQUENCY
 
 record(ai, "$(P):$(R)FREQ-StopFreq_RBV") {
-  field(DESC, "Get Stop Freq")
+  field(DESC, "Get Stop Frequency for the Freq. Sweep")
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "1")
   field(LINR, "NO CONVERSION")
   field(EGU, "Hz")
-  field(INP, "@rssmx100a.proto inStopFrq $(PORT)")
+  field(INP, "@rssmx100a.proto inFStopFreq $(PORT)")
 }
 
 record(ao, "$(P):$(R)FREQ-StopFreq") {
-  field(DESC, "Set Stop Freq")
+  field(DESC, "Set Stop Frequency for the Freq. Sweep")
   field(DTYP, "stream")
   field(EGU, "Hz")
-  field(OUT, "@rssmx100a.proto outStopFrq($1) $(PORT)")
+  field(OUT, "@rssmx100a.proto outFStopFreq($1) $(PORT)")
   field(FLNK,"$(P):$(R)FREQ-StopFreq_RBV")
 }
 ##########################################################################
 # FREQUENCY STEP
 
-record(ai, "$(P):$(R)FREQ-StepFreq_RBV") {
-  field(DESC, "Get Frequency Step")
+record(ai, "$(P):$(R)FREQ-FStepLin_RBV") {
+  field(DESC, "Get Linear Step for Freq. Sweep")
   field(SCAN, "1 second")
   field(DTYP, "stream")
-  field(PREC, "1")
+  field(PREC, "2")
   field(LINR, "NO CONVERSION")
   field(EGU, "Hz")
-  field(INP, "@rssmx100a.proto inStepFrq $(PORT)")
+  field(INP, "@rssmx100a.proto inFStepLin $(PORT)")
 }
 
-record(ao, "$(P):$(R)FREQ-StepFreq") {
-  field(DESC, "Set Frequency Step")
+record(ao, "$(P):$(R)FREQ-FStepLin") {
+  field(DESC, "Set Linear Step for Freq. Sweep")
   field(DTYP, "stream")
+  field(PREC, "2")
   field(EGU, "Hz")
-  field(OUT, "@rssmx100a.proto outStepFrq($1) $(PORT)")
-  field(FLNK,"$(P):$(R)FREQ-StepFreq_RBV")
+  field(OUT, "@rssmx100a.proto outFStepLin($1) $(PORT)")
+  field(FLNK,"$(P):$(R)FREQ-FStepLin_RBV")
 }
 ##########################################################################
 # PHASE CONTINUOUS - ONLY AVAILABLE FOR SMA100A
@@ -582,9 +628,9 @@ record(mbbi, "$(P):$(R)FREQ-FreqMode_RBV") {
   field(DESC, "Get Frequency Mode (CW|SWE|LIST)")
   field(SCAN, "1 second")
   field(DTYP, "stream")
-  field(ZRST, "CW")
+  field(ZRST, "FIXED")
   field(ZRVL, "0")
-  field(ONST, "SWE")
+  field(ONST, "SWEEP")
   field(ONVL, "1")
   field(TWST, "LIST")
   field(TWVL, "2")
@@ -606,62 +652,62 @@ record(mbbo, "$(P):$(R)FREQ-FreqMode") {
 ##########################################################################
 # CENTER FREQUENCY
 
-record(ai, "$(P):$(R)FREQ-Centr_RBV") {
+record(ai, "$(P):$(R)FREQ-CenterFreq_RBV") {
   field(DESC, "Get Center Frequency")
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "1")
   field(LINR, "NO CONVERSION")
   field(EGU, "Hz")
-  field(INP, "@rssmx100a.proto inFreqCentr $(PORT)")
+  field(INP, "@rssmx100a.proto inFCenterFreq $(PORT)")
 }
 
-record(ao, "$(P):$(R)FREQ-Centr") {
+record(ao, "$(P):$(R)FREQ-CenterFreq") {
   field(DESC, "Set Center Frequency")
   field(DTYP, "stream")
   field(EGU, "Hz")
-  field(OUT, "@rssmx100a.proto outFreqCentr($1) $(PORT)")
-  field(FLNK,"$(P):$(R)FREQ-Centr_RBV")
+  field(OUT, "@rssmx100a.proto outFCenterFreq($1) $(PORT)")
+  field(FLNK,"$(P):$(R)FREQ-CenterFreq_RBV")
 }
 ##########################################################################
 # MANUAL FREQUENCY
 
-record(ai, "$(P):$(R)FREQ-Man_RBV") {
-  field(DESC, "Get Manual Frequency")
+record(ai, "$(P):$(R)FREQ-FreqMan_RBV") {
+  field(DESC, "Get Frequency that was entered manually")
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "1")
   field(LINR, "NO CONVERSION")
   field(EGU, "Hz")
-  field(INP, "@rssmx100a.proto inFreqMan $(PORT)")
+  field(INP, "@rssmx100a.proto inFFreqMan $(PORT)")
 }
 
-record(ao, "$(P):$(R)FREQ-Man") {
-  field(DESC, "Set Manual Frequency")
+record(ao, "$(P):$(R)FREQ-FreqMan") {
+  field(DESC, "Set Frequency Manually")
   field(DTYP, "stream")
   field(EGU, "Hz")
-  field(OUT, "@rssmx100a.proto outFreqMan($1) $(PORT)")
-  field(FLNK,"$(P):$(R)FREQ-Man_RBV")
+  field(OUT, "@rssmx100a.proto outFFreqMan($1) $(PORT)")
+  field(FLNK,"$(P):$(R)FREQ-FreqMan_RBV")
 }
 ##########################################################################
 # FREQUENCY SPAN
 
-record(ai, "$(P):$(R)FREQ-Span_RBV") {
+record(ai, "$(P):$(R)FREQ-FreqSpan_RBV") {
   field(DESC, "Get Frequency Span")
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "1")
   field(LINR, "NO CONVERSION")
-  field(EGU, "MHz")
-  field(INP, "@rssmx100a.proto inFreqSpan $(PORT)")
+  field(EGU, "Hz")
+  field(INP, "@rssmx100a.proto inFFreqSpan $(PORT)")
 }
 
-record(ao, "$(P):$(R)FREQ-Span") {
+record(ao, "$(P):$(R)FREQ-FreqSpan") {
   field(DESC, "Set Frequency Span")
   field(DTYP, "stream")
   field(EGU, "Hz")
-  field(OUT, "@rssmx100a.proto outFreqSpan($1) $(PORT)")
-  field(FLNK,"$(P):$(R)FREQ-Span_RBV")
+  field(OUT, "@rssmx100a.proto outFFreqSpan($1) $(PORT)")
+  field(FLNK,"$(P):$(R)FREQ-FreqSpan_RBV")
 }
 ##########################################################################
 # STEP VARIATION
@@ -710,16 +756,17 @@ record(ai, "$(P):$(R)FREQ-PDwellTime_RBV") {
   field(DESC, "Get Dwell Time")
   field(SCAN, "1 second")
   field(DTYP, "stream")
-  field(PREC, "1")
+  field(PREC, "2")
   field(LINR, "NO CONVERSION")
-  field(EGU, "ms")
+  field(EGU, "s")
   field(INP, "@rssmx100a.proto inPDwellTime $(PORT)")
 }
 
 record(ao, "$(P):$(R)FREQ-PDwellTime") {
   field(DESC, "Set Dwell Time")
   field(DTYP, "stream")
-  field(EGU, "ms")
+  field(PREC, "2")
+  field(EGU, "s")
   field(OUT, "@rssmx100a.proto outPDwellTime($1) $(PORT)")
   field(FLNK,"$(P):$(R)FREQ-PDwellTime_RBV")
 }
@@ -827,7 +874,7 @@ record(ai, "$(P):$(R)FREQ-PStepLog_RBV") {
   field(DESC, "Get Logarithmic Step Size")
   field(SCAN, "1 second")
   field(DTYP, "stream")
-  field(PREC, "1")
+  field(PREC, "2")
   field(LINR, "NO CONVERSION")
   field(EGU, "dB")
   field(INP, "@rssmx100a.proto inPStepLog $(PORT)")
@@ -836,6 +883,7 @@ record(ai, "$(P):$(R)FREQ-PStepLog_RBV") {
 record(ao, "$(P):$(R)FREQ-PStepLog") {
   field(DESC, "Set Logarithmic Step Size")
   field(DTYP, "stream")
+  field(PREC, "2")
   field(EGU, "dB")
   field(OUT, "@rssmx100a.proto outPStepLog($1) $(PORT)")
   field(FLNK,"$(P):$(R)FREQ-PStepLog_RBV")
@@ -932,16 +980,17 @@ record(ai, "$(P):$(R)FREQ-FDwellTime_RBV") {
   field(DESC, "Get Freq. Dwell Time")
   field(SCAN, "1 second")
   field(DTYP, "stream")
-  field(PREC, "1")
+  field(PREC, "3")
   field(LINR, "NO CONVERSION")
-  field(EGU, "ms")
+  field(EGU, "s")
   field(INP, "@rssmx100a.proto inFDwellTime $(PORT)")
 }
 
 record(ao, "$(P):$(R)FREQ-FDwellTime") {
   field(DESC, "Set Freq. Dwell Time")
   field(DTYP, "stream")
-  field(EGU, "ms")
+  field(PREC, "3")
+  field(EGU, "s")
   field(OUT, "@rssmx100a.proto outFDwellTime($1) $(PORT)")
   field(FLNK,"$(P):$(R)FREQ-FDwellTime_RBV")
 }
@@ -1031,7 +1080,8 @@ record(ai, "$(P):$(R)FREQ-FStepLog_RBV") {
   field(DESC, "Get Freq. Log. Sweep Step")
   field(SCAN, "1 second")
   field(DTYP, "stream")
-  field(PREC, "1")
+  field(PREC, "2")
+  field(EGU, "%")
   field(LINR, "NO CONVERSION")
   field(INP, "@rssmx100a.proto inFStepLog $(PORT)")
 }
@@ -1039,6 +1089,8 @@ record(ai, "$(P):$(R)FREQ-FStepLog_RBV") {
 record(ao, "$(P):$(R)FREQ-FStepLog") {
   field(DESC, "Set Freq. Sweep Points")
   field(DTYP, "stream")
+  field(PREC, "2")
+  field(EGU, "%")
   field(OUT, "@rssmx100a.proto outFStepLog($1) $(PORT)")
   field(FLNK,"$(P):$(R)FREQ-FStepLog_RBV")
 }
@@ -1075,15 +1127,26 @@ record(bo, "$(P):$(R)FREQ-VarMode") {
   field(FLNK,"$(P):$(R)FREQ-VarMode_RBV")
 }
 ##########################################################################
-#EXECUTE POWER SWEEP
+#EXECUTE POWER SINGLE SWEEP
 
 record(bo, "$(P):$(R)FREQ-PExeSweep") {
-  field(DESC, "Execute Single Sweep")
+  field(DESC, "Execute PowerSingle Sweep")
   field(DTYP, "stream")
   field(ZNAM, "0")
   field(ONAM, "1")
   field(OUT, "@rssmx100a.proto PExeSweep($1) $(PORT)")
 }
+##########################################################################
+# EXECUTE LF SINGLE SWEEP
+
+record(bo, "$(P):$(R)FREQ-LFExeSweep") {
+  field(DESC, "Execute LF Single Sweep")
+  field(DTYP, "stream")
+  field(ZNAM, "0")
+  field(ONAM, "1")
+  field(OUT, "@rssmx100a.proto LFExeSweep($1) $(PORT)")
+}
+
 ##########################################################################
 # POWER SWEEP SPACING MODE
 
@@ -1094,6 +1157,27 @@ record(bi, "$(P):$(R)FREQ-PSpacMode_RBV") {
   field(ZNAM, "LIN")
   field(INP, "@rssmx100a.proto PSpacMode $(PORT)")
 }
+##########################################################################
+# FREQUENCY SWEEP SPACING MODE
+
+record(bi, "$(P):$(R)FREQ-FSpacMode_RBV") {
+  field(DESC, "Get Spacing Mode (LIN|LOG)")
+  field(SCAN, "1 second")
+  field(DTYP, "stream")
+  field(ZNAM, "LIN")
+  field(ONAM, "LOG")
+  field(INP, "@rssmx100a.proto inFFSpacMode $(PORT)")
+}
+
+record(bo, "$(P):$(R)FREQ-FSpacMode") {
+  field(DESC, "Set Spacing Mode (LIN|LOG)")
+  field(DTYP, "stream")
+  field(ZNAM, "LIN")
+  field(ONAM, "LOG")
+  field(OUT, "@rssmx100a.proto outFFSpacMode($1) $(PORT)")
+  field(FLNK,"$(P):$(R)FREQ-FSpacMode_RBV")
+}
+
 ##########################################################################
 #RESET ALL SWEEPS
 
@@ -1152,14 +1236,16 @@ record(ai, "$(P):$(R)FREQ-LFStartFreq_RBV") {
   field(DESC, "Get LF Sweep Start Frequency")
   field(SCAN, "1 second")
   field(DTYP, "stream")
-  field(PREC, "1")
-  field(LINR, "NO CONVERSION")
+  field(PREC, "3")
+  field(EGU, "Hz")
   field(INP, "@rssmx100a.proto inFLFStartFreq $(PORT)")
 }
 
 record(ao, "$(P):$(R)FREQ-LFStartFreq") {
   field(DESC, "Set Sweep Start Frequency")
   field(DTYP, "stream")
+  field(PREC, "3")
+  field(EGU, "Hz")
   field(OUT, "@rssmx100a.proto outFLFStartFreq($1) $(PORT)")
   field(FLNK,"$(P):$(R)FREQ-LFStartFreq_RBV")
 }
@@ -1170,14 +1256,16 @@ record(ai, "$(P):$(R)FREQ-LFStopFreq_RBV") {
   field(DESC, "Get LF Sweep Stop Frequency")
   field(SCAN, "1 second")
   field(DTYP, "stream")
-  field(PREC, "1")
-  field(LINR, "NO CONVERSION")
+  field(PREC, "3")
+  field(EGU, "Hz")
   field(INP, "@rssmx100a.proto inFLFStopFreq $(PORT)")
 }
 
 record(ao, "$(P):$(R)FREQ-LFStopFreq") {
   field(DESC, "Set LF Sweep Stop Frequency")
   field(DTYP, "stream")
+  field(PREC, "3")
+  field(EGU, "Hz")
   field(OUT, "@rssmx100a.proto outFLFStopFreq($1) $(PORT)")
   field(FLNK,"$(P):$(R)FREQ-LFStopFreq_RBV")
 }
@@ -1228,14 +1316,16 @@ record(ai, "$(P):$(R)FREQ-LFStepLin_RBV") {
   field(DESC, "Get LF Sweep Linear Step")
   field(SCAN, "1 second")
   field(DTYP, "stream")
-  field(PREC, "1")
-  field(LINR, "NO CONVERSION")
+  field(PREC, "2")
+  field(EGU, "Hz")
   field(INP, "@rssmx100a.proto inFLFStepLin $(PORT)")
 }
 
 record(ao, "$(P):$(R)FREQ-LFStepLin") {
   field(DESC, "Set LF Sweep Linear Step")
   field(DTYP, "stream")
+  field(PREC, "2")
+  field(EGU, "Hz")
   field(OUT, "@rssmx100a.proto outFLFStepLin($1) $(PORT)")
   field(FLNK,"$(P):$(R)FREQ-LFStepLin_RBV")
 }
@@ -1246,14 +1336,17 @@ record(ai, "$(P):$(R)FREQ-LFStepLog_RBV") {
   field(DESC, "Get LF Sweep Logarithmic Step")
   field(SCAN, "1 second")
   field(DTYP, "stream")
-  field(PREC, "1")
+  field(PREC, "2")
   field(LINR, "NO CONVERSION")
+  field(EGU, "%")
   field(INP, "@rssmx100a.proto inFLFStepLog $(PORT)")
 }
 
 record(ao, "$(P):$(R)FREQ-LFStepLog") {
   field(DESC, "Set LF Sweep Logarithmic Step")
   field(DTYP, "stream")
+  field(PREC, "2")
+  field(EGU, "%")
   field(OUT, "@rssmx100a.proto outFLFStepLog($1) $(PORT)")
   field(FLNK,"$(P):$(R)FREQ-LFStepLog_RBV")
 }
@@ -1264,14 +1357,16 @@ record(ai, "$(P):$(R)FREQ-LFDwellTime_RBV") {
   field(DESC, "Get LF Sweep Dwell Time")
   field(SCAN, "1 second")
   field(DTYP, "stream")
-  field(PREC, "1")
-  field(LINR, "NO CONVERSION")
+  field(PREC, "2")
+  field(EGU, "s")
   field(INP, "@rssmx100a.proto inFLFDwellTime $(PORT)")
 }
 
 record(ao, "$(P):$(R)FREQ-LFDwellTime") {
   field(DESC, "Set LF Sweep Dwell Time")
   field(DTYP, "stream")
+  field(PREC, "2")
+  field(EGU, "s")
   field(OUT, "@rssmx100a.proto outFLFDwellTime($1) $(PORT)")
   field(FLNK,"$(P):$(R)FREQ-LFDwellTime_RBV")
 }
@@ -1370,46 +1465,46 @@ record(mbbo, "$(P):$(R)MOD-AMSrc") {
 ##########################################################################
 # AMPLITUDE MODULATION INTERNAL SOURCE  - ONLY AVAILABLE FOR SMA100A
 
- record(mbbi, "$(P):$(R)MOD-AMSrcInt_RBV") {
-   field(DESC, "AM Internal Source")
-   field(SCAN, "1 second")
-   field(DTYP, "stream")
-   field(ZRST, "NONE")
-   field(ZRVL, "0")
-   field(ONST, "LF1")
-   field(ONVL, "1")
-   field(TWST, "LF2")
-   field(TWVL, "2")
-   field(THST, "LF12")
-   field(THVL, "3")
-   field(FRST, "NOIS")
-   field(FRVL, "4")
-   field(FVST, "LF1N")
-   field(FVVL, "5")
-   field(SXST, "LF2N")
-   field(SXVL, "6")
-   field(INP, "@rssmx100a.proto inAMSrcInt $(PORT)")
+record(mbbi, "$(P):$(R)MOD-AMSrcInt_RBV") {
+  field(DESC, "AM Internal Source")
+  field(SCAN, "1 second")
+  field(DTYP, "stream")
+  field(ZRST, "NONE")
+  field(ZRVL, "0")
+  field(ONST, "LF1")
+  field(ONVL, "1")
+  field(TWST, "LF2")
+  field(TWVL, "2")
+  field(THST, "LF12")
+  field(THVL, "3")
+  field(FRST, "NOIS")
+  field(FRVL, "4")
+  field(FVST, "LF1N")
+  field(FVVL, "5")
+  field(SXST, "LF2N")
+  field(SXVL, "6")
+  field(INP, "@rssmx100a.proto inMAMSrcInt $(PORT)")
 }
 
- record(mbbo, "$(P):$(R)MOD-AMSrcInt") {
-   field(DESC, "AM Internal Source")
-   field(DTYP, "stream")
-   field(ZRST, "NONE")
-   field(ZRVL, "0")
-   field(ONST, "LF1")
-   field(ONVL, "1")
-   field(TWST, "LF2")
-   field(TWVL, "2")
-   field(THST, "LF12")
-   field(THVL, "3")
-   field(FRST, "NOIS")
-   field(FRVL, "4")
-   field(FVST, "LF1N")
-   field(FVVL, "5")
-   field(SXST, "LF2N")
-   field(SXVL, "6")
-   field(OUT, "@rssmx100a.proto outAMSrcInt($1) $(PORT)")
-   field(FLNK,"$(P):$(R)MOD-AMSrcInt_RBV")
+record(mbbo, "$(P):$(R)MOD-AMSrcInt") {
+  field(DESC, "AM Internal Source")
+  field(DTYP, "stream")
+  field(ZRST, "NONE")
+  field(ZRVL, "0")
+  field(ONST, "LF1")
+  field(ONVL, "1")
+  field(TWST, "LF2")
+  field(TWVL, "2")
+  field(THST, "LF12")
+  field(THVL, "3")
+  field(FRST, "NOIS")
+  field(FRVL, "4")
+  field(FVST, "LF1N")
+  field(FVVL, "5")
+  field(SXST, "LF2N")
+  field(SXVL, "6")
+  field(OUT, "@rssmx100a.proto outMAMSrcInt($1) $(PORT)")
+  field(FLNK,"$(P):$(R)MOD-AMSrcInt_RBV")
 }
 ##########################################################################
 # PULSE GENERATION STATE
@@ -1490,28 +1585,30 @@ record(ai, "$(P):$(R)MOD-PulMWidth_RBV") {
   field(DESC, "Get PulM Width")
   field(SCAN, "1 second")
   field(DTYP, "stream")
-  field(PREC, "1")
-  field(LINR, "NO CONVERSION")
-  field(EGU, "s")
-  field(INP, "@rssmx100a.proto inPulMWidt $(PORT)")
+  field(PREC, "3")
+  field(ASLO, "1000000")
+  field(EGU, "us")
+  field(INP, "@rssmx100a.proto inPulMWid $(PORT)")
 }
 
 record(ao, "$(P):$(R)MOD-PulMWidth") {
   field(DESC, "Set PulM Width")
   field(DTYP, "stream")
-  field(EGU, "s")
-  field(OUT, "@rssmx100a.proto outPulMWidt($1) $(PORT)")
+  field(PREC, "3")
+  field(ASLO, "1000000")
+  field(EGU, "us")
+  field(OUT, "@rssmx100a.proto outPulMWid($1) $(PORT)")
   field(FLNK,"$(P):$(R)MOD-PulMWidth_RBV")
 }
 ##########################################################################
 # PULSE MODULATION POLARITY
 
 record(bi, "$(P):$(R)MOD-PulMPol_RBV") {
-  field(DESC, "Get PulM Polarity (NORM|INV)")
+  field(DESC, "Get PulM Polarity")
   field(SCAN, "1 second")
   field(DTYP, "stream")
-  field(ZNAM, "NORM")
-  field(ONAM, "INV")
+  field(ZNAM, "NORMAL")
+  field(ONAM, "INVERSE")
   field(INP, "@rssmx100a.proto inPulMPol $(PORT)")
 }
 
@@ -1530,16 +1627,18 @@ record(ai, "$(P):$(R)MOD-PulMPeriod_RBV") {
   field(DESC, "Get PulM Period")
   field(SCAN, "1 second")
   field(DTYP, "stream")
-  field(PREC, "1")
-  field(LINR, "NO CONVERSION")
-  field(EGU, "seconds")
+  field(PREC, "3")
+  field(ASLO, "1000000")
+  field(EGU, "us")
   field(INP, "@rssmx100a.proto inPulMPer $(PORT)")
 }
 
 record(ao, "$(P):$(R)MOD-PulMPeriod") {
   field(DESC, "Set PulM Period")
   field(DTYP, "stream")
-  field(EGU, "seconds")
+  field(PREC, "3")
+  field(ASLO, "1000000")
+  field(EGU, "us")
   field(OUT, "@rssmx100a.proto outPulMPer($1) $(PORT)")
   field(FLNK,"$(P):$(R)MOD-PulMPeriod_RBV")
 }
@@ -1547,14 +1646,14 @@ record(ao, "$(P):$(R)MOD-PulMPeriod") {
 # PULSE MODULATION MODE
 
 record(mbbi, "$(P):$(R)MOD-PulMMode_RBV") {
-  field(DESC, "Get PulM Mode (SING|DOUB|PTR)")
+  field(DESC, "Get PulM Mode")
   field(SCAN, "1 second")
   field(DTYP, "stream")
-  field(ZRST, "SING")
+  field(ZRST, "SINGLE")
   field(ZRVL, "0")
-  field(ONST, "DOUB")
+  field(ONST, "DOUBLE")
   field(ONVL, "1")
-  field(TWST, "PTR")
+  field(TWST, "TRAIN")
   field(TWVL, "2")
   field(INP, "@rssmx100a.proto inPulMMod $(PORT)")
 }
@@ -1598,16 +1697,17 @@ record(ai, "$(P):$(R)MOD-AMDepth_RBV") {
   field(DESC, "Get AM Depth")
   field(SCAN, "1 second")
   field(DTYP, "stream")
-  field(PREC, "1")
+  field(PREC, "2")
   field(LINR, "NO CONVERSION")
-  field(EGU, "percent")
+  field(EGU, "%")
   field(INP, "@rssmx100a.proto inAMDepth $(PORT)")
 }
 
 record(ao, "$(P):$(R)MOD-AMDepth") {
   field(DESC, "Set AM Depth")
   field(DTYP, "stream")
-  field(EGU, "percent")
+  field(PREC, "2")
+  field(EGU, "%")
   field(OUT, "@rssmx100a.proto outAMDepth($1) $(PORT)")
   field(FLNK,"$(P):$(R)MOD-AMDepth_RBV")
 }
@@ -1640,14 +1740,15 @@ record(ai, "$(P):$(R)MOD-AMIntDepth_RBV") {
   field(DTYP, "stream")
   field(PREC, "1")
   field(LINR, "NO CONVERSION")
-  field(EGU, "Hz")
+  field(EGU, "%")
   field(INP, "@rssmx100a.proto inAMIntDepth $(PORT)")
 }
 
 record(ao, "$(P):$(R)MOD-AMIntDepth") {
   field(DESC, "Set AM Internal Depth")
   field(DTYP, "stream")
-  field(EGU, "Hz")
+  field(PREC, "1")
+  field(EGU, "%")
   field(OUT, "@rssmx100a.proto outAMIntDepth($1) $(PORT)")
   field(FLNK,"$(P):$(R)MOD-AMIntDepth_RBV")
 }
@@ -1659,8 +1760,7 @@ record(ai, "$(P):$(R)MOD-AMSens_RBV") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "1")
-  field(LINR, "NO CONVERSION")
-  field(EGU, "percent")
+  field(EGU, "% per Volt")
   field(INP, "@rssmx100a.proto inAMSens $(PORT)")
 }
 ##########################################################################
@@ -1670,16 +1770,18 @@ record(ai, "$(P):$(R)MOD-PulMDelay_RBV") {
   field(DESC, "Get PulM Delay")
   field(SCAN, "1 second")
   field(DTYP, "stream")
-  field(PREC, "1")
-  field(LINR, "NO CONVERSION")
-  field(EGU, "ns")
+  field(PREC, "3")
+  field(ASLO, "1000000")
+  field(EGU, "us")
   field(INP, "@rssmx100a.proto inPulMDelay $(PORT)")
 }
 
 record(ao, "$(P):$(R)MOD-PulMDelay") {
   field(DESC, "Set PulM Delay")
   field(DTYP, "stream")
-  field(EGU, "ns")
+  field(PREC, "3")
+  field(ASLO, "1000000")
+  field(EGU, "us")
   field(OUT, "@rssmx100a.proto outPulMDelay($1) $(PORT)")
   field(FLNK,"$(P):$(R)MOD-PulMDelay_RBV")
 }
@@ -1690,8 +1792,8 @@ record(bi, "$(P):$(R)MOD-PulMSrc_RBV") {
   field(DESC, "Get PulM Source (INT|EXT)")
   field(SCAN, "1 second")
   field(DTYP, "stream")
-  field(ZNAM, "INT")
-  field(ONAM, "EXT")
+  field(ZNAM, "PULSE GEN.")
+  field(ONAM, "EXTERNAL")
   field(INP, "@rssmx100a.proto inPulMSrc $(PORT)")
 }
 
@@ -1712,9 +1814,9 @@ record(mbbi, "$(P):$(R)MOD-PulMTrigMode_RBV") {
   field(DTYP, "stream")
   field(ZRST, "AUTO")
   field(ZRVL, "0")
-  field(ONST, "EXT")
+  field(ONST, "EXT TRIGGERED")
   field(ONVL, "1")
-  field(TWST, "EGAT")
+  field(TWST, "EXT GATED")
   field(TWVL, "2")
   field(INP, "@rssmx100a.proto inPulMTrigMode $(PORT)")
 }
@@ -1879,11 +1981,11 @@ record(bo, "$(P):$(R)MOD-PulMExtGatePol") {
 # PULM IMPEDANCE FOR EXTERNAL TRIGGER
 
 record(bi, "$(P):$(R)MOD-PulMExtImpdTrig_RBV") {
-  field(DESC, "Get PulM Impedance (G50|G10K)")
+  field(DESC, "Get PulM Impedance")
   field(SCAN, "1 second")
   field(DTYP, "stream")
-  field(ZNAM, "G50")
-  field(ONAM, "G10K")
+  field(ZNAM, "50")
+  field(ONAM, "10k")
   field(INP, "@rssmx100a.proto inMPulMExtImpdTrig $(PORT)")
 }
 
@@ -1899,11 +2001,11 @@ record(bo, "$(P):$(R)MOD-PulMExtImpdTrig") {
 # PULM TRIGGER POLARITY OF ACTIVE SLOPE
 
 record(bi, "$(P):$(R)MOD-PulMExtSlopeTrig_RBV") {
-  field(DESC, "Get Slope Polarity (NEG|POS)")
+  field(DESC, "Get Slope Polarity")
   field(SCAN, "1 second")
   field(DTYP, "stream")
-  field(ZNAM, "NEG")
-  field(ONAM, "POS")
+  field(ZNAM, "NEGATIVE")
+  field(ONAM, "POSITIVE")
   field(INP, "@rssmx100a.proto inMPulMExtSlopeTrig $(PORT)")
 }
 
@@ -1923,7 +2025,7 @@ record(bi, "$(P):$(R)MOD-FMInpImpd_RBV") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(ZNAM, "HIGH")
-  field(ONAM, "G50")
+  field(ONAM, "50")
   field(INP, "@rssmx100a.proto inMFMInpImpd $(PORT)")
 }
 
@@ -1962,36 +2064,40 @@ record(mbbi, "$(P):$(R)MOD-LFOutSrc_RBV") {
   field(DESC, "Get LF Output Int. Source")
   field(SCAN, "1 second")
   field(DTYP, "stream")
-  field(ZRST, "LF1")
+  field(ZRST, "NONE")
   field(ZRVL, "0")
-  field(ONST, "LF2")
+  field(ONST, "LF1")
   field(ONVL, "1")
-  field(TWST, "LF12")
+  field(TWST, "LF2")
   field(TWVL, "2")
-  field(THST, "NOIS")
+  field(THST, "LF12")
   field(THVL, "3")
-  field(FRST, "LF1N")
+  field(FRST, "NOIS")
   field(FRVL, "4")
-  field(FVST, "LF2N")
+  field(FVST, "LF1N")
   field(FVVL, "5")
+  field(SXST, "LF2N")
+  field(SXVL, "6")
   field(INP, "@rssmx100a.proto inMLFOutSrc $(PORT)")
 }
 
 record(mbbo, "$(P):$(R)MOD-LFOutSrc") {
   field(DESC, "Set LF Output Int. Source")
   field(DTYP, "stream")
-  field(ZRST, "LF1")
+  field(ZRST, "NONE")
   field(ZRVL, "0")
-  field(ONST, "LF2")
+  field(ONST, "LF1")
   field(ONVL, "1")
-  field(TWST, "LF12")
+  field(TWST, "LF2")
   field(TWVL, "2")
-  field(THST, "NOIS")
+  field(THST, "LF12")
   field(THVL, "3")
-  field(FRST, "LF1N")
+  field(FRST, "NOIS")
   field(FRVL, "4")
-  field(FVST, "LF2N")
+  field(FVST, "LF1N")
   field(FVVL, "5")
+  field(SXST, "LF2N")
+  field(SXVL, "6")
   field(OUT, "@rssmx100a.proto outMLFOutSrc($1) $(PORT)")
   field(FLNK,"$(P):$(R)MOD-LFOutSrc_RBV")
 }
@@ -2000,7 +2106,7 @@ record(mbbo, "$(P):$(R)MOD-LFOutSrc") {
 ############################# TRIGGER ####################################
 #
 ##########################################################################
-# TRIGGER SOURCE
+# LEVEL TRIGGER SOURCE
 
 record(mbbi, "$(P):$(R)TRIG-PSweepSrc_RBV") {
   field(DESC, "Get Trigger Source (AUTO|SING|EXT)")
@@ -2354,16 +2460,18 @@ record(ai, "$(P):$(R)NOIS-Bwid_RBV") {
   field(DESC, "Get Noise Bandwidth")
   field(SCAN, "1 second")
   field(DTYP, "stream")
-  field(PREC, "1")
-  field(LINR, "NO CONVERSION")
-  field(EGU, "Hz")
+  field(PREC, "2")
+  field(ASLO, "0.000001")
+  field(EGU, "MHz")
   field(INP, "@rssmx100a.proto inNoisBwid $(PORT)")
 }
 
 record(ao, "$(P):$(R)NOIS-Bwid") {
   field(DESC, "Set Noise Bandwidth")
   field(DTYP, "stream")
-  field(EGU, "Hz")
+  field(PREC, "2")
+  field(ASLO, "0.000001")
+  field(EGU, "MHz")
   field(OUT, "@rssmx100a.proto outNoisBwid($1) $(PORT)")
   field(FLNK,"$(P):$(R)NOIS-Bwid_RBV")
 }
@@ -2374,8 +2482,8 @@ record(bi, "$(P):$(R)NOIS-Dist_RBV") {
   field(DESC, "Get Noise Distribution (GAUS|EQU)")
   field(SCAN, "1 second")
   field(DTYP, "stream")
-  field(ZNAM, "GAUS")
-  field(ONAM, "EQU")
+  field(ZNAM, "GAUSS")
+  field(ONAM, "EQUAL")
   field(INP, "@rssmx100a.proto inNoisDist $(PORT)")
 }
 
@@ -2408,7 +2516,7 @@ record(ai, "$(P):$(R)NOIS-AbsLvl_RBV") {
   field(DTYP, "stream")
   field(PREC, "1")
   field(LINR, "NO CONVERSION")
-  field(EGU, "MHz")
+  field(EGU, "dBV")
   field(INP, "@rssmx100a.proto inNAbsLvl $(PORT)")
 }
 ##########################################################################
