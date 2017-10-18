@@ -409,6 +409,26 @@ record(ao, "$(P):$(R)GENERAL-PwrMan") {
 }
 ##########################################################################
 # CALC FOR FREQUENCY SWEEP MODE
+#
+# For A = $(P):$(R)FREQ-FSweepMode_RBV and B = $(P):$(R)TRIG-FSweepSrc_RBV
+# A and B are MBBIO records with otions A={0|1|2} and B={0|1|2|3}
+# The numeric values attributed to Mode were thought in order to make calculations easier.
+# The logic expression on CALC field for the Mode comes from the following table:
+#
+#	A	|	B	|	Mode
+#---------------------------------------------------
+#	0	|	0	|	 0
+#	0	|	0	|	 0
+#	0	|	1	|	 1
+#	0	|	2	|	 3
+#	0	|	3	|	 5
+#	1	|	-	|	 2
+#	2	|	0	|	 0
+#	2	|	1	|	 2
+#	2	|	2	|	 4
+#	2	|	3	|	 6
+#
+# Therefore, Mode is given by the expression: "A=1?2:(B=0?0:(A=2?(2*B):(2*B-1)))"
 
 record(mbbi, "$(P):$(R)GENERAL-FMode_RBV") {
   field(DESC, "Get Frequency Mode")
@@ -440,6 +460,24 @@ record(calc, "$(P):$(R)GENERAL-CalcFMode") {
 }
 ##########################################################################
 # CALC FOR LEVEL SWEEP MODE
+#
+# For A = $(P):$(R)FREQ-PSweepMode_RBV and B = $(P):$(R)TRIG-PSweepSrc_RBV
+# A and B are MBBIO records with otions A={0|1|2} and B={0|1|2}
+# The numeric values attributed to Mode were thought in order to make calculations easier.
+# The logic expression on CALC field for the Mode comes from the following table:
+#
+#	A	|	B	|	Mode
+#---------------------------------------------------
+#	0	|	0	|	 0
+#	0	|	0	|	 0
+#	0	|	1	|	 1
+#	0	|	2	|	 3
+#	1	|	-	|	 2
+#	2	|	0	|	 0
+#	2	|	1	|	 2
+#	2	|	2	|	 4
+#
+# Therefore, Mode is given by the expression: "A=1?2:(B=0?0:(A=2?(2*B):(2*B-1)))"
 
 record(mbbi, "$(P):$(R)GENERAL-PMode_RBV") {
   field(DESC, "Get Level Sweep Mode")
@@ -467,6 +505,26 @@ record(calc, "$(P):$(R)GENERAL-CalcPMode") {
 }
 ##########################################################################
 # CALC FOR LF SWEEP MODE
+#
+# For A = $(P):$(R)FREQ-LFSweepMode_RBV and B = $(P):$(R)TRIG-LFSweepSrc_RBV
+# A and B are MBBIO records with otions A={0|1|2} and B={0|1|2|3}
+# The numeric values attributed to Mode were thought in order to make calculations easier.
+# The logic expression on CALC field for the Mode comes from the following table:
+#
+#	A	|	B	|	Mode
+#---------------------------------------------------
+#	0	|	0	|	 0
+#	0	|	0	|	 0
+#	0	|	1	|	 1
+#	0	|	2	|	 3
+#	0	|	3	|	 5
+#	1	|	-	|	 2
+#	2	|	0	|	 0
+#	2	|	1	|	 2
+#	2	|	2	|	 4
+#	2	|	3	|	 6
+#
+# Therefore, Mode is given by the expression: "A=1?2:(B=0?0:(A=2?(2*B):(2*B-1)))"
 
 record(mbbi, "$(P):$(R)GENERAL-LFMode_RBV") {
   field(DESC, "Get LF Mode")
