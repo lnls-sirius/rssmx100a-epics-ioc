@@ -1,2 +1,5 @@
 OPI/logs.*
 OPI/.metadata
+logs.*
+rssmx100aApp/Db/O.*
+rssmx100aApp/Db/.*
