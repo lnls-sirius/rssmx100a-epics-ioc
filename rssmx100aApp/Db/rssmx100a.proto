@@ -350,10 +350,6 @@ outGUsrCorrState {
 	@init {inGUsrCorrState; };
 }
 ################################################################################
-#
-############################### FREQUENCY ######################################
-#
-################################################################################
 inFrq {
     out "FREQ?";
     in "%f";
@@ -365,6 +361,9 @@ outFrq {
 }
 ################################################################################
 #
+############################### FREQUENCY ######################################
+#
+################################################################################
 inFStartFreq {
     out "FREQ:STAR?";
     in "%f";
@@ -921,16 +920,16 @@ outAMSrc {
 ################################################################################
 # Read the internal amplitude modulation source
 
-inMAMSrcInt {
+inMAMIntSrc {
     out "SOUR:AM:INT:SOUR?";
     in  "%s";
 }
 
 # Set the amplitude modulation source
 
-outMAMSrcInt {
+outMAMIntSrc {
      out "SOUR:AM:INT:SOUR %{NONE|LF1|LF2|LF12|NOIS|LF1N|LF2N}";
-     @init { inMAMSrcInt; };
+     @init { inMAMIntSrc; };
 }
 ################################################################################
 # Read the pulse generation state
@@ -1626,7 +1625,7 @@ outNBwidState {
 #################################################################################
 # Queries the level of the noise signal per Hz in the total bandwidthinP
 
-inNRltLvl {
+inNRelatLvl {
 	out "SOUR:NOIS:LEV:REL?";
 	in "%f";
 }
