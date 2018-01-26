@@ -220,7 +220,7 @@
     <name>Text Update_1</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)ROSC-Src_RBV</pv_name>
+    <pv_name>$(P)$(R)ROSCSrc-Sts</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -272,7 +272,7 @@ $(pv_value)</tooltip>
     <name>Text Update_2</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)ROSC-ExtFreq_RBV</pv_name>
+    <pv_name>$(P)$(R)ROSCExtFreq-Sts</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -334,7 +334,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(P)$(R)ROSC-ExtState_RBV</pv_name>
+    <pv_name>$(P)$(R)ROSCExt-Sts</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -378,7 +378,7 @@ $(pv_value)</tooltip>
     <height>31</height>
     <items_from_pv>true</items_from_pv>
     <name>Combo</name>
-    <pv_name>$(P)$(R)ROSC-Src</pv_name>
+    <pv_name>$(P)$(R)ROSCSrc-Sel</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -420,7 +420,7 @@ $(pv_value)</tooltip>
     <height>31</height>
     <items_from_pv>true</items_from_pv>
     <name>Combo_1</name>
-    <pv_name>$(P)$(R)ROSC-ExtFreq</pv_name>
+    <pv_name>$(P)$(R)ROSCExtFreq-Sel</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -506,7 +506,7 @@ $(pv_value)</tooltip>
     <name>Text Update_3</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)ROSC-ExtBwid_RBV</pv_name>
+    <pv_name>$(P)$(R)ROSCExtBwid-Sts</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -554,7 +554,7 @@ $(pv_value)</tooltip>
     <height>31</height>
     <items_from_pv>true</items_from_pv>
     <name>Combo_2</name>
-    <pv_name>$(P)$(R)ROSC-ExtBwid</pv_name>
+    <pv_name>$(P)$(R)ROSCExtBwid-Sel</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -609,7 +609,7 @@ $(pv_value)</tooltip>
     <on_label>ON / OFF</on_label>
     <password></password>
     <push_action_index>0</push_action_index>
-    <pv_name>$(P)$(R)ROSC-ExtState</pv_name>
+    <pv_name>$(P)$(R)ROSCExt-Sel</pv_name>
     <pv_value />
     <released_action_index>0</released_action_index>
     <rules />

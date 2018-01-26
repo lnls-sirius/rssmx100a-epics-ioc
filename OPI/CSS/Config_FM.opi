@@ -300,7 +300,7 @@
       <name>Text Update_3</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)MOD-FMIntSrc_RBV</pv_name>
+      <pv_name>$(P)$(R)MODFMIntSrc-Sts</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -348,7 +348,7 @@ $(pv_value)</tooltip>
       <height>31</height>
       <items_from_pv>true</items_from_pv>
       <name>Combo_1</name>
-      <pv_name>$(P)$(R)MOD-FMIntSrc</pv_name>
+      <pv_name>$(P)$(R)MODFMIntSrc-Sel</pv_name>
       <pv_value />
       <rules />
       <scale_options>
@@ -515,7 +515,7 @@ $(pv_value)</tooltip>
       <name>Text Update_4</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)MOD-FMExtCoup_RBV</pv_name>
+      <pv_name>$(P)$(R)MODFMExtCoup-Sts</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -567,7 +567,7 @@ $(pv_value)</tooltip>
       <name>Text Update_4</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)MOD-FMInpImpd_RBV</pv_name>
+      <pv_name>$(P)$(R)MODFMExtImpd-Sts</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -615,7 +615,7 @@ $(pv_value)</tooltip>
       <height>31</height>
       <items_from_pv>true</items_from_pv>
       <name>Combo_1</name>
-      <pv_name>$(P)$(R)MOD-FMExtCoup</pv_name>
+      <pv_name>$(P)$(R)MODFMExtCoup-Sel</pv_name>
       <pv_value />
       <rules />
       <scale_options>
@@ -657,7 +657,7 @@ $(pv_value)</tooltip>
       <height>31</height>
       <items_from_pv>true</items_from_pv>
       <name>Combo_1</name>
-      <pv_name>$(P)$(R)MOD-FMInpImpd</pv_name>
+      <pv_name>$(P)$(R)MODFMExtImpd-Sel</pv_name>
       <pv_value />
       <rules />
       <scale_options>
@@ -704,7 +704,7 @@ $(pv_value)</tooltip>
     <name>Text Update_1</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)MOD-FMSrc_RBV</pv_name>
+    <pv_name>$(P)$(R)MODFMSrc-Sts</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -756,7 +756,7 @@ $(pv_value)</tooltip>
     <name>Text Update_2</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)MOD-FMDev_RBV</pv_name>
+    <pv_name>$(P)$(R)MODFMDev-RB</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -813,7 +813,7 @@ $(pv_value)</tooltip>
     <name>Text Input_2</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)MOD-FMDev</pv_name>
+    <pv_name>$(P)$(R)MODFMDev-SP</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -919,7 +919,7 @@ $(pv_value)</tooltip>
     <height>31</height>
     <items_from_pv>true</items_from_pv>
     <name>Combo</name>
-    <pv_name>$(P)$(R)MOD-FMSrc</pv_name>
+    <pv_name>$(P)$(R)MODFMSrc-Sel</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -1106,7 +1106,7 @@ $(pv_value)</tooltip>
       <name>Text Update_3</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)NOIS-Dist_RBV</pv_name>
+      <pv_name>$(P)$(R)NOISDist-Sts</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -1154,7 +1154,7 @@ $(pv_value)</tooltip>
       <height>31</height>
       <items_from_pv>true</items_from_pv>
       <name>Combo_1</name>
-      <pv_name>$(P)$(R)NOIS-Dist</pv_name>
+      <pv_name>$(P)$(R)NOISDist-Sel</pv_name>
       <pv_value />
       <rules />
       <scale_options>
@@ -1338,7 +1338,7 @@ $(pv_value)</tooltip>
       <name>Text Update_4</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)NOIS-Bwid_RBV</pv_name>
+      <pv_name>$(P)$(R)NOISBwid-RB</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -1395,7 +1395,7 @@ $(pv_value)</tooltip>
       <name>Text Input_3</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)NOIS-Bwid</pv_name>
+      <pv_name>$(P)$(R)NOISBwid-Sel</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />

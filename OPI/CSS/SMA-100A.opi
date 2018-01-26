@@ -19,7 +19,7 @@
   <macros>
     <include_parent_macros>true</include_parent_macros>
     <P>DIG:</P>
-    <R>RSSMX100A-0:</R>
+    <R>RSSMX100A:</R>
   </macros>
   <name></name>
   <rules />
@@ -142,7 +142,7 @@
     <name>Text Update_1</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)GENERAL-RFLvl_RBV</pv_name>
+    <pv_name>$(P)$(R)GENRFLvl-RB</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -234,7 +234,7 @@ $(pv_value)</tooltip>
     <name>Text Update</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)GENERAL-Freq_RBV</pv_name>
+    <pv_name>$(P)$(R)GENFreq-RB</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -326,7 +326,7 @@ $(pv_value)</tooltip>
     <name>Text Update_2</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)GENERAL-Idn</pv_name>
+    <pv_name>$(P)$(R)GENIdn</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -387,7 +387,7 @@ $(pv_value)</tooltip>
     <on_label>RESET</on_label>
     <password></password>
     <push_action_index>0</push_action_index>
-    <pv_name>$(P)$(R)GENERAL-Reset</pv_name>
+    <pv_name>$(P)$(R)GENReset</pv_name>
     <pv_value />
     <released_action_index>0</released_action_index>
     <rules />
@@ -776,7 +776,7 @@ $(pv_value)</tooltip>
       <show_scrollbar>true</show_scrollbar>
       <tooltip></tooltip>
       <transparent>true</transparent>
-      <visible>false</visible>
+      <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
       <width>458</width>
       <wuid>-6c48cde3:15ef1e16c43:-78fc</wuid>
@@ -938,7 +938,7 @@ $(pv_value)</tooltip>
       <show_scrollbar>true</show_scrollbar>
       <tooltip></tooltip>
       <transparent>true</transparent>
-      <visible>true</visible>
+      <visible>false</visible>
       <widget_type>Grouping Container</widget_type>
       <width>458</width>
       <wuid>-6c48cde3:15ef1e16c43:-78f8</wuid>
@@ -1024,7 +1024,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(P)$(R)GENERAL-UsrCorrState_RBV</pv_name>
+    <pv_name>$(P)$(R)GENUsrCorrect-Sts</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -1245,7 +1245,7 @@ $(pv_value)</tooltip>
       <show_scrollbar>true</show_scrollbar>
       <tooltip></tooltip>
       <transparent>true</transparent>
-      <visible>false</visible>
+      <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
       <width>458</width>
       <wuid>-6c48cde3:15ef1e16c43:-73cd</wuid>
@@ -1326,7 +1326,7 @@ $(pv_value)</tooltip>
       <show_scrollbar>true</show_scrollbar>
       <tooltip></tooltip>
       <transparent>true</transparent>
-      <visible>true</visible>
+      <visible>false</visible>
       <widget_type>Grouping Container</widget_type>
       <width>458</width>
       <wuid>-6c48cde3:15ef1e16c43:-73cb</wuid>
@@ -2369,7 +2369,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(P)$(R)MOD-PulMState_RBV</pv_name>
+    <pv_name>$(P)$(R)MODPulM-Sts</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -2487,7 +2487,7 @@ $(pv_value)</tooltip>
     <on_label>CLOCK SYN ON / OFF</on_label>
     <password></password>
     <push_action_index>0</push_action_index>
-    <pv_name>$(P)$(R)CSYN-State</pv_name>
+    <pv_name>$(P)$(R)CSYN-Sel</pv_name>
     <pv_value />
     <released_action_index>0</released_action_index>
     <rules />
@@ -2607,7 +2607,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(P)$(R)CSYN-State_RBV</pv_name>
+    <pv_name>$(P)$(R)CSYN-Sts</pv_name>
     <pv_value />
     <rules />
     <scale_options>
