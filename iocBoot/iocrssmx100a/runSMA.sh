@@ -1,4 +1,6 @@
-ource environment
+#!/bin/sh
+
+# Source environment
 . ./checkEnv.sh
 
 # Parse command-line options

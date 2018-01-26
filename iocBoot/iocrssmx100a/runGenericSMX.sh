@@ -22,14 +22,14 @@ if [ -z "$DEVICE" ]; then
     exit 4
 fi
 
-SMX_TYPE=$(echo ${DEVICE} | grep -Eo "[^0-9]+");
+RSSMX100A_TYPE=$(echo ${DEVICE} | grep -Eo "[^0-9]+");
 
-if [ -z "$SMX_TYPE" ]; then
+if [ -z "$RSSMX100A_TYPE" ]; then
     echo "Device type is not set. Please use -d option" >&2
     exit 5
 fi
 
-case ${SMX_TYPE} in
+case ${RSSMX100A_TYPE} in
     SMA)
         ST_CMD_FILE=stSMA.cmd
 	;;
@@ -39,7 +39,7 @@ case ${SMX_TYPE} in
 	;;
 
     *)
-        echo "Invalid SMX type: "${SMX_TYPE} >&2
+        echo "Invalid RSSMX100A type: "${RSSMX100A_TYPE} >&2
         exit 7
         ;;
 esac
