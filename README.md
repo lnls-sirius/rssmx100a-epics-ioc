@@ -19,7 +19,7 @@ The DEVICE_IDN is set on the *st.cmd* file, and can be easily
 costumized. For the initialization of the IOC, the device IP must be
 given, either by passing it as the argument *DEVICE_IP* during the
 initialization or by setting it on the
-*iocBoot/iocrssmx100a/device.config* file.
+*iocBoot/iocrssmx100a/RSSMX100A.config* file.
 
 ## Example
 
@@ -72,38 +72,17 @@ An example of reading frequency is given below:
 $ caget DIG-RSSMX100A-0:GENERAL:Freq_RBV
 ```
 
-## Some Implemented Functionalities
+## RSSMX100A PV Structure
 
-The functionalities are divided in 7 major groups: GENERAL, FREQ, MOD,
+The PV's are divided in 7 major groups: GENERAL, FREQ, MOD,
 TRIG, ROSC, CSYN and NOIS. To set values, use the given name. To read
 them, add *_RBV* after it.
 
 - **GENERAL** - General functionalities
- - **Reset**: Reset the device to default state
- - **Idn**: Get the device identification
- - **Freq**: Get/Set device frequency (Hz)
- - **Lvl**: Set device level (dBm)
- - **RFState**: Enable/Disable RF (OFF|ON)
- - **RFLvl**: Get/Set RF Level (dBm)
 
 - **FREQ** - Functionalities related to FREQuency
- - **FreqMode**: Get/Select frequency mode (CW|SWE|LIST)
- - **StartFreq**: Get/Set start frequency (Hz)
- - **StopFreq**: Get/Set stop frequency (Hz)
- - **StepFreq**: Get/Set frequency step (Hz)
 
 - **MOD** - Functionalities related to MODulation
- - **AMState**: Enable/Disable AM (OFF|ON)
- - **AMSrc**: Get/Select AM source (INT|EXT)
- - **FMState**: Enable/Disable FM (OFF|ON)
- - **FMSrc**: Get/Select FM source (INT|INT,EXT|EXT|EDIG)
- - **PGState**: Enable/Disable pulse generation (OFF|ON)
- - **PulMState**: Enable/Disable PulM (OFF|ON)
- - **PulMWidth**: Get/Set PulM width (rad)
- - **PulMPol**: Get/Select PulM polarity (NORMz|INV)
- - **PulMPeriod**: Get/Set PulM period (seconds)
- - **PulMMode**: Get/Select PulM mode (SING|DOUB|PTR)
- - **AllState**: Enable/Disable all modulations (OFF|ON)
 
 - **TRIG** - Functionalities related to TRIGgering
 
@@ -112,3 +91,15 @@ them, add *_RBV* after it.
 - **CSYN** - Functionalities related to Clock SYNthesis
 
 - **NOIS** - Functionalities related to NOISe
+
+The suffixes indicate the PV type and can be one of the following:
+
+- SP (Set Point): A non-enumerated value (real number or string). It sets a system parameter.
+- RB (Read Back): A non-enumerated value (real number or string). Read-only. It displays the read back value of a parameter, providing confirmation to changes.
+- Sel (Selection): Enumerated value. Sets a system parameter.
+- Sts (Status): Enumerated value. Read-only. It displays the read back value of an enumerated parameter, providing confirmation to changes.
+- Cmd (Command): Binary command. It causes a given action to be executed.
+
+## Running the OPIs
+
+The *OPI/CSS* directory provide OPIs for easily controlling the multimeter and applications process variables. In order to run the operator interfaces it is necessary to have Control System Studio installed. It is recommended to run `cs-studio` in the OPI folder, in order to avoid having to reconfigure CS-Studio preferences.
