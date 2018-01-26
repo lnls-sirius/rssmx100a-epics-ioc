@@ -137,7 +137,7 @@ record(ao, "$(P)$(R)GENRFLvl-SP") {
 ##########################################################################
 # SET LEVEL CONTROL OFF MODE
 
-record(bo, "$(P)$(R)GENAlcOffMode") {
+record(bo, "$(P)$(R)GENAlcOffMode-Cmd") {
   field(DESC, "Set level Control Off Mode (OFF|ON)")
   field(DTYP, "stream")
   field(ZNAM, "OFF")
@@ -526,7 +526,7 @@ record(calc, "$(P)$(R)GENCalcPMode") {
 #
 # Therefore, Mode is given by the expression: "A=1?2:(B=0?0:(A=2?(2*B):(2*B-1)))"
 
-record(mbbi, "$(P)$(R)GENLFMode-Sts") {
+record(mbbi, "$(P)$(R)GENLFMode-Mon") {
   field(DESC, "Get LF Mode")
   field(SCAN, "1 second")
   field(ZRVL, "0")
@@ -552,7 +552,7 @@ record(calc, "$(P)$(R)GENCalcLFMode") {
   field(INPA, "$(P)$(R)FREQLFSweepMode-Sts")
   field(INPB, "$(P)$(R)TRIGLFSweepSrc-Sts")
   field(CALC, "A=1?2:(B=0?0:(A=2?(2*B):(2*B-1)))")
-  field(FLNK, "$(P)$(R)GENLFMode-Sts")
+  field(FLNK, "$(P)$(R)GENLFMode-Mon")
 }
 ##########################################################################
 # FREQUENCY SWEEP MODE
@@ -2430,7 +2430,7 @@ record(ao, "$(P)$(R)CSYNFreq-SP") {
 ##########################################################################
 # CLOCK SYNTHESIS STATE
 
-record(bi, "$(P)$(R)CSYNSts") {
+record(bi, "$(P)$(R)CSYN-Sts") {
   field(DESC, "Get Clock Synthesis State (OFF|ON)")
   field(SCAN, "1 second")
   field(DTYP, "stream")
@@ -2439,7 +2439,7 @@ record(bi, "$(P)$(R)CSYNSts") {
   field(INP, "@rssmx100a.proto inCsynState $(PORT)")
 }
 
-record(bo, "$(P)$(R)CSYNSel") {
+record(bo, "$(P)$(R)CSYN-Sel") {
   field(DESC, "Set Clock Synthesis State (OFF|ON)")
   field(DTYP, "stream")
   field(ZNAM, "OFF")
