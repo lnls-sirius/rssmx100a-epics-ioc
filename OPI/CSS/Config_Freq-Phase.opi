@@ -452,7 +452,7 @@ $(pv_value)</tooltip>
       <name>Text Update_2</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)FREQ-ContPhsLo_RBV</pv_name>
+      <pv_name>$(P)$(R)FREQContPhsLo-Mon</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -504,7 +504,7 @@ $(pv_value)</tooltip>
       <name>Text Update_2</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)FREQ-ContPhsHi_RBV</pv_name>
+      <pv_name>$(P)$(R)FREQContPhsHi-Mon</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />

@@ -1801,7 +1801,7 @@ $(pv_value)</tooltip>
     <name>Text Update_21</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)FREQ-PSpacMode_RBV</pv_name>
+    <pv_name>$(P)$(R)FREQPSpacMode-Mon</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1894,7 +1894,7 @@ $(pv_value)</tooltip>
       <color red="240" green="240" blue="240" />
     </background_color>
     <bit>-1</bit>
-    <border_alarm_sensitive>true</border_alarm_sensitive>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -1922,7 +1922,7 @@ $(pv_value)</tooltip>
     </on_color>
     <on_label>Execute Single Sweep</on_label>
     <password></password>
-    <push_action_index>0</push_action_index>
+    <push_action_index>1</push_action_index>
     <pv_name>$(P)$(R)FREQPExeSweep-Cmd</pv_name>
     <pv_value />
     <released_action_index>0</released_action_index>
@@ -1955,7 +1955,7 @@ $(pv_value)</tooltip>
       <color red="240" green="240" blue="240" />
     </background_color>
     <bit>-1</bit>
-    <border_alarm_sensitive>true</border_alarm_sensitive>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -1983,7 +1983,7 @@ $(pv_value)</tooltip>
     </on_color>
     <on_label>Reset Sweep</on_label>
     <password></password>
-    <push_action_index>0</push_action_index>
+    <push_action_index>1</push_action_index>
     <pv_name>$(P)$(R)FREQRst-Cmd</pv_name>
     <pv_value />
     <released_action_index>0</released_action_index>
