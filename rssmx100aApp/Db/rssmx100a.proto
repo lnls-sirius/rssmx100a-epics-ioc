@@ -326,14 +326,14 @@ outGPwrMan {
 # Read the frequency sweep state
 inGFSweepState {
 	out "SOUR:FREQ:MODE?";
-	in "%{CW|SWE}";
+	in "%{CW|SWE|LIST}";
 }
 #
 # Set the frequency sweep state
 
 outGFSweepState {
-	out "SOUR:FREQ:MODE %{CW|SWE}";
-	@init {inGFSweepState; };
+	out "SOUR:FREQ:MODE %{CW|SWE|LIST}";
+	@init { inGFSweepState; };
 }
 ################################################################################
 # Read the user correction state
@@ -350,10 +350,6 @@ outGUsrCorrState {
 	@init {inGUsrCorrState; };
 }
 ################################################################################
-#
-############################### FREQUENCY ######################################
-#
-################################################################################
 inFrq {
     out "FREQ?";
     in "%f";
@@ -365,6 +361,9 @@ outFrq {
 }
 ################################################################################
 #
+############################### FREQUENCY ######################################
+#
+################################################################################
 inFStartFreq {
     out "FREQ:STAR?";
     in "%f";
@@ -407,16 +406,6 @@ inPhasCont {
 outPhasCont {
     out "FREQ:PHAS:CONT:STAT %{OFF|ON}";
     @init { inPhasCont; }
-}
-################################################################################
-inFreqMode {
-    out "FREQ:MODE?";
-    in  "%{CW|SWE|LIST}";
-}
-
-outFreqMode {
-    out "FREQ:MODE %{CW|SWE|LIST}";
-    @init { inFreqMode; }
 }
 ################################################################################
 # Read the center frequency of the RF sweep range
@@ -533,16 +522,16 @@ outPSweepPts {
 ################################################################################
 # Read the state of the power retrace
 
-inFPwrRetr {
+inFLvlRetr {
 	out "SOUR:SWE:POW:RETR?";
 	in "%i";
 }
 #
 # Set the state of the power retrace
 
-outFPwrRetr {
+outFLvlRetr {
 	out "SOUR:SWE:POW:RETR %{OFF|ON}";
-	@init { inFPwrRetr; };
+	@init { inFLvlRetr; };
 }
 ################################################################################
 # Read the current state of the level sweep mode
@@ -552,18 +541,18 @@ inFPwrRun {
 	in "%i";
 }
 ################################################################################
-# Read the cycle mode for a sweep sequence
+# Read the cycle mode for a level sweep sequence
 
-inFPwrShp {
+inFLvlShp {
 	out "SOUR:SWE:POW:SHAP?";
 	in "%{SAWT|TRI}";
 }
 #
-# Set the cycle mode for a sweep sequence
+# Set the cycle mode for a level sweep sequence
 
-outFPwrShp {
+outFLvlShp {
 	out "SOUR:SWE:POW:SHAP %{SAWT|TRI}";
-	@init { inFPwrShp; };
+	@init { inFLvlShp; };
 }
 ################################################################################
 # Read a logarithmically determined sweep step size for the RF level sweep
@@ -921,16 +910,16 @@ outAMSrc {
 ################################################################################
 # Read the internal amplitude modulation source
 
-inMAMSrcInt {
+inMAMIntSrc {
     out "SOUR:AM:INT:SOUR?";
     in  "%s";
 }
 
 # Set the amplitude modulation source
 
-outMAMSrcInt {
+outMAMIntSrc {
      out "SOUR:AM:INT:SOUR %{NONE|LF1|LF2|LF12|NOIS|LF1N|LF2N}";
-     @init { inMAMSrcInt; };
+     @init { inMAMIntSrc; };
 }
 ################################################################################
 # Read the pulse generation state
@@ -1333,16 +1322,16 @@ outMPulMExtSlopeTrig {
 ################################################################################
 # Read the impedance for an externally applied modulation signal
 
-inMFMInpImpd {
+inMFMExtImpd {
 	out "SOUR:INP:MOD:IMP?";
 	in "%{HIGH|G50}";
 }
 #
 # Set the impedance for an externally applied modulation signal
 
-outMFMInpImpd {
+outMFMExtImpd {
 	out "SOUR:INP:MOD:IMP %{HIGH|G50}";
-	@init { inMFMInpImpd; };
+	@init { inMFMExtImpd; };
 }
 ################################################################################
 # Read the LF output state
@@ -1368,7 +1357,7 @@ inMLFOutSrc {
 # Set the internal source for the LF output signal
 
 outMLFOutSrc {
-	out "SOUR:LFO:SOUR %{NONE|LF1|LF2|LF12|NOIS|LF1N|LF2N}";
+	out "SOUR:LFO:SOUR %{LF1|LF2|LF12|NOIS|LF1N|LF2N}";
 	@init { inMLFOutSrc; };
 }
 ################################################################################
@@ -1446,7 +1435,7 @@ outTSweep {
 ################################################################################
 # Read the polarity of the active slope
 
-inTInpSlopePol {
+intTInpSlopePol {
 	out "SOUR:INP:TRIG:SLOP?";
 	in "%{NEG|POS}";
 }
@@ -1455,7 +1444,7 @@ inTInpSlopePol {
 
 outTInpSlopePol {
 	out "SOUR:INP:TRIG:SLOP %{NEG|POS}";
-	@init { inTInpSlopePol; };
+	@init { intTInpSlopePol; };
 }
 ################################################################################
 #
@@ -1626,7 +1615,7 @@ outNBwidState {
 #################################################################################
 # Queries the level of the noise signal per Hz in the total bandwidthinP
 
-inNRltLvl {
+inNRelatLvl {
 	out "SOUR:NOIS:LEV:REL?";
 	in "%f";
 }
