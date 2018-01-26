@@ -1,0 +1,31 @@
+[Unit]
+Description=RSSMX100A IOC %p%I
+After=rc-local.service
+Wants=rc-local.service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+# Source environment
+EnvironmentFile=/etc/sysconfig/rssmx100a-epics-ioc
+EnvironmentFile=/etc/sysconfig/rssmx100a-epics-ioc-mapping
+# Execute pre with root
+PermissionsStartOnly=true
+Environment=RSSMX100A_INSTANCE=%i
+ExecStartPre=/bin/mkdir -p /var/log/procServ/%p%i
+ExecStartPre=/bin/mkdir -p /var/run/procServ/%p%i
+#WorkingDirectory=${RSSMX100A_IOC_STARTUP}
+WorkingDirectory=/opt/epics/startup/ioc/dmm7510-epics-ioc/iocBoot/iocrssmx100a
+# Run procServ with IOC
+ExecStart=/bin/bash -c "\
+    export RSSMX100A_DEVICE_TELNET_PORT_SUFFIX=RSSMX100A_$${RSSMX100A_INSTANCE}_PORT_SUFFIX && \
+    /usr/local/bin/procServ \
+    -f \
+    -n %p%i \
+    -i ^C^D \
+    $${PROCSERV_RSSMX100A_PORT_PREFIX}$${!RSSMX100A_DEVICE_TELNET_PORT_SUFFIX} \
+    ./runGenericSMX.sh"
+
+[Install]
+WantedBy=multi-user.target
+
