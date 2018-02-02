@@ -300,7 +300,7 @@
       <name>Text Update_3</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)MODPulMMode-Sts</pv_name>
+      <pv_name>$(P)$(R)MOD:PulMMode-Sts</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -352,7 +352,7 @@ $(pv_value)</tooltip>
       <name>Text Update_4</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)MODPulMPeriod-RB</pv_name>
+      <pv_name>$(P)$(R)MOD:PulMPeriod-RB</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -409,7 +409,7 @@ $(pv_value)</tooltip>
       <name>Text Input_3</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)MODPulMPeriod-SP</pv_name>
+      <pv_name>$(P)$(R)MOD:PulMPeriod-SP</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -457,7 +457,7 @@ $(pv_value)</tooltip>
       <height>31</height>
       <items_from_pv>true</items_from_pv>
       <name>Combo_1</name>
-      <pv_name>$(P)$(R)MODPulMMode-Sel</pv_name>
+      <pv_name>$(P)$(R)MOD:PulMMode-Sel</pv_name>
       <pv_value />
       <rules />
       <scale_options>
@@ -583,7 +583,7 @@ $(pv_value)</tooltip>
       <name>Text Update_4</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)MODPulMWid-RB</pv_name>
+      <pv_name>$(P)$(R)MOD:PulMWid-RB</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -640,7 +640,7 @@ $(pv_value)</tooltip>
       <name>Text Input_3</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)MODPulMWid-SP</pv_name>
+      <pv_name>$(P)$(R)MOD:PulMWid-SP</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -692,7 +692,7 @@ $(pv_value)</tooltip>
       <name>Text Update_4</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)MODPulMDelay-RB</pv_name>
+      <pv_name>$(P)$(R)MOD:PulMDelay-RB</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -749,7 +749,7 @@ $(pv_value)</tooltip>
       <name>Text Input_3</name>
       <precision>5</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)MODPulMDelay-SP</pv_name>
+      <pv_name>$(P)$(R)MOD:PulMDelay-SP</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -882,7 +882,7 @@ $(pv_value)</tooltip>
       <name>Text Update_4</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)MODPulMTrigMode-Sts</pv_name>
+      <pv_name>$(P)$(R)MOD:PulMTrigMode-Sts</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -930,7 +930,7 @@ $(pv_value)</tooltip>
       <height>31</height>
       <items_from_pv>true</items_from_pv>
       <name>Combo_1</name>
-      <pv_name>$(P)$(R)MODPulMTrigMode-Sel</pv_name>
+      <pv_name>$(P)$(R)MOD:PulMTrigMode-Sel</pv_name>
       <pv_value />
       <rules />
       <scale_options>
@@ -1016,7 +1016,7 @@ $(pv_value)</tooltip>
       <name>Text Update_4</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)MODPulMExtSlopeTrig-Sts</pv_name>
+      <pv_name>$(P)$(R)MOD:PulMExtSlopeTrig-Sts</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -1064,7 +1064,7 @@ $(pv_value)</tooltip>
       <height>31</height>
       <items_from_pv>true</items_from_pv>
       <name>Combo_1</name>
-      <pv_name>$(P)$(R)MODPulMExtSlopeTrig-Sel</pv_name>
+      <pv_name>$(P)$(R)MOD:PulMExtSlopeTrig-Sel</pv_name>
       <pv_value />
       <rules />
       <scale_options>
@@ -1150,7 +1150,7 @@ $(pv_value)</tooltip>
       <name>Text Update_4</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)MODPulMExtImpdTrig-Sts</pv_name>
+      <pv_name>$(P)$(R)MOD:PulMExtImpdTrig-Sts</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -1198,7 +1198,7 @@ $(pv_value)</tooltip>
       <height>31</height>
       <items_from_pv>true</items_from_pv>
       <name>Combo_1</name>
-      <pv_name>$(P)$(R)MODPulMExtImpdTrig-Sel</pv_name>
+      <pv_name>$(P)$(R)MOD:PulMExtImpdTrig-Sel</pv_name>
       <pv_value />
       <rules />
       <scale_options>
@@ -1245,7 +1245,7 @@ $(pv_value)</tooltip>
     <name>Text Update_1</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)MODPulMSrc-Sts</pv_name>
+    <pv_name>$(P)$(R)MOD:PulMSrc-Sts</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1307,7 +1307,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(P)$(R)MODPulM-Sts</pv_name>
+    <pv_name>$(P)$(R)MOD:PulM-Sts</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -1351,7 +1351,7 @@ $(pv_value)</tooltip>
     <height>31</height>
     <items_from_pv>true</items_from_pv>
     <name>Combo</name>
-    <pv_name>$(P)$(R)MODPulMSrc-Sel</pv_name>
+    <pv_name>$(P)$(R)MOD:PulMSrc-Sel</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -1477,7 +1477,7 @@ $(pv_value)</tooltip>
       <name>Text Update_4</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)MODPulMPol-Sts</pv_name>
+      <pv_name>$(P)$(R)MOD:PulMPol-Sts</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -1525,7 +1525,7 @@ $(pv_value)</tooltip>
       <height>31</height>
       <items_from_pv>true</items_from_pv>
       <name>Combo_1</name>
-      <pv_name>$(P)$(R)MODPulMPol-Sel</pv_name>
+      <pv_name>$(P)$(R)MOD:PulMPol-Sel</pv_name>
       <pv_value />
       <rules />
       <scale_options>
@@ -1581,7 +1581,7 @@ $(pv_value)</tooltip>
     <on_label>ON / OFF</on_label>
     <password></password>
     <push_action_index>0</push_action_index>
-    <pv_name>$(P)$(R)MODPulM-Sts</pv_name>
+    <pv_name>$(P)$(R)MOD:PulM-Sts</pv_name>
     <pv_value />
     <released_action_index>0</released_action_index>
     <rules />

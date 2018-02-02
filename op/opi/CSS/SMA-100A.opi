@@ -142,7 +142,7 @@
     <name>Text Update_1</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)GENRFLvl-RB</pv_name>
+    <pv_name>$(P)$(R)GENERAL:RFLvl-RB</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -234,7 +234,7 @@ $(pv_value)</tooltip>
     <name>Text Update</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)GENFreq-RB</pv_name>
+    <pv_name>$(P)$(R)GENERAL:Freq-RB</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -326,7 +326,7 @@ $(pv_value)</tooltip>
     <name>Text Update_2</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)GENIdn</pv_name>
+    <pv_name>$(P)$(R)GENERAL:Idn</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -387,7 +387,7 @@ $(pv_value)</tooltip>
     <on_label>RESET</on_label>
     <password></password>
     <push_action_index>0</push_action_index>
-    <pv_name>$(P)$(R)GENReset</pv_name>
+    <pv_name>$(P)$(R)GENERAL:Reset</pv_name>
     <pv_value />
     <released_action_index>0</released_action_index>
     <rules />
@@ -489,7 +489,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(P)$(R)FREQPRunnMode-Mon</pv_name>
+    <pv_name>$(P)$(R)FREQ:PRunnMode-Mon</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -1024,7 +1024,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(P)$(R)GENUsrCorrect-Sts</pv_name>
+    <pv_name>$(P)$(R)GENERAL:UsrCorrect-Sts</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -1082,7 +1082,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(P)$(R)FREQFRunnMode-Mon</pv_name>
+    <pv_name>$(P)$(R)FREQ:FRunnMode-Mon</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -2253,7 +2253,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(P)$(R)MODAM-Sts</pv_name>
+    <pv_name>$(P)$(R)MOD:AM-Sts</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -2311,7 +2311,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(P)$(R)MODFM-Sts</pv_name>
+    <pv_name>$(P)$(R)MOD:FM-Sts</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -2369,7 +2369,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(P)$(R)MODPulM-Sts</pv_name>
+    <pv_name>$(P)$(R)MOD:PulM-Sts</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -2426,7 +2426,7 @@ $(pv_value)</tooltip>
     <on_label>RF ON / OFF</on_label>
     <password></password>
     <push_action_index>0</push_action_index>
-    <pv_name>$(P)$(R)GENRF-Sel</pv_name>
+    <pv_name>$(P)$(R)GENERAL:RF-Sel</pv_name>
     <pv_value />
     <released_action_index>0</released_action_index>
     <rules />
@@ -2549,7 +2549,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(P)$(R)GENRF-Sts</pv_name>
+    <pv_name>$(P)$(R)GENERAL:RF-Sts</pv_name>
     <pv_value />
     <rules />
     <scale_options>
