@@ -5,22 +5,6 @@
 Repository containing the EPICS IOC support for the R&S SMA100A and
 SMB100A signal generators. Some functionalities are exclusive to SMA100A.
 
-## PV Structures
-
-The PVs have 3 parameters: The device identifier, the functionality
-group and the functionality name, all separated by colons and a dash,
-as shown below.
-
-```
-DEVICE_IDN:GROUP-NAME
-```
-
-The DEVICE_IDN is set on the *st.cmd* file, and can be easily
-costumized. For the initialization of the IOC, the device IP must be
-given, either by passing it as the argument *DEVICE_IP* during the
-initialization or by setting it on the
-*iocBoot/iocrssmx100a/RSSMX100A.config* file.
-
 ## Example
 
 ### Initialization
@@ -34,7 +18,6 @@ $ make clean &&
 $ make uninstall &&
 $ make &&
 $ cd iocBoot/iocrssmx100a &&
-$ DEVICE_IP="10.0.18.34" DEVICE_INST="0" ../../bin/linux-x86_64/rssmx100a ./st.cmd
 ```
 
 The *DEVICE_IP* and *DEVICE_INST* specify the instrument IP and the
@@ -50,7 +33,7 @@ $ make clean &&
 $ make uninstall &&
 $ make &&
 $ cd iocBoot/iocrssmx100a &&
-$ procServ -n "RSSMX100A" -f -i ^C^D 20000 ./run.sh 10.0.18.34 0
+$ procServ -n "RSSMX100A" -f -i ^C^D 20000 ./run.sh 10.0.18.43 0
 ```
 
 It is important to notice that the *DEVICE_IP* and *DEVICE_INST*
@@ -61,7 +44,7 @@ arguments are passed after the */run.sh* in the last line.
 An example of writing frequency is given below:
 
 ```
-$ caput DIG-RSSMX100A-0:GENERAL:Freq 1e8
+$ caput ${P}${R}:GENFreq-SP 1e8
 ```
 
 ### Caget
@@ -69,7 +52,7 @@ $ caput DIG-RSSMX100A-0:GENERAL:Freq 1e8
 An example of reading frequency is given below:
 
 ```
-$ caget DIG-RSSMX100A-0:GENERAL:Freq_RBV
+$ caget ${P}${R}:GENFreq-RB
 ```
 
 ## RSSMX100A PV Structure
@@ -99,6 +82,7 @@ The suffixes indicate the PV type and can be one of the following:
 - Sel (Selection): Enumerated value. Sets a system parameter.
 - Sts (Status): Enumerated value. Read-only. It displays the read back value of an enumerated parameter, providing confirmation to changes.
 - Cmd (Command): Binary command. It causes a given action to be executed.
+- Mon (Monitor): Monitor non-enumerated or enumerated  device property variable
 
 ## Running the OPIs
 
