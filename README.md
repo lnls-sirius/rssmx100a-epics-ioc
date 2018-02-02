@@ -33,11 +33,10 @@ $ make clean &&
 $ make uninstall &&
 $ make &&
 $ cd iocBoot/iocrssmx100a &&
-$ procServ -n "RSSMX100A" -f -i ^C^D 20000 ./run.sh 10.0.18.43 0
+$ procServ -n "RSSMX100A" -f -i ^C^D 20000 ./run.sh 10.0.18.43 -d SMX
 ```
 
-It is important to notice that the *DEVICE_IP* and *DEVICE_INST*
-arguments are passed after the */run.sh* in the last line.
+It is important to notice that the *DEVICE_IP* is passed as an argument to the ./run.sh script using the -i option and -d is for the chisen device type (SMA or SMB).
 
 ### Caput
 
