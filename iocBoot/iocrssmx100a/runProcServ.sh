@@ -6,4 +6,4 @@ if [ -z "${RSSMX100A_DEVICE_TELNET_PORT}" ]; then
 fi
 
 # Run run*.sh scripts with procServ
-/usr/local/bin/procServ -f -n rssmx100a${RSSMX100A_INSTANCE} -i ^C^D ${RSSMX100A_DEVICE_TELNET_PORT} ./runRSSMX100A.sh "$@"
+/usr/local/bin/procServ -f -n rssmx100a${RSSMX100A_INSTANCE} -i ^C^D ${RSSMX100A_DEVICE_TELNET_PORT} ./runGenericSMX.sh "$@"
