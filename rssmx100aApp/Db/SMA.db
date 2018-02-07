@@ -2428,7 +2428,7 @@ record(ao, "$(P)$(R)CSYN:Freq-SP") {
 
 # CLOCK SYNTHESIS STATE
 
-record(bi, "$(P)$(R)CSYN:-Sts") {
+record(bi, "$(P)$(R)CSYN-Sts") {
   field(DESC, "Get Clock Synthesis State (OFF|ON)")
   field(SCAN, "1 second")
   field(DTYP, "stream")
@@ -2437,13 +2437,13 @@ record(bi, "$(P)$(R)CSYN:-Sts") {
   field(INP, "@rssmx100a.proto inCsynState $(PORT)")
 }
 
-record(bo, "$(P)$(R)CSYN:-Sel") {
+record(bo, "$(P)$(R)CSYN-Sel") {
   field(DESC, "Set Clock Synthesis State (OFF|ON)")
   field(DTYP, "stream")
   field(ZNAM, "OFF")
   field(ONAM, "ON")
   field(OUT, "@rssmx100a.proto outCsynState($1) $(PORT)")
-  field(FLNK,"$(P)$(R)CSYN:Sts")
+  field(FLNK,"$(P)$(R)CSYN-Sts")
 }
 
 # CLOCK SYNTHESIS DC OFFSET
