@@ -220,7 +220,7 @@
       <name>Text Update_3</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)FREQ:Range-Sts</pv_name>
+      <pv_name>$(P)$(R)FREQRange-Sts</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -268,7 +268,7 @@ $(pv_value)</tooltip>
       <height>31</height>
       <items_from_pv>true</items_from_pv>
       <name>Combo_1</name>
-      <pv_name>$(P)$(R)FREQ:Range-Sel</pv_name>
+      <pv_name>$(P)$(R)FREQRange-Sel</pv_name>
       <pv_value />
       <rules />
       <scale_options>
@@ -364,7 +364,7 @@ $(pv_value)</tooltip>
         <color red="0" green="255" blue="0" />
       </on_color>
       <on_label>ON</on_label>
-      <pv_name>$(P)$(R)FREQ:PhsCont-Sts</pv_name>
+      <pv_name>$(P)$(R)FREQPhsCont-Sts</pv_name>
       <pv_value />
       <rules />
       <scale_options>
@@ -452,7 +452,7 @@ $(pv_value)</tooltip>
       <name>Text Update_2</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)FREQ:ContPhsLo-Mon</pv_name>
+      <pv_name>$(P)$(R)FREQContPhsLo-Mon</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -504,7 +504,7 @@ $(pv_value)</tooltip>
       <name>Text Update_2</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)FREQ:ContPhsHi-Mon</pv_name>
+      <pv_name>$(P)$(R)FREQContPhsHi-Mon</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -565,7 +565,7 @@ $(pv_value)</tooltip>
       <on_label>ON / OFF</on_label>
       <password></password>
       <push_action_index>0</push_action_index>
-      <pv_name>$(P)$(R)FREQ:PhsCont-Sel</pv_name>
+      <pv_name>$(P)$(R)FREQPhsCont-Sel</pv_name>
       <pv_value />
       <released_action_index>0</released_action_index>
       <rules />
@@ -738,7 +738,7 @@ $(pv_value)</tooltip>
       <name>Text Update_4</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)FREQ:StepVar-RB</pv_name>
+      <pv_name>$(P)$(R)FREQStepVar-RB</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -795,7 +795,7 @@ $(pv_value)</tooltip>
       <name>Text Input</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)FREQ:StepVar-SP</pv_name>
+      <pv_name>$(P)$(R)FREQStepVar-SP</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -857,7 +857,7 @@ $(pv_value)</tooltip>
         <color red="0" green="255" blue="0" />
       </on_color>
       <on_label>ON</on_label>
-      <pv_name>$(P)$(R)FREQ:VarMode-Sts</pv_name>
+      <pv_name>$(P)$(R)FREQVarMode-Sts</pv_name>
       <pv_value />
       <rules />
       <scale_options>
@@ -914,7 +914,7 @@ $(pv_value)</tooltip>
       <on_label>ON / OFF</on_label>
       <password></password>
       <push_action_index>0</push_action_index>
-      <pv_name>$(P)$(R)FREQ:VarMode-Sel</pv_name>
+      <pv_name>$(P)$(R)FREQVarMode-Sel</pv_name>
       <pv_value />
       <released_action_index>0</released_action_index>
       <rules />
@@ -972,7 +972,7 @@ $(pv_value)</tooltip>
     <name>Text Input</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)GENERAL:Freq-SP</pv_name>
+    <pv_name>$(P)$(R)GENERALFreq-SP</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1024,7 +1024,7 @@ $(pv_value)</tooltip>
     <name>Text Update_2</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)GENERAL:Freq-RB</pv_name>
+    <pv_name>$(P)$(R)GENERALFreq-RB</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />

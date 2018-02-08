@@ -270,7 +270,7 @@
         <color red="0" green="255" blue="0" />
       </on_color>
       <on_label>ON</on_label>
-      <pv_name>$(P)$(R)FREQ:FreqRetr-Sts</pv_name>
+      <pv_name>$(P)$(R)FREQFreqRetr-Sts</pv_name>
       <pv_value />
       <rules />
       <scale_options>
@@ -327,7 +327,7 @@ $(pv_value)</tooltip>
       <on_label>ON / OFF</on_label>
       <password></password>
       <push_action_index>0</push_action_index>
-      <pv_name>$(P)$(R)FREQ:FreqRetr-Sel</pv_name>
+      <pv_name>$(P)$(R)FREQFreqRetr-Sel</pv_name>
       <pv_value />
       <released_action_index>0</released_action_index>
       <rules />
@@ -380,7 +380,7 @@ $(pv_value)</tooltip>
     <name>Text Update_1</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)GENERAL:FMode-Sts</pv_name>
+    <pv_name>$(P)$(R)GENERALFMode-Sts</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -788,7 +788,7 @@ $(pv_value)</tooltip>
     <height>31</height>
     <items_from_pv>true</items_from_pv>
     <name>Combo</name>
-    <pv_name>$(P)$(R)FREQ:FSweepMode-Sel</pv_name>
+    <pv_name>$(P)$(R)FREQFSweepMode-Sel</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -830,7 +830,7 @@ $(pv_value)</tooltip>
     <height>31</height>
     <items_from_pv>true</items_from_pv>
     <name>Combo</name>
-    <pv_name>$(P)$(R)TRIG:FSweepSrc-Sel</pv_name>
+    <pv_name>$(P)$(R)TRIGFSweepSrc-Sel</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -881,7 +881,7 @@ $(pv_value)</tooltip>
     <name>Text Input</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)FREQ:StartFreq-SP</pv_name>
+    <pv_name>$(P)$(R)FREQStartFreq-SP</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -938,7 +938,7 @@ $(pv_value)</tooltip>
     <name>Text Input_3</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)FREQ:StopFreq-SP</pv_name>
+    <pv_name>$(P)$(R)FREQStopFreq-SP</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -995,7 +995,7 @@ $(pv_value)</tooltip>
     <name>Text Input_3</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)FREQ:CenterFreq-SP</pv_name>
+    <pv_name>$(P)$(R)FREQCenterFreq-SP</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1052,7 +1052,7 @@ $(pv_value)</tooltip>
     <name>Text Input_3</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)FREQ:FreqSpan-SP</pv_name>
+    <pv_name>$(P)$(R)FREQFreqSpan-SP</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1109,7 +1109,7 @@ $(pv_value)</tooltip>
     <name>Text Input_3</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)GENERAL:Freq-SP</pv_name>
+    <pv_name>$(P)$(R)GENERALFreq-SP</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1157,7 +1157,7 @@ $(pv_value)</tooltip>
     <height>31</height>
     <items_from_pv>true</items_from_pv>
     <name>Combo</name>
-    <pv_name>$(P)$(R)FREQ:FreqShp-Sel</pv_name>
+    <pv_name>$(P)$(R)FREQFreqShp-Sel</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -1208,7 +1208,7 @@ $(pv_value)</tooltip>
     <name>Text Input_3</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)FREQ:FDwellTime-SP</pv_name>
+    <pv_name>$(P)$(R)FREQFDwellTime-SP</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1260,7 +1260,7 @@ $(pv_value)</tooltip>
     <name>Text Update_8</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)FREQ:FSweepMode-Sts</pv_name>
+    <pv_name>$(P)$(R)FREQFSweepMode-Sts</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1312,7 +1312,7 @@ $(pv_value)</tooltip>
     <name>Text Update_9</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)TRIG:FSweepSrc-Sts</pv_name>
+    <pv_name>$(P)$(R)TRIGFSweepSrc-Sts</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1364,7 +1364,7 @@ $(pv_value)</tooltip>
     <name>Text Update_10</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)FREQ:StartFreq-RB</pv_name>
+    <pv_name>$(P)$(R)FREQStartFreq-RB</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1416,7 +1416,7 @@ $(pv_value)</tooltip>
     <name>Text Update_11</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)FREQ:StopFreq-RB</pv_name>
+    <pv_name>$(P)$(R)FREQStopFreq-RB</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1468,7 +1468,7 @@ $(pv_value)</tooltip>
     <name>Text Update_12</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)FREQ:CenterFreq-RB</pv_name>
+    <pv_name>$(P)$(R)FREQCenterFreq-RB</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1520,7 +1520,7 @@ $(pv_value)</tooltip>
     <name>Text Update_13</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)FREQ:FreqSpan-RB</pv_name>
+    <pv_name>$(P)$(R)FREQFreqSpan-RB</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1572,7 +1572,7 @@ $(pv_value)</tooltip>
     <name>Text Update_14</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)GENERAL:Freq-RB</pv_name>
+    <pv_name>$(P)$(R)GENERALFreq-RB</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1624,7 +1624,7 @@ $(pv_value)</tooltip>
     <name>Text Update_15</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)FREQ:FreqShp-Sts</pv_name>
+    <pv_name>$(P)$(R)FREQFreqShp-Sts</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1676,7 +1676,7 @@ $(pv_value)</tooltip>
     <name>Text Update_16</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)FREQ:FDwellTime-RB</pv_name>
+    <pv_name>$(P)$(R)FREQFDwellTime-RB</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1808,7 +1808,7 @@ $(pv_value)</tooltip>
       <name>Text Update_4</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)TRIG:InpSlopePol-Sts</pv_name>
+      <pv_name>$(P)$(R)TRIGInpSlopePol-Sts</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -1856,7 +1856,7 @@ $(pv_value)</tooltip>
       <height>31</height>
       <items_from_pv>true</items_from_pv>
       <name>Combo_1</name>
-      <pv_name>$(P)$(R)TRIG:InpSlopePol-Sel</pv_name>
+      <pv_name>$(P)$(R)TRIGInpSlopePol-Sel</pv_name>
       <pv_value />
       <rules />
       <scale_options>
@@ -1912,7 +1912,7 @@ $(pv_value)</tooltip>
     <on_label>Execute Single Sweep</on_label>
     <password></password>
     <push_action_index>1</push_action_index>
-    <pv_name>$(P)$(R)FREQ:FExeSweep-Cmd</pv_name>
+    <pv_name>$(P)$(R)FREQFExeSweep-Cmd</pv_name>
     <pv_value />
     <released_action_index>0</released_action_index>
     <rules />
@@ -1973,7 +1973,7 @@ $(pv_value)</tooltip>
     <on_label>Reset Sweep</on_label>
     <password></password>
     <push_action_index>1</push_action_index>
-    <pv_name>$(P)$(R)FREQ:Rst-Cmd</pv_name>
+    <pv_name>$(P)$(R)FREQRst-Cmd</pv_name>
     <pv_value />
     <released_action_index>0</released_action_index>
     <rules />
@@ -2021,7 +2021,7 @@ $(pv_value)</tooltip>
     <height>31</height>
     <items_from_pv>true</items_from_pv>
     <name>Combo_3</name>
-    <pv_name>$(P)$(R)GENERAL:FSweep-Sel</pv_name>
+    <pv_name>$(P)$(R)GENERALFSweep-Sel</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -2067,7 +2067,7 @@ $(pv_value)</tooltip>
     <name>Text Update_17</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)GENERAL:FSweep-Sts</pv_name>
+    <pv_name>$(P)$(R)GENERALFSweep-Sts</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -2159,7 +2159,7 @@ $(pv_value)</tooltip>
     <name>Text Update_18</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)FREQ:FSpacMode-Sts</pv_name>
+    <pv_name>$(P)$(R)FREQFSpacMode-Sts</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -2251,7 +2251,7 @@ $(pv_value)</tooltip>
     <name>Text Update_4</name>
     <precision>3</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)FREQ:FStepLin-RB</pv_name>
+    <pv_name>$(P)$(R)FREQFStepLin-RB</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -2308,7 +2308,7 @@ $(pv_value)</tooltip>
     <name>Text Input_17</name>
     <precision>3</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)FREQ:FStepLin-SP</pv_name>
+    <pv_name>$(P)$(R)FREQFStepLin-SP</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -2400,7 +2400,7 @@ $(pv_value)</tooltip>
     <name>Text Update_4</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)FREQ:FStepLog-RB</pv_name>
+    <pv_name>$(P)$(R)FREQFStepLog-RB</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -2457,7 +2457,7 @@ $(pv_value)</tooltip>
     <name>Text Input_18</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)FREQ:FStepLog-SP</pv_name>
+    <pv_name>$(P)$(R)FREQFStepLog-SP</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -2505,7 +2505,7 @@ $(pv_value)</tooltip>
     <height>31</height>
     <items_from_pv>true</items_from_pv>
     <name>Combo_4</name>
-    <pv_name>$(P)$(R)FREQ:FSpacMode-Sel</pv_name>
+    <pv_name>$(P)$(R)FREQFSpacMode-Sel</pv_name>
     <pv_value />
     <rules />
     <scale_options>

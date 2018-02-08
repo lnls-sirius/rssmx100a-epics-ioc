@@ -180,7 +180,7 @@
     <name>Text Update_1</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)GENERAL:PMode-Sts</pv_name>
+    <pv_name>$(P)$(R)GENERALPMode-Sts</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -242,7 +242,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(P)$(R)GENERAL:PSweep-Sts</pv_name>
+    <pv_name>$(P)$(R)GENERALPSweep-Sts</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -566,7 +566,7 @@ $(pv_value)</tooltip>
     <height>31</height>
     <items_from_pv>true</items_from_pv>
     <name>Combo</name>
-    <pv_name>$(P)$(R)FREQ:PSweepMode-Sel</pv_name>
+    <pv_name>$(P)$(R)FREQPSweepMode-Sel</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -608,7 +608,7 @@ $(pv_value)</tooltip>
     <height>31</height>
     <items_from_pv>true</items_from_pv>
     <name>Combo</name>
-    <pv_name>$(P)$(R)TRIG:PSweepSrc-Sel</pv_name>
+    <pv_name>$(P)$(R)TRIGPSweepSrc-Sel</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -659,7 +659,7 @@ $(pv_value)</tooltip>
     <name>Text Input</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)GENERAL:LvlStart-SP</pv_name>
+    <pv_name>$(P)$(R)GENERALLvlStart-SP</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -716,7 +716,7 @@ $(pv_value)</tooltip>
     <name>Text Input</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)GENERAL:LvlStop-SP</pv_name>
+    <pv_name>$(P)$(R)GENERALLvlStop-SP</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -773,7 +773,7 @@ $(pv_value)</tooltip>
     <name>Text Input</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)GENERAL:RFLvl-SP</pv_name>
+    <pv_name>$(P)$(R)GENERALRFLvl-SP</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -821,7 +821,7 @@ $(pv_value)</tooltip>
     <height>31</height>
     <items_from_pv>true</items_from_pv>
     <name>Combo</name>
-    <pv_name>$(P)$(R)FREQ:LvlShp-Sel</pv_name>
+    <pv_name>$(P)$(R)FREQLvlShp-Sel</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -872,7 +872,7 @@ $(pv_value)</tooltip>
     <name>Text Input</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)FREQ:PDwellTime-SP</pv_name>
+    <pv_name>$(P)$(R)FREQPDwellTime-SP</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -924,7 +924,7 @@ $(pv_value)</tooltip>
     <name>Text Update_8</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)FREQ:PSweepMode-Sts</pv_name>
+    <pv_name>$(P)$(R)FREQPSweepMode-Sts</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -976,7 +976,7 @@ $(pv_value)</tooltip>
     <name>Text Update_9</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)TRIG:PSweepSrc-Sts</pv_name>
+    <pv_name>$(P)$(R)TRIGPSweepSrc-Sts</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1028,7 +1028,7 @@ $(pv_value)</tooltip>
     <name>Text Update_10</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)GENERAL:LvlStart-RB</pv_name>
+    <pv_name>$(P)$(R)GENERALLvlStart-RB</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1080,7 +1080,7 @@ $(pv_value)</tooltip>
     <name>Text Update_11</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)GENERAL:LvlStop-RB</pv_name>
+    <pv_name>$(P)$(R)GENERALLvlStop-RB</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1132,7 +1132,7 @@ $(pv_value)</tooltip>
     <name>Text Update_14</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)GENERAL:RFLvl-RB</pv_name>
+    <pv_name>$(P)$(R)GENERALRFLvl-RB</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1184,7 +1184,7 @@ $(pv_value)</tooltip>
     <name>Text Update_15</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)FREQ:LvlShp-Sts</pv_name>
+    <pv_name>$(P)$(R)FREQLvlShp-Sts</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1236,7 +1236,7 @@ $(pv_value)</tooltip>
     <name>Text Update_16</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)FREQ:PDwellTime-RB</pv_name>
+    <pv_name>$(P)$(R)FREQPDwellTime-RB</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1333,7 +1333,7 @@ $(pv_value)</tooltip>
     <name>Text Input</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)FREQ:PStepLog-SP</pv_name>
+    <pv_name>$(P)$(R)FREQPStepLog-SP</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1385,7 +1385,7 @@ $(pv_value)</tooltip>
     <name>Text Update_18</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)FREQ:PStepLog-RB</pv_name>
+    <pv_name>$(P)$(R)FREQPStepLog-RB</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1517,7 +1517,7 @@ $(pv_value)</tooltip>
       <name>Text Update_4</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)TRIG:InpSlopePol-Sts</pv_name>
+      <pv_name>$(P)$(R)TRIGInpSlopePol-Sts</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -1565,7 +1565,7 @@ $(pv_value)</tooltip>
       <height>31</height>
       <items_from_pv>true</items_from_pv>
       <name>Combo_1</name>
-      <pv_name>$(P)$(R)TRIG:InpSlopePol-Sel</pv_name>
+      <pv_name>$(P)$(R)TRIGInpSlopePol-Sel</pv_name>
       <pv_value />
       <rules />
       <scale_options>
@@ -1657,7 +1657,7 @@ $(pv_value)</tooltip>
     <name>Text Input</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)FREQ:PSweepPts-SP</pv_name>
+    <pv_name>$(P)$(R)FREQPSweepPts-SP</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1709,7 +1709,7 @@ $(pv_value)</tooltip>
     <name>Text Update_20</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)FREQ:PSweepPts-RB</pv_name>
+    <pv_name>$(P)$(R)FREQPSweepPts-RB</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1801,7 +1801,7 @@ $(pv_value)</tooltip>
     <name>Text Update_21</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)FREQ:PSpacMode-Mon</pv_name>
+    <pv_name>$(P)$(R)FREQPSpacMode-Mon</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1862,7 +1862,7 @@ $(pv_value)</tooltip>
     <on_label>ON / OFF</on_label>
     <password></password>
     <push_action_index>0</push_action_index>
-    <pv_name>$(P)$(R)GENERAL:PSweep-Sel</pv_name>
+    <pv_name>$(P)$(R)GENERALPSweep-Sel</pv_name>
     <pv_value />
     <released_action_index>0</released_action_index>
     <rules />
@@ -1923,7 +1923,7 @@ $(pv_value)</tooltip>
     <on_label>Execute Single Sweep</on_label>
     <password></password>
     <push_action_index>1</push_action_index>
-    <pv_name>$(P)$(R)FREQ:PExeSweep-Cmd</pv_name>
+    <pv_name>$(P)$(R)FREQPExeSweep-Cmd</pv_name>
     <pv_value />
     <released_action_index>0</released_action_index>
     <rules />
@@ -1984,7 +1984,7 @@ $(pv_value)</tooltip>
     <on_label>Reset Sweep</on_label>
     <password></password>
     <push_action_index>1</push_action_index>
-    <pv_name>$(P)$(R)FREQ:Rst-Cmd</pv_name>
+    <pv_name>$(P)$(R)FREQRst-Cmd</pv_name>
     <pv_value />
     <released_action_index>0</released_action_index>
     <rules />
@@ -2125,7 +2125,7 @@ $(pv_value)</tooltip>
       <on_label>ON / OFF</on_label>
       <password></password>
       <push_action_index>0</push_action_index>
-      <pv_name>$(P)$(R)FREQ:LvlRetr-Sel</pv_name>
+      <pv_name>$(P)$(R)FREQLvlRetr-Sel</pv_name>
       <pv_value />
       <released_action_index>0</released_action_index>
       <rules />
@@ -2187,7 +2187,7 @@ $(pv_value)</tooltip>
         <color red="0" green="255" blue="0" />
       </on_color>
       <on_label>ON</on_label>
-      <pv_name>$(P)$(R)FREQ:LvlRetr-Sts</pv_name>
+      <pv_name>$(P)$(R)FREQLvlRetr-Sts</pv_name>
       <pv_value />
       <rules />
       <scale_options>

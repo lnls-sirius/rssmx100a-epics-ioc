@@ -140,7 +140,7 @@
     <name>Text Update_3</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)GENERAL:PPwr-RB</pv_name>
+    <pv_name>$(P)$(R)GENERALPPwr-RB</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -197,7 +197,7 @@ $(pv_value)</tooltip>
     <name>Text Input_1</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)GENERAL:PPwr-SP</pv_name>
+    <pv_name>$(P)$(R)GENERALPPwr-SP</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -369,7 +369,7 @@ $(pv_value)</tooltip>
       <name>Text Update_4</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)GENERAL:PwrStep-RB</pv_name>
+      <pv_name>$(P)$(R)GENERALPwrStep-RB</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -426,7 +426,7 @@ $(pv_value)</tooltip>
       <name>Text Input</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)GENERAL:PwrStep-SP</pv_name>
+      <pv_name>$(P)$(R)GENERALPwrStep-SP</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -488,7 +488,7 @@ $(pv_value)</tooltip>
         <color red="0" green="255" blue="0" />
       </on_color>
       <on_label>ON</on_label>
-      <pv_name>$(P)$(R)GENERAL:PwrStepMode-Sts</pv_name>
+      <pv_name>$(P)$(R)GENERALPwrStepMode-Sts</pv_name>
       <pv_value />
       <rules />
       <scale_options>
@@ -545,7 +545,7 @@ $(pv_value)</tooltip>
       <on_label>ON / OFF</on_label>
       <password></password>
       <push_action_index>0</push_action_index>
-      <pv_name>$(P)$(R)GENERAL:PwrStepMode-Sel</pv_name>
+      <pv_name>$(P)$(R)GENERALPwrStepMode-Sel</pv_name>
       <pv_value />
       <released_action_index>0</released_action_index>
       <rules />
@@ -674,7 +674,7 @@ $(pv_value)</tooltip>
       <height>31</height>
       <items_from_pv>true</items_from_pv>
       <name>Combo</name>
-      <pv_name>$(P)$(R)GENERAL:PwrAtt-Sel</pv_name>
+      <pv_name>$(P)$(R)GENERALPwrAtt-Sel</pv_name>
       <pv_value />
       <rules />
       <scale_options>
@@ -720,7 +720,7 @@ $(pv_value)</tooltip>
       <name>Text Update_4</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)GENERAL:PwrAtt-Sts</pv_name>
+      <pv_name>$(P)$(R)GENERALPwrAtt-Sts</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -812,7 +812,7 @@ $(pv_value)</tooltip>
       <name>Text Update_4</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)GENERAL:AttFixLow-Mon</pv_name>
+      <pv_name>$(P)$(R)GENERALAttFixLow-Mon</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -864,7 +864,7 @@ $(pv_value)</tooltip>
       <name>Text Update_4</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)GENERAL:AttFixUpp-Mon</pv_name>
+      <pv_name>$(P)$(R)GENERALAttFixUpp-Mon</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
