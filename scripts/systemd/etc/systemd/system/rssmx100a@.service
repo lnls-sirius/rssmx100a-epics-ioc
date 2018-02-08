@@ -1,0 +1,25 @@
+[Unit]
+Description=RSSMX100A IOC %p%I
+After=rc-local.service
+Wants=rc-local.service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+# Source environment
+EnvironmentFile=/etc/sysconfig/rssmx100a-epics-ioc
+EnvironmentFile=/etc/sysconfig/rssmx100a-epics-ioc-mapping
+# Execute pre with root
+PermissionsStartOnly=true
+Environment=RSSMX100A_INSTANCE=%i
+ExecStartPre=/bin/mkdir -p /var/log/procServ/%p%i
+ExecStartPre=/bin/mkdir -p /var/run/procServ/%p%i
+#WorkingDirectory=${RSSMX100A_IOC_STARTUP}
+WorkingDirectory=/opt/epics/startup/ioc/dmm7510-epics-ioc/iocBoot/iocrssmx100a
+# Run procServ with IOC
+ExecStart="/usr/local/bin/runRSSMX100A.sh"
+
+
+[Install]
+WantedBy=multi-user.target
+

@@ -5,22 +5,6 @@
 Repository containing the EPICS IOC support for the R&S SMA100A and
 SMB100A signal generators. Some functionalities are exclusive to SMA100A.
 
-## PV Structures
-
-The PVs have 3 parameters: The device identifier, the functionality
-group and the functionality name, all separated by colons and a dash,
-as shown below.
-
-```
-DEVICE_IDN:GROUP-NAME
-```
-
-The DEVICE_IDN is set on the *st.cmd* file, and can be easily
-costumized. For the initialization of the IOC, the device IP must be
-given, either by passing it as the argument *DEVICE_IP* during the
-initialization or by setting it on the
-*iocBoot/iocrssmx100a/device.config* file.
-
 ## Example
 
 ### Initialization
@@ -34,7 +18,6 @@ $ make clean &&
 $ make uninstall &&
 $ make &&
 $ cd iocBoot/iocrssmx100a &&
-$ DEVICE_IP="10.0.18.34" DEVICE_INST="0" ../../bin/linux-x86_64/rssmx100a ./st.cmd
 ```
 
 The *DEVICE_IP* and *DEVICE_INST* specify the instrument IP and the
@@ -50,18 +33,17 @@ $ make clean &&
 $ make uninstall &&
 $ make &&
 $ cd iocBoot/iocrssmx100a &&
-$ procServ -n "RSSMX100A" -f -i ^C^D 20000 ./run.sh 10.0.18.34 0
+$ procServ -n "RSSMX100A" -f -i ^C^D 20000 ./run.sh 10.0.18.43 -d SMX
 ```
 
-It is important to notice that the *DEVICE_IP* and *DEVICE_INST*
-arguments are passed after the */run.sh* in the last line.
+It is important to notice that the *DEVICE_IP* is passed as an argument to the ./run.sh script using the -i option and -d is for the chisen device type (SMA or SMB).
 
 ### Caput
 
 An example of writing frequency is given below:
 
 ```
-$ caput DIG-RSSMX100A-0:GENERAL:Freq 1e8
+$ caput ${P}${R}:GENFreq-SP 1e8
 ```
 
 ### Caget
@@ -69,41 +51,20 @@ $ caput DIG-RSSMX100A-0:GENERAL:Freq 1e8
 An example of reading frequency is given below:
 
 ```
-$ caget DIG-RSSMX100A-0:GENERAL:Freq_RBV
+$ caget ${P}${R}:GENFreq-RB
 ```
 
-## Some Implemented Functionalities
+## RSSMX100A PV Structure
 
-The functionalities are divided in 7 major groups: GENERAL, FREQ, MOD,
+The PV's are divided in 7 major groups: GENERAL, FREQ, MOD,
 TRIG, ROSC, CSYN and NOIS. To set values, use the given name. To read
 them, add *_RBV* after it.
 
 - **GENERAL** - General functionalities
- - **Reset**: Reset the device to default state
- - **Idn**: Get the device identification
- - **Freq**: Get/Set device frequency (Hz)
- - **Lvl**: Set device level (dBm)
- - **RFState**: Enable/Disable RF (OFF|ON)
- - **RFLvl**: Get/Set RF Level (dBm)
 
 - **FREQ** - Functionalities related to FREQuency
- - **FreqMode**: Get/Select frequency mode (CW|SWE|LIST)
- - **StartFreq**: Get/Set start frequency (Hz)
- - **StopFreq**: Get/Set stop frequency (Hz)
- - **StepFreq**: Get/Set frequency step (Hz)
 
 - **MOD** - Functionalities related to MODulation
- - **AMState**: Enable/Disable AM (OFF|ON)
- - **AMSrc**: Get/Select AM source (INT|EXT)
- - **FMState**: Enable/Disable FM (OFF|ON)
- - **FMSrc**: Get/Select FM source (INT|INT,EXT|EXT|EDIG)
- - **PGState**: Enable/Disable pulse generation (OFF|ON)
- - **PulMState**: Enable/Disable PulM (OFF|ON)
- - **PulMWidth**: Get/Set PulM width (rad)
- - **PulMPol**: Get/Select PulM polarity (NORMz|INV)
- - **PulMPeriod**: Get/Set PulM period (seconds)
- - **PulMMode**: Get/Select PulM mode (SING|DOUB|PTR)
- - **AllState**: Enable/Disable all modulations (OFF|ON)
 
 - **TRIG** - Functionalities related to TRIGgering
 
@@ -112,3 +73,16 @@ them, add *_RBV* after it.
 - **CSYN** - Functionalities related to Clock SYNthesis
 
 - **NOIS** - Functionalities related to NOISe
+
+The suffixes indicate the PV type and can be one of the following:
+
+- SP (Set Point): A non-enumerated value (real number or string). It sets a system parameter.
+- RB (Read Back): A non-enumerated value (real number or string). Read-only. It displays the read back value of a parameter, providing confirmation to changes.
+- Sel (Selection): Enumerated value. Sets a system parameter.
+- Sts (Status): Enumerated value. Read-only. It displays the read back value of an enumerated parameter, providing confirmation to changes.
+- Cmd (Command): Binary command. It causes a given action to be executed.
+- Mon (Monitor): Monitor non-enumerated or enumerated  device property variable
+
+## Running the OPIs
+
+The *OPI/CSS* directory provide OPIs for easily controlling the multimeter and applications process variables. In order to run the operator interfaces it is necessary to have Control System Studio installed. It is recommended to run `cs-studio` in the OPI folder, in order to avoid having to reconfigure CS-Studio preferences.

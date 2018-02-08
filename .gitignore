@@ -1,5 +1,39 @@
-OPI/logs.*
-OPI/.metadata
-logs.*
-rssmx100aApp/Db/O.*
-rssmx100aApp/Db/.*
+# General files
+*.orig
+*.swap
+*~
+*.bak
+*.backup
+*.swp
+*.swo
+
+# EPICS generated
+/bin/
+/lib/
+/include/
+db
+dbd
+*_BAK.adl
+documentation.html
+envPAths*
+cdCommands
+dllPath.bat
+auto_settings*.sav*
+configure/*.local
+O.*/
+*~
+.cproject
+.project
+
+# CSS files
+op/opi/logs.*
+op/opi/.metadata
+
+# Autosave files
+iocBoot/iocrssmx100a/autosave/*
+
+# Documentation files
+documentation/*.aux
+documentation/*.log
+documentation/*.out
+documentation/*.toc
