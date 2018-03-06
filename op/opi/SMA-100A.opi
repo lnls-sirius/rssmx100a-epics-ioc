@@ -142,7 +142,7 @@
     <name>Text Update_1</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)GENERALRFLvl-RB</pv_name>
+    <pv_name>$(P)$(R)GeneralRFLvl-RB</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -234,7 +234,7 @@ $(pv_value)</tooltip>
     <name>Text Update</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)GENERALFreq-RB</pv_name>
+    <pv_name>$(P)$(R)GeneralFreq-RB</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -326,7 +326,7 @@ $(pv_value)</tooltip>
     <name>Text Update_2</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)GENERALIdn</pv_name>
+    <pv_name>$(P)$(R)GeneralIdn</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -387,7 +387,7 @@ $(pv_value)</tooltip>
     <on_label>RESET</on_label>
     <password></password>
     <push_action_index>0</push_action_index>
-    <pv_name>$(P)$(R)GENERALReset</pv_name>
+    <pv_name>$(P)$(R)GeneralReset</pv_name>
     <pv_value />
     <released_action_index>0</released_action_index>
     <rules />
@@ -489,7 +489,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(P)$(R)FREQPRunnMode-Mon</pv_name>
+    <pv_name>$(P)$(R)FreqPRunnMode-Mon</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -1024,7 +1024,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(P)$(R)GENERALUsrCorrect-Sts</pv_name>
+    <pv_name>$(P)$(R)GeneralUsrCorrect-Sts</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -1082,7 +1082,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(P)$(R)FREQFRunnMode-Mon</pv_name>
+    <pv_name>$(P)$(R)FreqFRunnMode-Mon</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -2253,7 +2253,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(P)$(R)MODAM-Sts</pv_name>
+    <pv_name>$(P)$(R)ModAM-Sts</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -2311,7 +2311,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(P)$(R)MODFM-Sts</pv_name>
+    <pv_name>$(P)$(R)ModFM-Sts</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -2369,7 +2369,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(P)$(R)MODPulM-Sts</pv_name>
+    <pv_name>$(P)$(R)ModPulM-Sts</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -2426,7 +2426,7 @@ $(pv_value)</tooltip>
     <on_label>RF ON / OFF</on_label>
     <password></password>
     <push_action_index>0</push_action_index>
-    <pv_name>$(P)$(R)GENERALRF-Sel</pv_name>
+    <pv_name>$(P)$(R)GeneralRF-Sel</pv_name>
     <pv_value />
     <released_action_index>0</released_action_index>
     <rules />
@@ -2487,7 +2487,7 @@ $(pv_value)</tooltip>
     <on_label>CLOCK SYN ON / OFF</on_label>
     <password></password>
     <push_action_index>0</push_action_index>
-    <pv_name>$(P)$(R)CSYN-Sel</pv_name>
+    <pv_name>$(P)$(R)Csyn-Sel</pv_name>
     <pv_value />
     <released_action_index>0</released_action_index>
     <rules />
@@ -2549,7 +2549,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(P)$(R)GENERALRF-Sts</pv_name>
+    <pv_name>$(P)$(R)GeneralRF-Sts</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -2607,7 +2607,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(P)$(R)CSYN-Sts</pv_name>
+    <pv_name>$(P)$(R)Csyn-Sts</pv_name>
     <pv_value />
     <rules />
     <scale_options>

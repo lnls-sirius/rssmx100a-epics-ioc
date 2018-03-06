@@ -296,7 +296,7 @@
       <height>31</height>
       <items_from_pv>true</items_from_pv>
       <name>Combo_1</name>
-      <pv_name>$(P)$(R)MODAMIntSrc-Sel</pv_name>
+      <pv_name>$(P)$(R)ModAMIntSrc-Sel</pv_name>
       <pv_value />
       <rules />
       <scale_options>
@@ -342,7 +342,7 @@ $(pv_value)</tooltip>
       <name>Text Update_3</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)MODAMIntSrc-Sts</pv_name>
+      <pv_name>$(P)$(R)ModAMIntSrc-Sts</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -515,7 +515,7 @@ $(pv_value)</tooltip>
       <name>Text Update_4</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)MODAMExtCoup-Sts</pv_name>
+      <pv_name>$(P)$(R)ModAMExtCoup-Sts</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -567,7 +567,7 @@ $(pv_value)</tooltip>
       <name>Text Update_4</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)MODAMSens-Mon</pv_name>
+      <pv_name>$(P)$(R)ModAMSens-Mon</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -615,7 +615,7 @@ $(pv_value)</tooltip>
       <height>31</height>
       <items_from_pv>true</items_from_pv>
       <name>Combo_1</name>
-      <pv_name>$(P)$(R)MODAMExtCoup-Sel</pv_name>
+      <pv_name>$(P)$(R)ModAMExtCoup-Sel</pv_name>
       <pv_value />
       <rules />
       <scale_options>
@@ -662,7 +662,7 @@ $(pv_value)</tooltip>
     <name>Text Update_1</name>
     <precision>0</precision>
     <precision_from_pv>false</precision_from_pv>
-    <pv_name>$(P)$(R)MODAMSrc-Sts</pv_name>
+    <pv_name>$(P)$(R)ModAMSrc-Sts</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -714,7 +714,7 @@ $(pv_value)</tooltip>
     <name>Text Update_2</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)MODAMDepth-RB</pv_name>
+    <pv_name>$(P)$(R)ModAMDepth-RB</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -771,7 +771,7 @@ $(pv_value)</tooltip>
     <name>Text Input_2</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P)$(R)MODAMDepth-SP</pv_name>
+    <pv_name>$(P)$(R)ModAMDepth-SP</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -833,7 +833,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(P)$(R)MODAM-Sts</pv_name>
+    <pv_name>$(P)$(R)ModAM-Sts</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -877,7 +877,7 @@ $(pv_value)</tooltip>
     <height>31</height>
     <items_from_pv>true</items_from_pv>
     <name>Combo</name>
-    <pv_name>$(P)$(R)MODAMSrc-Sel</pv_name>
+    <pv_name>$(P)$(R)ModAMSrc-Sel</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -932,7 +932,7 @@ $(pv_value)</tooltip>
     <on_label>ON / OFF</on_label>
     <password></password>
     <push_action_index>0</push_action_index>
-    <pv_name>$(P)$(R)MODAM-Sel</pv_name>
+    <pv_name>$(P)$(R)ModAM-Sel</pv_name>
     <pv_value />
     <released_action_index>0</released_action_index>
     <rules />
@@ -1064,7 +1064,7 @@ $(pv_value)</tooltip>
       <name>Text Update_3</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)NOISDist-Sts</pv_name>
+      <pv_name>$(P)$(R)NoisDist-Sts</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -1112,7 +1112,7 @@ $(pv_value)</tooltip>
       <height>31</height>
       <items_from_pv>true</items_from_pv>
       <name>Combo_1</name>
-      <pv_name>$(P)$(R)NOISDist-Sel</pv_name>
+      <pv_name>$(P)$(R)NoisDist-Sel</pv_name>
       <pv_value />
       <rules />
       <scale_options>
@@ -1208,7 +1208,7 @@ $(pv_value)</tooltip>
         <color red="0" green="255" blue="0" />
       </on_color>
       <on_label>ON</on_label>
-      <pv_name>$(P)$(R)NOISBwid-Sts</pv_name>
+      <pv_name>$(P)$(R)NoisBwid-Sts</pv_name>
       <pv_value />
       <rules />
       <scale_options>
@@ -1296,7 +1296,7 @@ $(pv_value)</tooltip>
       <name>Text Update_4</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)NOISBwid-RB</pv_name>
+      <pv_name>$(P)$(R)NoisBwid-RB</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -1353,7 +1353,7 @@ $(pv_value)</tooltip>
       <name>Text Input_3</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(P)$(R)NOISBwid-SP</pv_name>
+      <pv_name>$(P)$(R)NoisBwid-SP</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -1414,7 +1414,7 @@ $(pv_value)</tooltip>
       <on_label>ON / OFF</on_label>
       <password></password>
       <push_action_index>0</push_action_index>
-      <pv_name>$(P)$(R)NOISBwid-Sel</pv_name>
+      <pv_name>$(P)$(R)NoisBwid-Sel</pv_name>
       <pv_value />
       <released_action_index>0</released_action_index>
       <rules />
