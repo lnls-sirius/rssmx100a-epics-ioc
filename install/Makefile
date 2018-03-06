@@ -7,11 +7,9 @@ all:
 
 install:
 	$(TOP)/install/install.sh /opt/epics/startup/ioc/${ioc_name} $(TOP)
-#	$(TOP)/install/install.sh $(TOP)/../TESTE_SMA/${ioc_name} $(TOP)
 
 uninstall:
 	$(TOP)/install/uninstall.sh /opt/epics/startup/ioc/${ioc_name} $(TOP)
-#	$(TOP)/install/install.sh $(TOP)/../TESTE_SMA/${ioc_name} $(TOP)
 
 
 realuninstall: uninstall
