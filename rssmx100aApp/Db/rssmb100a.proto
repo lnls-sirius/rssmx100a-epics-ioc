@@ -143,14 +143,14 @@ outRFLvl {
 ################################################################################
 # Set the level control mode
 
-outGAlcOMode {
-	out "SOUR:POW:ALC:OMOD";
+cmdGAlcOMode {
+	out "%{|SOUR:POW:ALC:OMOD}";
 }
 ################################################################################
 # Temporarily activates level control for correction purposes
 
-outGSearchOnce {
-	out "SOUR:POW:ALC:SONC";
+cmdGSearchOnce {
+	out "%{|SOUR:POW:ALC:SONC}";
 }
 ################################################################################
 # Read the automatic level control state
@@ -569,14 +569,14 @@ outFVarMode {
 ################################################################################
 # Execute power single sweep
 
-PExeSweep {
-	out "SOUR:SWE:POW:EXEC";
+cmdPExeSweep {
+	out "%{|SOUR:SWE:POW:EXEC}";
 }
 ################################################################################
 # Execute LF single sweep
 
-LFExeSweep {
-	out ":SOUR:LFO:SWE:FREQ:EXEC";
+cmdLFExeSweep {
+	out "%{|SOUR:LFO:SWE:FREQ:EXEC}";
 }
 ################################################################################
 # Queries the power sweep spacing mode
@@ -602,8 +602,8 @@ outFFSpacMode {
 ################################################################################
 # Resets all active sweeps to the starting point
 
-RstAllSweep {
-	out "SOUR:SWE:RES:ALL";
+cmdRstAllSweep {
+	out "%{|SOUR:SWE:RES:ALL}";
 }
 ################################################################################
 # Queries the current state of the frequency sweep mode
@@ -699,8 +699,8 @@ outFSweepPts {
 ################################################################################
 # Execute an RF frequency sweep cycle manually
 
-outFExeSweep {
-	out "SOUR:SWE:FREQ:EXEC %{OFF|ON}";
+cmdFExeSweep {
+	out "%{|SOUR:SWE:FREQ:EXEC}";
 }
 ################################################################################
 # Read the LF frequency sweep state
@@ -1160,8 +1160,8 @@ outPulMTrigMode {
 ################################################################################
 # Trigger Pulse
 
-Pulse {
-	out "TRIG:PSW:IMM";
+cmdPulse {
+	out "%{|TRIG:PSW:IMM}";
 }
 ################################################################################
 # Read the deviation of FM signals
@@ -1373,20 +1373,20 @@ outTSweepSrc {
 ################################################################################
 # Start RF Frequency Sweep
 
-outTFSweep {
-	out "TRIG:FSW:IMM";
+cmdTFSweep {
+	out "%{|TRIG:FSW:IMM}";
 }
 ################################################################################
 # Start all sweeps which are activated for the respective path
 
-outTAllSweep {
-	out "TRIG:SWE:IMM";
+cmdTAllSweep {
+	out "%{|TRIG:SWE:IMM}";
 }
 ################################################################################
 # Start all sweeps which are activated for the respective path
 
-outTSweep {
-	out "TRIG:IMM";
+cmdTSweep {
+	out "%{|TRIG:IMM}";
 }
 ################################################################################
 # Read the polarity of the active slope

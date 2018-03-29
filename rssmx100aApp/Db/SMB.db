@@ -137,26 +137,28 @@ record(ao, "$(P)$(R)GeneralRFLvl-SP") {
 # SET LEVEL CONTROL OFF MODE
 
 record(bo, "$(P)$(R)GeneralAlcOffMode-Cmd") {
-  field(DESC, "Set level Control Off Mode (OFF|ON)")
+  field(DESC, "Set level Control Off Mode")
   field(DTYP, "stream")
-  field(ZNAM, "OFF")
-  field(ONAM, "ON")
-  field(OUT, "@rssmb100a.proto outGAlcOMode($1) $(PORT)")
+  field(ZNAM, "0")
+  field(ONAM, "1")
+  field(HIGH, "1")
+  field(OUT, "@rssmb100a.proto cmdGAlcOMode($1) $(PORT)")
 }
 
 # LEVEL CONTROL FOR CORRECTION
 
-record(bo, "$(P)$(R)GeneralSearchOnce-Mon") {
-  field(DESC, "Activate Level Control for Correction")
+record(bo, "$(P)$(R)GeneralSearchOnce-Cmd") {
+  field(DESC, "Search Once Button")
   field(DTYP, "stream")
-  field(ZNAM, "OFF")
-  field(ONAM, "ON")
-  field(OUT, "@rssmb100a.proto outGSearchOnce($1) $(PORT)")
+  field(ZNAM, "0")
+  field(ONAM, "1")
+  field(HIGH, "1")
+  field(OUT, "@rssmb100a.proto cmdGSearchOnce($1) $(PORT)")
 }
 
 # AUTOMATIC LEVEL CONTROL STATE
 
-record(mbbi, "$(P)$(R)GeneralAlc-Sts") {
+record(mbbi, "$(P)$(R)oscExtBwid-Sts") {
   field(DESC, "Get Alc State (ON|OFF|AUTO)")
   field(SCAN, "1 second")
   field(DTYP, "stream")
@@ -647,26 +649,6 @@ record(ao, "$(P)$(R)FreqFStepLin-SP") {
   field(FLNK,"$(P)$(R)FreqFStepLin-RB")
 }
 
-# PHASE CONTINUOUS - ONLY AVAILABLE FOR SMA100A
-#
-# record(bi, "$(P)$(R)FreqPhaseCont-Sts") {
-#   field(DESC, "Get Phase Continuous Status (OFF|ON)")
-#   field(SCAN, "1 second")
-#   field(DTYP, "stream")
-#   field(ZNAM, "OFF")
-#   field(ONAM, "ON")
-#   field(INP, "@rssmb100a.proto inPhasCont $(PORT)")
-# }
-#
-# record(bo, "$(P)$(R)FreqPhaseCont-Sel") {
-#  field(DESC, "Enable/Disable Phase Continuous (OFF|ON)")
-#  field(DTYP, "stream")
-#  field(ZNAM, "OFF")
-#  field(ONAM, "ON")
-#  field(OUT, "@rssmb100a.proto outPhasCont($1) $(PORT)")
-#  field(FLNK,"$(P)$(R)FreqPhaseCont-Sts")
-# }
-
 # CENTER FREQUENCY
 
 record(ai, "$(P)$(R)FreqCenterFreq-RB") {
@@ -965,9 +947,10 @@ record(ao, "$(P)$(R)FreqFDwellTime-SP") {
 record(bo, "$(P)$(R)FreqFExeSweep-Cmd") {
   field(DESC, "Execute Frequency Sweep (OFF|ON)")
   field(DTYP, "stream")
-  field(ZNAM, "OFF")
-  field(ONAM, "ON")
-  field(OUT, "@rssmb100a.proto outFExeSweep($1) $(PORT)")
+  field(ZNAM, "0")
+  field(ONAM, "1")
+  field(HIGH, "1")
+  field(OUT, "@rssmb100a.proto cmdFExeSweep($1) $(PORT)")
 }
 
 # POINTS FOR THE FREQUENCY SWEEP
@@ -1067,7 +1050,8 @@ record(bo, "$(P)$(R)FreqPExeSweep-Cmd") {
   field(DTYP, "stream")
   field(ZNAM, "0")
   field(ONAM, "1")
-  field(OUT, "@rssmb100a.proto PExeSweep($1) $(PORT)")
+  field(HIGH, "1")
+  field(OUT, "@rssmb100a.proto cmdPExeSweep($1) $(PORT)")
 }
 
 # EXECUTE LF SINGLE SWEEP
@@ -1077,7 +1061,8 @@ record(bo, "$(P)$(R)FreqLFExeSweep-Cmd") {
   field(DTYP, "stream")
   field(ZNAM, "0")
   field(ONAM, "1")
-  field(OUT, "@rssmb100a.proto LFExeSweep($1) $(PORT)")
+  field(HIGH, "1")
+  field(OUT, "@rssmb100a.proto cmdLFExeSweep($1) $(PORT)")
 }
 
 # POWER SWEEP SPACING MODE
@@ -1118,7 +1103,7 @@ record(bo, "$(P)$(R)FreqRst-Cmd") {
   field(ZNAM, "0")
   field(ONAM, "1")
   field(HIGH, "1") #após um segundo, VAL retorna para 0
-  field(OUT, "@rssmb100a.proto RstAllSweep($1) $(PORT)")
+  field(OUT, "@rssmb100a.proto cmdRstAllSweep($1) $(PORT)")
 }
 
 # LF OPERATING MODE
@@ -1700,7 +1685,7 @@ record(ao, "$(P)$(R)ModPulMDelay-SP") {
 # PULM SOURCE
 
 record(bi, "$(P)$(R)ModPulMSrc-Sts") {
-  field(DESC, "Get PulM Source (INT|EXT)")
+  field(DESC, "Get PulM Source")
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(ZNAM, "PULSE GEN.")
@@ -1895,8 +1880,8 @@ record(bi, "$(P)$(R)ModPulMExtImpdTrig-Sts") {
   field(DESC, "Get PulM Impedance")
   field(SCAN, "1 second")
   field(DTYP, "stream")
-  field(ZNAM, "50")
-  field(ONAM, "10k")
+  field(ZNAM, "50") #name for better understanding
+  field(ONAM, "10k") #name for better understanding
   field(INP, "@rssmb100a.proto inMPulMExtImpdTrig $(PORT)")
 }
 
@@ -2116,7 +2101,8 @@ record(bo, "$(P)$(R)TrigPSweep-Cmd") {
   field(DTYP, "stream")
   field(ZNAM, "0")
   field(ONAM, "1")
-  field(OUT, "@rssmb100a.proto Pulse($1) $(PORT)")
+  field(HIGH, "1")
+  field(OUT, "@rssmb100a.proto cmdPulse($1) $(PORT)")
 }
 
 # TRIGGER SOURCE FOR ALL SWEEPS
@@ -2138,31 +2124,34 @@ record(mbbo, "$(P)$(R)TrigAllSweepSrc-Cmd") {
 # START RF FREQUENCY SWEEP
 
 record(bo, "$(P)$(R)TrigFSweep-Cmd") {
-  field(DESC, "Start RF Frequency Sweep (OFF|ON)")
+  field(DESC, "Start RF Frequency Sweep")
   field(DTYP, "stream")
-  field(ZNAM, "OFF")
-  field(ONAM, "ON")
-  field(OUT, "@rssmb100a.proto outTFSweep($1) $(PORT)")
+  field(ZNAM, "0")
+  field(ONAM, "1")
+  field(HIGH, "1")
+  field(OUT, "@rssmb100a.proto cmdTFSweep($1) $(PORT)")
 }
 
 # START ALL SWEEPS
 
 record(bo, "$(P)$(R)TrigAllSweep-Cmd") {
-  field(DESC, "Start All Sweeps (OFF|ON)")
+  field(DESC, "Start All Sweeps")
   field(DTYP, "stream")
-  field(ZNAM, "OFF")
-  field(ONAM, "ON")
-  field(OUT, "@rssmb100a.proto outTAllSweep($1) $(PORT)")
+  field(ZNAM, "0")
+  field(ONAM, "1")
+  field(HIGH, "1")
+  field(OUT, "@rssmb100a.proto cmdTAllSweep($1) $(PORT)")
 }
 
 # START ACTIVATED SWEEP
 
 record(bo, "$(P)$(R)TrigSweep-Cmd") {
-  field(DESC, "Start Activated Sweeps (OFF|ON)")
+  field(DESC, "Start Activated Sweeps")
   field(DTYP, "stream")
-  field(ZNAM, "OFF")
-  field(ONAM, "ON")
-  field(OUT, "@rssmb100a.proto outTSweep($1) $(PORT)")
+  field(ZNAM, "0")
+  field(ONAM, "1")
+  field(HIGH, "1")
+  field(OUT, "@rssmb100a.proto cmdTSweep($1) $(PORT)")
 }
 
 # INPUT SLOPE POLARITY
@@ -2286,7 +2275,7 @@ record(ao, "$(P)$(R)NoisBwid-SP") {
 # NOISE DISTRIBUTION
 
 record(bi, "$(P)$(R)NoisDist-Sts") {
-  field(DESC, "Get Noise Distribution (GAUS|EQU)")
+  field(DESC, "Get Noise Distribution")
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(ZNAM, "GAUSS")
