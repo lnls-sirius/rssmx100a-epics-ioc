@@ -1,5 +1,4 @@
 # General configuration
-RSSMX100A_IOC_STARTUP=/opt/epics/startup/ioc/rssmx100a-epics-ioc/iocBoot/iocrssmx100a
 EPICS_HOST_ARCH=linux-x86_64
 PROCSERV_RSSMX100A_PORT_PREFIX=400
 EPICS_CA_MAX_ARRAY_BYTES=50000000
