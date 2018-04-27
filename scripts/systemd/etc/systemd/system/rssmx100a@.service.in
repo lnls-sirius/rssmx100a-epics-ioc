@@ -18,7 +18,6 @@ WorkingDirectory=<INSTALL_PREFIX>/<IOC_NAME>/iocBoot/iocrssmx100a
 # Run procServ with IOC
 ExecStart="/usr/local/bin/runRSSMX100A.sh"
 
-
 [Install]
 WantedBy=multi-user.target
 

@@ -1,5 +1,8 @@
 #!/bin/sh
 
+set -e
+set +u
+
 # Source environment
 . ./checkEnv.sh
 
@@ -22,14 +25,12 @@ if [ -z "$DEVICE" ]; then
     exit 4
 fi
 
-RSSMX100A_TYPE=$(echo ${DEVICE} | grep -Eo "[^0-9]+");
-
-if [ -z "$RSSMX100A_TYPE" ]; then
+if [ -z "$DEVICE" ]; then
     echo "Device type is not set. Please use -d option" >&2
     exit 5
 fi
 
-case ${RSSMX100A_TYPE} in
+case ${DEVICE} in
     SMA)
         ST_CMD_FILE=stSMA.cmd
 	;;
@@ -39,7 +40,7 @@ case ${RSSMX100A_TYPE} in
 	;;
 
     *)
-        echo "Invalid RSSMX100A type: "${RSSMX100A_TYPE} >&2
+        echo "Invalid RSSMX100A type: "${DEVICE} >&2
         exit 7
         ;;
 esac
