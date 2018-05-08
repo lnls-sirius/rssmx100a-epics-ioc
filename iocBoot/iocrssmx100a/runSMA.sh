@@ -1,5 +1,8 @@
 #!/bin/sh
 
+set -e
+set +u
+
 # Source environment
 . ./checkEnv.sh
 
@@ -17,7 +20,10 @@ if [ -z "$IPADDR" ]; then
     exit 3
 fi
 
+if [ -z "$IPPORT" ]; then
+    IPPORT="5025"
+fi
+
 cd "$IOC_BOOT_DIR"
 
 IPADDR="$IPADDR" IPPORT="$IPPORT" P="$P" R="$R" "$IOC_BIN" stSMA.cmd
-

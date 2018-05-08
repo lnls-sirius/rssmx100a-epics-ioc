@@ -14,11 +14,9 @@ PermissionsStartOnly=true
 Environment=RSSMX100A_INSTANCE=%i
 ExecStartPre=/bin/mkdir -p /var/log/procServ/%p%i
 ExecStartPre=/bin/mkdir -p /var/run/procServ/%p%i
-#WorkingDirectory=${RSSMX100A_IOC_STARTUP}
-WorkingDirectory=/opt/epics/startup/ioc/dmm7510-epics-ioc/iocBoot/iocrssmx100a
+WorkingDirectory=<INSTALL_PREFIX>/<IOC_NAME>/iocBoot/iocrssmx100a
 # Run procServ with IOC
 ExecStart="/usr/local/bin/runRSSMX100A.sh"
-
 
 [Install]
 WantedBy=multi-user.target
