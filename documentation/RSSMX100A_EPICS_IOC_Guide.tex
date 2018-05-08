@@ -80,15 +80,15 @@
 \tableofcontents
 
 \newpage
-%--- Section: DMM7510 IOC ---
-\section{DMM7510 IOC}
+%--- Section: RSSMX100A IOC ---
+\section{RSSMX IOC}
 
-	\paragraph{} The DMM7510 IOC provides most of the multimeter parameters as EPICS PVs. Its goal is to facilitate the process of building application-specific IOCs which could make use of a DMM7510 general IOC.
+	\paragraph{} The RSSMX100A IOC provides most of the SMA and SMB signal generator parameters as EPICS PVs. Its goal is to facilitate the process of setting the desired signal parameters and building application-specific IOCs which could make use of a SMX general IOC.
 
 %--- Section: Document Overview ---
 \section{Document Overview}
 
-	\paragraph{} This document lists the IOC PVs along with their data type, limits, units, description, and related TSP command. In most cases, a PV is a direct mapping of a multimeter parameter, and its description is the same provided for the parameter in the \emph{Model DMM7510 Reference Manual}. The multimeter reference manual provides all the information about the multimeter features and options. After a multimeter function or parameter is well understood, it should be easy to locate the associated PVs in this document.
+	\paragraph{} This document lists the IOC PVs along with their data type, limits, units, description, and related command. In most cases, a PV is a direct mapping of a SMA or SMB parameter, and its description is the same provided for the parameter in the Manufacturer Reference Manual. The Reference Manual provides all the information about the signal generator features and options. After a function or parameter is well understood, it should be easy to locate the associated PVs on this document.
 
 %--- Section: IOC Configuration Steps ---
 \section{IOC Configuration Steps}
@@ -109,11 +109,12 @@
 	\end{itemize}
 
 	% Edit st.cmd file
-	\paragraph{} Edit the \emph{st.cmd} file to set the DMM7510 network address using the \emph{drvAsynIPPortConfigure} command. Load the \emph{dmm7510.db} with the \emph{dbLoadRecords} command and set the desired prefix for the records names. The records' names prefixes have two parts: \emph{P} and \emph{R}.
+	\paragraph{} Edit the \emph{st.cmd} file to set the SMX network address using the \emph{drvAsynIPPortConfigure} command. Load the \emph{SMA.db or SMB.db} with the \emph{dbLoadRecords} command and set the desired prefix for the records names. The records' names prefixes have two parts: \emph{P} and \emph{R}.
 
 	\begin{itemize}
-		\item[] drvAsynIPPortConfigure("\textless port name\textgreater", "\textless DMM7510 IP{\textgreater} TCP",0,0,0)
-		\item[] dbLoadRecords("\${TOP}/db/dmm7510.db", "P=\textless first prefix part\textgreater, R=\textless second prefix part\textgreater, PORT=\textless port name\textgreater")
+		\item[] drvAsynIPPortConfigure("\textless port name\textgreater", "\textless RSSMX100A IP{\textgreater} TCP",0,0,0)
+		\item[] dbLoadRecords("\${TOP}/db/SMA.db", "P=\textless first prefix part\textgreater, R=\textless second prefix part\textgreater, PORT=\textless port name\textgreater")
+		\item[] dbLoadRecords("\${TOP}/db/SMB.db", "P=\textless first prefix part\textgreater, R=\textless second prefix part\textgreater, PORT=\textless port name\textgreater")
 	\end{itemize}
 
 %--- Section: PVs Suffixes ---
@@ -127,13 +128,13 @@
 		\begin{tabular}{m{3cm} m{3cm} m{7cm}}
 			\hline
 			\bfseries Mnemonic & \bfseries Name & \bfseries Description \\ \hline
-			GEN & General & General functionality \\ \hline
-			FREQ & Frequency & Frequency functionalities \\ \hline
-			MOD & Modulation & Modulation functionalities \\ \hline
-			TRIG & Trigger & Triggering functionalities \\ \hline
-			ROSC & Reference Oscillator & Reference Oscillator functionalities \\ \hline
-			CSYN & Clock Synthesis & Clock Synthesis functionalities\\ \hline
-			NOIS & Noise  & Noise functionalities \\ \hline
+			Gen & General & General functionality \\ \hline
+			Freq & Frequency & Frequency functionalities \\ \hline
+			Mod & Modulation & Modulation functionalities \\ \hline
+			Trig & Trigger & Triggering functionalities \\ \hline
+			Rosc & Reference Oscillator & Reference Oscillator functionalities \\ \hline
+			Csyn & Clock Synthesis & Clock Synthesis functionalities\\ \hline
+			Nois & Noise  & Noise functionalities \\ \hline
 
 		\end{tabular}
 	\end{table}
@@ -141,7 +142,7 @@
 %--- Section: PV List ---
 \section{PV List}
 
-		\paragraph{} NEEDS DESCRIPTION!!!!! Each PV information block starts with the PV Channel Access name in bold text, followed by a longer, more descriptive name. The PV input data type comes next, followed by the limits or options, when relevant. A description of the PV function is then provided. When available, the associated multimeter command (TSP command) is listed. For PVs that only work when certain measure functions are selected, a table indicates the set of allowed functions at the end of the block.
+		\paragraph{} Each PV information block starts with the PV Channel Access name in bold text, followed by a longer, more descriptive name. The PV input data type comes next, followed by the limits or options, when relevant. A description of the PV function is then provided. When available, the associated multimeter command (TSP command) is listed. For PVs that only work when certain measure functions are selected, a table indicates the set of allowed functions at the end of the block.
 
 		\newcommand{\FuncTableBorderColor}{gray!50} % define function table border color
 		\newcommand{\nofunc}{\cellcolor{gray!20}\color{gray}} % define function table "not allowed function" cell color
@@ -159,19 +160,19 @@
 			Command: Shows the related equipment remote command. \\
 			Configuration: what configuration the equipment must have for this PV to be editable. \\
 
-		\end{tabular}}
-
 		\end{tabular}
 
+
 	% TABLE: General Functionalities
-	\subsection{General Functionalities}\label{pvgroup:function} %LABEL NOT CHANGED YET
+	\subsection{General Functionalities}\label{pvgroup:function}
+		
 
 		\paragraph{} % This paragraph aligns the first tabular with the others
 
-%
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENFSweep-Sel \\ \hline
+			\bfseries GenFSweep-Sel \\ \hline
 			\emph{Frequency Sweep Selection} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -180,14 +181,14 @@
 			\end{itemize}\} \\
 			Description: Selects frequency sweep mode for the generating RF output signal. The selected mode determines the parameters to be used for further frequency settings. \\
 			Command: SOUR:FREQ:MODE \emph{value} \\
-			Configuration: \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENFSweep-Sts \\ \hline
+			\bfseries GenFSweep-Sts \\ \hline
 			\emph{Frequency Sweep Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -196,93 +197,100 @@
 			\end{itemize}\} \\
 			Description: Shows the frequency sweep state. \\
 			Command: SOUR:FREQ:MODE? \\
-			Configuration: \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENPwrMan-SP \\ \hline
+			\bfseries GenPwrMan-SP \\ \hline
 			\emph{Sweep Step Level Set Point} \\
 			Data type: float \\
 			Unit: dBm \\
 			Range: -145 dBm to 30 dBm \\
 			Description: In Sweep mode, this PV sets the level for the next sweep step in the Step sweep mode. Here only level values between the settings of  Start Level (SOUR:POW:STAR) and Stop Level (SOUR:POW:STOP) are permitted. Each sweep step is triggered by a separate command. \\
 			Command: SOUR:POW:MAN \emph{value} \\
-			Configuration needed:\begin{itemize}[noitemsep]
+			Configuration needed:
+				\begin{itemize}[noitemsep]
 				\small
 				\item[] SOUR:POW:MODE SWE
 				\item[] SOUR:SWE:POW:MODE MAN
+				\end{itemize} \\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENPwrMan-RB \\ \hline
+			\bfseries GenPwrMan-RB \\ \hline
 			\emph{Sweep Step Level Read Back} \\
 			Data type: float \\
 			Unit: dBm \\
 			Description: Read the level for the next sweep step in the Step sweep mode. \\
 			Command: SOUR:POW:MAN? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENLvlStop-SP \\ \hline
+			\bfseries GenLvlStop-SP \\ \hline
 			\emph{Stop Level Set Point} \\
 			Data type: float \\
 			Unit: dBm \\
 			Range: -145 dBm to 30 dBm \\
 			Description: Sets the stop level for the RF sweep. It is possible to select any level within the setting range. The range is defined by the Start Level (SOUR:POW:STAR) value and this Stop Level value. A defined offset (SOUR:POW:LEV:IMM:OFFS) affects the level values. \\
 			Command: SOUR:POW:STOP \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENLvlStop-RB \\ \hline
+			\bfseries GenLvlStop-RB \\ \hline
 			\emph{Stop Level Read Back} \\
 			Data type: float \\
 			Unit: dBm \\
 			Description: Read the stop level for the RF sweep. \\
 			Command: SOUR:POW:STOP? \\
-
+			\\
+			
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENLvlStart-SP \\ \hline
+			\bfseries GenLvlStart-SP \\ \hline
 			\emph{Start Level Set Point} \\
 			Data type: float \\
 			Unit: dBm \\
 			Range: -145 dBm to 30 dBm \\
 			Description: Sets the start level for the RF sweep. It is possible to select any level within the setting range. The range is defined by this Start Level value and the Stop Level (SOUR:POW:STOP) value. A defined offset (SOUR:POW:LEV:IMM:OFFS) affects the level values. \\
 			Command: SOUR:POW:STAR \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENLvlStart-RB \\ \hline
+			\bfseries GenLvlStart-RB \\ \hline
 			\emph{Start Level Read Back} \\
 			Data type: float \\
 			Unit: dBm \\
 			Description: Read start level for the RF sweep. \\
 			Command: SOUR:POW:STAR? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+		
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENPSweep-Sel \\ \hline
+			\bfseries GenPSweep-Sel \\ \hline
 			\emph{Power Sweep Selection} \\
 			Data type: enum \\
 			Description: Sets the instrument operating mode and therefore also the commands used to set the output level. \begin{itemize}[noitemsep]
@@ -292,13 +300,14 @@
 				\item[] Operates in power sweep mode.
 			\end{itemize} \\
 			Command: SOUR:POW:MODE \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENPSweep-Sts \\ \hline
+			\bfseries GenPSweep-Sts \\ \hline
 			\emph{Power Sweep Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -307,13 +316,14 @@
 			\end{itemize}\} \\
 			Description: Shows the instruments operating mode.\\
 			Command: SOUR:POW:MODE? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENRF-Sel \\ \hline
+			\bfseries GenRF-Sel \\ \hline
 			\emph{RF Enable Selection} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -322,13 +332,14 @@
 			\end{itemize}\} \\
 			Description: Activates and deactivates the RF output signal. \\
 			Command: OUTP \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENRF-Sts \\ \hline
+			\bfseries GenRF-Sts \\ \hline
 			\emph{RF Enable Status} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -337,38 +348,41 @@
 			\end{itemize}\} \\
 			Description: shows RF state. \\
 			Command: OUTP? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENPPwr-SP \\ \hline
+			\bfseries GenPPwr-SP \\ \hline
 			\emph{RF Level Set Point} \\
 			Data type: float \\
 			Unit: dBm \\
 			Range: -145 dBm to 30 dBm \\
 			Description: Sets the RF level of the RF output connector. The level entered with this command corresponds to the level at the RF output. \\
 			Command: SOUR:POW:POW \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENPPwr-RB \\ \hline
+			\bfseries GenPPwr-RB \\ \hline
 			\emph{RF Level Read Back} \\
 			Data type: float \\
 			Unit: dBm \\
 			Description: Read RF level of the RF output connector. \\
 			Command: SOUR:POW:POW? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENPwrStep-SP \\ \hline
+			\bfseries GenPwrStep-SP \\ \hline
 			\emph{Step Width Set Point} \\
 			Data type: float \\
 			Unit: dB \\
@@ -385,19 +399,20 @@
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENPwrStep-RB \\ \hline
+			\bfseries GenPwrStep-RB \\ \hline
 			\emph{Step Width Read Back} \\
 			Data type: float \\
 			Unit: dB \\
 			Description: Reads the step width for the User Variation Mode for the RF level sweep. \\
 			Command: SOUR:POW:STEP:INCR? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENPwrStepMode-Sel \\ \hline
+			\bfseries GenPwrStepMode-Sel \\ \hline
 			\emph{User-defined Step Width Selection} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -406,13 +421,14 @@
 			\end{itemize}\} \\
 			Description: Activates (USER) or deactivates (DECimal) the user-defined step width used when varying the level value with the level values UP/DOWN. The command is linked to setting "Variation Active" for manual control. \\
 			Command: SOUR:POW:STEP:MODE \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENPwrStepMode-Sts \\ \hline
+			\bfseries GenPwrStepMode-Sts \\ \hline
 			\emph{User-defined Step Width Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -421,13 +437,14 @@
 			\end{itemize}\} \\
 			Description: Shows user-defined step width. \\
 			Command: SOUR:POW:STEP:MODE? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENPwrAtt-Sel  \\ \hline
+			\bfseries GenPwrAtt-Sel  \\ \hline
 			\emph{RFOFF Attenuator Mode Selection} \\
 			Data type: enum \\
 			Description: Selects the attenuator mode, when the RF signal is switched off. \begin{itemize}[noitemsep]
@@ -438,13 +455,14 @@
 				\item[] Sets attenuation to maximum when the RF signal is switched off. This setting is recommended for applications that require a high level of noise suppression.
 			\end{itemize} \\
 			Command: SOUR:POW:ATT:RFOF:MODE \emph{value} \\
+			\\ 
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENPwrAtt-Sts \\ \hline
+			\bfseries GenPwrAtt-Sts \\ \hline
 			\emph{RFOFF Attenuator Mode Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -453,13 +471,14 @@
 			\end{itemize}\} \\
 			Description: Shows attenuator mode, when RF signal is switched off. \\
 			Command: SOUR:POW:ATT:RFOF:MODE? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENAttFixLow-Mon \\ \hline
+			\bfseries GenAttFixLow-Mon \\ \hline
 			\emph{Minumum Level With Fixed Attenuator Monitor} \\
 			Data type: float \\
 			Unit: dB \\
@@ -471,11 +490,11 @@
 			\end{itemize} \\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENAttFixUpp-Mon \\ \hline
+			\bfseries GenAttFixUpp-Mon \\ \hline
 			\emph{Maximum Level With Fixed Attenuator Monitor} \\
 			Data type: float \\
 			Unit: dB \\
@@ -487,11 +506,11 @@
 			\end{itemize} \\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENUsrCorrect-Sel \\ \hline
+			\bfseries GenUsrCorrect-Sel \\ \hline
 			\emph{User Correction Enable Selection} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -500,13 +519,14 @@
 			\end{itemize}\} \\
 			Description: Activates/deactivates level correction. \\
 			Command: SOUR:CORR:STAT \emph{value} \\
+			\\ 
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENUsrCorrect-Sts \\ \hline
+			\bfseries GenUsrCorrect-Sts \\ \hline
 			\emph{User Correction Enable State} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -515,13 +535,14 @@
 			\end{itemize}\} \\
 			Description: Shows the level correction state. \\
 			Command: SOUR:CORR:STAT? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENAlc-Sel \\ \hline
+			\bfseries GenAlc-Sel \\ \hline
 			\emph{Automatic Level Control Selection} \\
 			Data type: enum \\
 			Description: Activates/deactivates automatic level control. \begin{itemize}[noitemsep]
@@ -529,18 +550,19 @@
 				\item[] \textbf{ON}
 				\item[] Internal level control is permanently activated.
 				\item[] \textbf{OFF}
-				\item[] Internal level control is deactivated; Sample & Hold mode is activated.
+				\item[] Internal level control is deactivated; Sample and Hold mode is activated.
 				\item[] \textbf{AUTO}
 				\item[] Internal level control is activated/deactivated automatically, depending on the operatind state.
 			\end{itemize} \\
 			Command: SOUR:POW:ALC:STAT \emph{value} \\
+			\\ 
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENAlc-Sts \\ \hline
+			\bfseries GenAlc-Sts \\ \hline
 			\emph{Automatic Level Control Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -550,13 +572,14 @@
 			\end{itemize}\} \\
 			Description: Shows the automatic level control state. \\
 			Command: SOUR:POW:ALC:STAT? \\
+			\\ 
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENDspUpdt-Sel \\ \hline
+			\bfseries GenDspUpdt-Sel \\ \hline
 			\emph{Display Update Enable Selection} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -565,13 +588,14 @@
 			\end{itemize}\} \\
 			Description: Switches the update of the display on/off. A switchover from remote control to manual control always sets the status of the update of the display to ON. \\
 			Command: SYST:DISP:UPD \emph{value} \\
+			\\ 
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENDspUpdt-Sts \\ \hline
+			\bfseries GenDspUpdt-Sts \\ \hline
 			\emph{Display Update Enable Status} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -580,88 +604,95 @@
 			\end{itemize}\} \\
 			Description: Shows the state of the display update. \\
 			Command: SYST:DISP:UPD? \\
+			\\ 
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENFreq-SP \\ \hline
+			\bfseries GenFreq-SP \\ \hline
 			\emph{Frequency for the RF Signal Set Point} \\
 			Data type: float \\
 			Unit: Hz \\
 			Range: 9 kHz to 3 GHz \\
 			Description: Sets the frequency of the RF output signal. In CW mode (FREQ:MODE CW), the instrument operates at a fixed frequency. In sweep mode (FREQ:MODE SWE), the value applies to the sweep frequency and the instrument processes the frequency settings in defined sweep steps.\\
 			Command: FREQ \emph{value} \\
+			\\
 			
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENFreq-RB \\ \hline
+			\bfseries GenFreq-RB \\ \hline
 			\emph{Frequency for the RF Signal Read Back} \\
 			Data type: float \\
 			Unit: Hz \\
 			Description: Reads the frequency of the RF output signal. \\
 			Command: FREQ? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENRFLvl-SP \\ \hline
+			\bfseries GenRFLvl-SP \\ \hline
 			\emph{Level for the RF Signal Set Point} \\
 			Data type: float \\
 			Unit: dBm \\
 			Range: -145 dBm to 30 dBm \\
 			Description: Sets the RF level applied to the DUT (Device Under Test). If specified, a level offset is included. \\
 			Command: SOUR:POW:LEV:IMM:AMPL \emph{value} \\
+			\\
 			
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENRFLvl-RB \\ \hline
+			\bfseries GenRFLvl-RB \\ \hline
 			\emph{Level for the RF Signal Read Back} \\
 			Data type: float \\
 			Unit: dBm \\
 			Description: Reads the RF level applied to the DUT (Device Under Test). \\
 			Command: SOUR:POW:LEV:IMM:AMPL? \\
+			\\ 
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENPwrLim-SP \\ \hline
+			\bfseries GenPwrLim-SP \\ \hline
 			\emph{Limit of Maximum RF Output Level Set Point} \\
 			Data type: float \\
 			Unit: dBm \\
 			Range: -145 dBm to 30 dBm \\
 			Description: Limits the maximum RF output level in CW and SWEEP mode. It does not influence the "Level" display or the response to the POW? query command. \\
 			Command: SOUR:POW:LIM:AMPL \emph{value} \\
+			\\
 			
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENPwrLim-RB \\ \hline
+			\bfseries GenPwrLim-RB \\ \hline
 			\emph{Limit of Maximum RF Output Level Read Back} \\
 			Data type: float \\
 			Unit: dBm \\
 			Description: Reads the limit of maximum RF output level in CW and SWEEP mode. \\
 			Command: SOUR:POW:LIM:AMPL? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries GENSearchOnce-Cmd \\ \hline
+			\bfseries GenSearchOnce-Cmd \\ \hline
 			\emph{Activate Level Control Correction Command} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -670,69 +701,73 @@
 			\end{itemize}\} \\
 			Description: Temporarily activates level control for correction purposes. \\
 			Command: SOUR:POW:ALC:SONC \emph{value} \\
+			\\
 
 		\end{tabular}
-%=================================================================================
-%
 
-	% TABLE: Frequency Functionalities
+
+	 TABLE: Frequency Functionalities
 	\subsection{Frequency Functionalities}\label{pvgroup:function} %LABEL NOT CHANGED YET
 
 	\paragraph{}
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQStartFreq-SP \\ \hline
+			\bfseries FreqStartFreq-SP \\ \hline
 			\emph{Start Frequency Set Point} \\
 			Data type: float \\
 			Unit: Hz \\
 			Range: 9 kHz to 3 GHz \\
 			Description: Sets the start frequency for the RF sweep. This parameter relates to the center frequency and span. If you change the frequency, these parameters change accordingly. \\
 			Command: FREQ:STAR \emph{value} \\
+			\\
 			
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQStartFreq-RB \\ \hline
+			\bfseries FreqStartFreq-RB \\ \hline
 			\emph{Start Frequency Read Back} \\
 			Data type: float \\
 			Unit: Hz \\
 			Description: Reads the start frequency for the RF sweep. \\
 			Command: FREQ:STAR? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQFStepLin-SP \\ \hline
+			\bfseries FreqFStepLin-SP \\ \hline
 			\emph{Linear Step Size Set Point} \\
 			Data type: float \\
 			Unit: Hz \\
 			Range: 9 kHz to 3 GHz \\
 			Description: Sets the step size for linear RF frequency sweep steps. This parameter is related to the number of steps (SOUR:SWE:FREQ:POIN) within the sweep range. \\
 			Command: SWE:FREQ:STEP:LIN \emph{value} \\
+			\\
 			
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQFStepLin-RB \\ \hline
+			\bfseries FreqFStepLin-RB \\ \hline
 			\emph{Linear Step Size Read Back} \\
 			Data type: float \\
 			Unit: Hz \\
 			Description: Reads the step size for linear RF frequency sweep. \\
 			Command: SWE:FREQ:STEP:LIN? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQStopFreq-SP \\ \hline
+			\bfseries FreqStopFreq-SP \\ \hline
 			\emph{Stop Frequency Set Point} \\
 			Data type: float \\
 			Unit: Hz \\
@@ -741,100 +776,108 @@
 This parameter is related to the center frequency and span. If you change the fre-
 quency, these parameters change accordingly. \\
 			Command: FREQ:STOP \emph{value} \\
+			\\
 			
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQStopFreq-RB \\ \hline
+			\bfseries FreqStopFreq-RB \\ \hline
 			\emph{Stop Frequency Read Back} \\
 			Data type: float \\
 			Unit: Hz \\
 			Description: Reads the stop frequency for the RF sweep. \\
 			Command: FREQ:STOP? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQCenterFreq-SP \\ \hline
+			\bfseries FreqCenterFreq-SP \\ \hline
 			\emph{Center Frequency Set Point} \\
 			Data type: float \\
 			Unit: Hz \\
 			Range: 9 kHz to 3 GHz \\
 			Description: Sets the center frequency of the RF sweep range. The range is defined by this center frequency and the specified Frequency Span (SOUR:FREQ:SPAN). \\
 			Command: SOUR:FREQ:CENT \emph{value} \\
+			\\
 			
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQCenterFreq-RB \\ \hline
+			\bfseries FreqCenterFreq-RB \\ \hline
 			\emph{Center Frequency Read Back} \\
 			Data type: float \\
 			Unit: Hz \\
 			Description: Reads the center frequency for the RF frequency sweep. \\
 			Command: SOUR:FREQ:CENT? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQFreqMan-SP \\ \hline
+			\bfseries FreqFreqMan-SP \\ \hline
 			\emph{Frequency Manually Set Point} \\
 			Data type: float \\
 			Unit: Hz \\
 			Range: 9 kHz to 3 GHz \\
 			Description: Determines the frequency and triggers a sweep step manually, when in SWE:MODE MAN. \\
 			Command: SOUR:FREQ:MAN \emph{value} \\
+			\\
 			
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQFreqMan-RB \\ \hline
+			\bfseries FreqFreqMan-RB \\ \hline
 			\emph{Frequency Manually Written Read Back} \\
 			Data type: float \\
 			Unit: Hz \\
 			Description: Reads the frequency manually written. \\
 			Command: SOUR:FREQ:MAN? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQFreqSpan-SP \\ \hline
+			\bfseries FreqFreqSpan-SP \\ \hline
 			\emph{Frequency Span Set Point} \\
 			Data type: float \\
 			Unit: Hz \\
 			Range: 9 kHz to 3 GHz \\
 			Description: Determines the extent of the frequency sweep range. This setting in combination with the Center Frequency setting (SOUR:FREQ:CENT) defines the sweep range. \\
 			Command: SOUR:FREQ:SPAN \emph{value} \\
+			\\
 			
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQFreqSpan-RB \\ \hline
+			\bfseries FreqFreqSpan-RB \\ \hline
 			\emph{Frequency Span Read Back} \\
 			Data type: float \\
 			Unit: Hz \\
 			Description: Reads the extent of the frequency sweep range. \\
 			Command: SOUR:FREQ:SPAN? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQFExeSweep-Cmd \\ \hline
+			\bfseries FreqFExeSweep-Cmd \\ \hline
 			\emph{Execute Frequency Sweep Command} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -843,13 +886,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Starts an RF frequency sweep cycle, manually. This command is only effective in single mode. \\
 			Command: SOUR:SWE:FREQ:EXEC \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQFSweepMode-Sel \\ \hline
+			\bfseries FreqFSweepMode-Sel \\ \hline
 			\emph{Frequency Sweep Mode Selection} \\
 			Data type: enum \\
 			Description: Sets the sweep mode.\begin{itemize}[noitemsep]
@@ -862,13 +906,14 @@ quency, these parameters change accordingly. \\
 				\item[] Each trigger triggers one sweep step only (Single Step Mode). The frequency increases by the value entered under Linear Spacing (SOUR:SWE:FREQ:STEP:LIN) ou Logarithmic Spacing (SOUR:SWE:FREQ:STEP:LOG).
 			\end{itemize} \\
 			Command: SOUR:SWE:FREQ:MODE \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQFSweepMode-Sts \\ \hline
+			\bfseries FreqFSweepMode-Sts \\ \hline
 			\emph{Frequency Sweep Mode Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -878,13 +923,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Shows the frequency sweep mode. \\
 			Command: SOUR:SWE:FREQ:MODE? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQFSweepPts-SP \\ \hline
+			\bfseries FreqFSweepPts-SP \\ \hline
 			\emph{Number of Frequency Sweep Steps Set Point} \\
 			Data type: integer \\
 			Range: 2 to Max
@@ -900,18 +946,19 @@ quency, these parameters change accordingly. \\
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQFSweepPts-RB \\ \hline
+			\bfseries FreqFSweepPts-RB \\ \hline
 			\emph{Number of Frequency Sweep Steps Read Back} \\
 			Data type: integer \\
 			Description: Read number of steps for the RF frequency sweep. \\
 			Command: SOUR:SWE:FREQ:POIN? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQFreqRetr-Sel \\ \hline
+			\bfseries FreqFreqRetr-Sel \\ \hline
 			\emph{Retrace State for the Frequency Sweep Enable Selection} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -932,7 +979,7 @@ quency, these parameters change accordingly. \\
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQFreqRetr-Sts \\ \hline
+			\bfseries FreqFreqRetr-Sts \\ \hline
 			\emph{Retrace State for the Frequency Sweep Enable Status} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -941,13 +988,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Shows if the signal changes to the start frequency value while it is waiting for the next trigger event. \\
 			Command: SOUR:SWE:FREQ:RETR? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQFRunnMode-Mon \\ \hline
+			\bfseries FreqFRunnMode-Mon \\ \hline
 			\emph{Frequency Sweep Running Mode Monitor} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -956,13 +1004,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Queries the current state of the frequency sweep mode. \\
 			Command: SOUR:SWE:FREQ:RUNN? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQFreqShp-Sel \\ \hline
+			\bfseries FreqFreqShp-Sel \\ \hline
 			\emph{Sequence Shape for Level Sweep Selection} \\
 			Data type: enum \\
 			Description: Sets the wave shape for the frequency sweep.\begin{itemize}[noitemsep]
@@ -973,13 +1022,14 @@ quency, these parameters change accordingly. \\
 				\item[] The shape of the sweep resembles a triangle. One sweep runs from start to stop frequency and back. Each subsequent sweep starts at the start frequency.
 			\end{itemize} \\
 			Command: SOUR:SWE:FREQ:MODE \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQFreqShp-Sts \\ \hline
+			\bfseries FreqFreqShp-Sts \\ \hline
 			\emph{Sequence Shape Frequency Sweep Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -988,63 +1038,68 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Shows the frequency sweep wave shape. \\
 			Command: SOUR:SWE:FREQ:MODE? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQFStepLog-SP \\ \hline
+			\bfseries FreqFStepLog-SP \\ \hline
 			\emph{Logarithmic Step for Frequency Sweep Set Point} \\
 			Data type: float \\
 			Unit: \% \\
 			Range: 9 kHz to 3 GHz \\
 			Description: Sets a logarithmically determined sweep step size for the RF frequency sweep. It is expressed in percent and you must enter the value and the unit PCT with the command. The frequency is increased by a logarithmically calculated fraction of the current frequency. \\
 			Command: SOUR:SWE:FREQ:STEP:LOG \emph{value} \\
+			\\
 			
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQFStepLog-RB \\ \hline
+			\bfseries FreqFStepLog-RB \\ \hline
 			\emph{Logarithmic Step for Frequency Sweep Read Back} \\
 			Data type: float \\
 			Unit: \% \\
 			Description: Reads a logarithmically determined sweep step size for the RF frequency sweep. \\
 			Command: SOUR:SWE:FREQ:STEP:LOG? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQFDwellTime-SP \\ \hline
+			\bfseries FreqFDwellTime-SP \\ \hline
 			\emph{Dwell Time for Frequency Sweep Set Point} \\
 			Data type: float \\
 			Unit: s \\
 			Range: 2 ms to 100 s \\
 			Description: Sets the time taken for each frequency step of the sweep. It is recommended to switch off the "Display Update" for optimum sweep performance especially with short dwell times (SYSTem:DISPlay:UPDate OFF). \\
 			Command: SOUR:SWE:FREQ:DWEL \emph{value} \\
+			\\
 			
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQFDwellTime-RB \\ \hline
+			\bfseries FreqFDwellTime-RB \\ \hline
 			\emph{Dwell Time for Frequency Sweep Read Back} \\
 			Data type: float \\
 			Unit: s \\
 			Description: Reads time taken for each frequency step of the sweep. \\
 			Command: SOUR:SWE:FREQ:DWEL? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQFSpacMode-Sel \\ \hline
+			\bfseries FreqFSpacMode-Sel \\ \hline
 			\emph{Spacing Mode for the Frequency Sweep Selection} \\
 			Data type: enum \\
 			Description: Selects the mode for the calculation of the frequency sweep intervals. The frequency increases or decreases by this value at each step.\begin{itemize}[noitemsep]
@@ -1055,13 +1110,14 @@ quency, these parameters change accordingly. \\
 				\item[] With the logarithmic sweep, the step width is a constant fraction of the current frequency. This fraction is added to the current frequency.
 			\end{itemize} \\
 			Command: SOUR:SWE:FREQ:SPAC \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQFSpacMode-Sts \\ \hline
+			\bfseries FreqFSpacMode-Sts \\ \hline
 			\emph{Spacing Mode for the Frequency Sweep Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -1070,13 +1126,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Shows the the spacing mode for the frequency sweep. \\
 			Command: SOUR:SWE:FREQ:SPAC? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQVarMode-Sel \\ \hline
+			\bfseries FreqVarMode-Sel \\ \hline
 			\emph{Variation Mode for the Frequency Selection} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -1085,13 +1142,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description:Activates (USER) or deactivates (DECimal) the user-defined step width used when varying the frequency value. The command is linked to the command "Variation Active" for manual control. \\
 			Command: SOUR:FREQ:STEP:MODE \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQVarMode-Sts \\ \hline
+			\bfseries FreqVarMode-Sts \\ \hline
 			\emph{Variation Mode for the Frequency Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -1100,13 +1158,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Shows the user-defines step width used when varying the frequency value. \\
 			Command: SOUR:FREQ:STEP:MODE? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQStepVar-SP \\ \hline
+			\bfseries FreqStepVar-SP \\ \hline
 			\emph{Step Variation for Frequency Sweep Set Point} \\
 			Data type: float \\
 			Unit: Hz \\
@@ -1123,19 +1182,20 @@ quency, these parameters change accordingly. \\
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQStepVar-RB \\ \hline
+			\bfseries FreqStepVar-RB \\ \hline
 			\emph{Step Variation for Frequency Sweep Read Back} \\
 			Data type: float \\
 			Unit: Hz \\
 			Description: Reads the step width for the frequency. \\
 			Command: SOUR:FREQ:STEP:INCR? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQPhsCont-Sel \\ \hline
+			\bfseries FreqPhsCont-Sel \\ \hline
 			\emph{Retrace State for the Frequency Sweep Enable Selection} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -1144,13 +1204,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Activates/deactivates phase continuous frequency settings. For a given RF frequency setting, phase continuous frequency changes are possible in a limited frequency range. The output sinewave is phase continuous. \\
 			Command: SOUR:FREQ:PHAS:CONT:STAT \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQPhsCont-Sts \\ \hline
+			\bfseries FreqPhsCont-Sts \\ \hline
 			\emph{Retrace State for the Frequency Sweep Enable Status} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -1159,13 +1220,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Shows if the signal changes to the start frequency value while it is waiting for the next trigger event. \\
 			Command: SOUR:FREQ:PHAS:CONT:STAT? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQRange-Sel \\ \hline
+			\bfseries FreqRange-Sel \\ \hline
 			\emph{Frequency Range Mode Selection} \\
 			Data type: enum \\
 			Description: Selects the mode for determining the frequency range for the phase continuous signal. The minimum (SOUR:FREQ:PHAS:CONT:LOW) and maximum (SOUR:FREQ:PHAS:CONT:HIGH) frequency of the frequency range depends on the mode selected with this command.\begin{itemize}[noitemsep]
@@ -1176,13 +1238,14 @@ quency, these parameters change accordingly. \\
 				\item[] The wide mode provides a larger frequency range. The frequency range is symmetrical around the RF frequency set at the point of activating the phase continuous settings.
 			\end{itemize} \\
 			Command: SOUR:FREQ:PHAS:CONT:MODE \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQRange-Sts \\ \hline
+			\bfseries FreqRange-Sts \\ \hline
 			\emph{Frequency Range Mode Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -1191,62 +1254,67 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Shows the mode for determining the frequency range for the phase continuous signal. \\
 			Command: SOUR:FREQ:PHAS:CONT:MODE? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQContPhsHi-Mon \\ \hline
+			\bfseries FreqContPhsHi-Mon \\ \hline
 			\emph{Maximum Frequency for Frequency Range Monitor} \\
 			Data type: float \\
 			Unit: Hz \\
-			Description: Queries the maximum frequency of the frequency range for phase continuous settings. The maximum frequency of the frequency range depends on the mode selected by the PV FREQRange-Sel.\\
+			Description: Queries the maximum frequency of the frequency range for phase continuous settings. The maximum frequency of the frequency range depends on the mode selected by the PV FreqRange-Sel.\\
 			Command: SOUR:FREQ:PHAS:CONT:HIGH \emph{value} \\
+			\\
 			
 		\end{tabular}
-%=================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQContPhsLo-Mon \\ \hline
+			\bfseries FreqContPhsLo-Mon \\ \hline
 			\emph{Minimum Frequency for Frequency Range Monitor} \\
 			Data type: float \\
 			Unit: Hz \\
-			Description: Queries the minimum frequency of the frequency range for phase continuous settings. The minimum frequency of the frequency range depends on the mode selected by the PV FREQRange-Sel.\\
+			Description: Queries the minimum frequency of the frequency range for phase continuous settings. The minimum frequency of the frequency range depends on the mode selected by the PV FreqRange-Sel.\\
 			Command: SOUR:FREQ:PHAS:CONT:HIGH \emph{value} \\
+			\\
 			
 		\end{tabular}
-%=================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQPDwellTime-SP \\ \hline
+			\bfseries FreqPDwellTime-SP \\ \hline
 			\emph{Dwell Time for Level Sweep Set Point} \\
 			Data type: float \\
 			Unit: s \\
 			Range: 1 ms to 100 s \\
 			Description: Sets the time taken for each level step of the sweep. \\
 			Command: SOUR:SWE:POW:DWEL \emph{value} \\
+			\\
 			
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQPDwellTime-RB \\ \hline
+			\bfseries FreqPDwellTime-RB \\ \hline
 			\emph{Dwell Time for Level Sweep Read Back} \\
 			Data type: float \\
 			Unit: s \\
 			Description: Reads the dwell time for each step of the sweep. \\
 			Command: SOUR:SWE:POW:DWEL? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQPSweepMode-Sel \\ \hline
+			\bfseries FreqPSweepMode-Sel \\ \hline
 			\emph{Level Sweep Mode Selection} \\
 			Data type: enum \\
 			Description: Selects the cycle mode of the level sweep.\begin{itemize}[noitemsep]
@@ -1259,13 +1327,14 @@ quency, these parameters change accordingly. \\
 				\item[] Each trigger triggers one sweep step only. The level increases by the value entered under SOUR:SWEep:POWer:STEP.
 			\end{itemize} \\
 			Command: SOUR:SWE:POW:MODE \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQPSweepMode-Sts \\ \hline
+			\bfseries FreqPSweepMode-Sts \\ \hline
 			\emph{Level Sweep Mode Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -1275,38 +1344,41 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Shows the level sweep mode. \\
 			Command: SOUR:SWE:POW:MODE? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQPSweepPts-SP \\ \hline
+			\bfseries FreqPSweepPts-SP \\ \hline
 			\emph{Number of Steps for Level Sweep Set Point} \\
 			Data type: integer \\
 			Unit: s \\
 			Range: 2 to Max \\ 
 			Description: Sets the number of steps for the RF level sweep within the sweep range. This parameter always applies to the currently set sweep spacing and correlates with the step size. If you change the number of sweep points, the step size changes accordingly. The sweep range remains the same. \\
 			Command: SOUR:SWE:POW:POIN \emph{value} \\
+			\\
 			
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQPSweepPts-RB \\ \hline
+			\bfseries FreqPSweepPts-RB \\ \hline
 			\emph{Number of Steps for Level Sweep Read Back} \\
 			Data type: integer \\
 			Unit: s \\
 			Description: Reads the number of steps for the level sweep. \\
 			Command: SOUR:SWE:POW:POIN? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQLvlRetr-Sel \\ \hline
+			\bfseries FreqLvlRetr-Sel \\ \hline
 			\emph{Retrace State for the Level Sweep Selection} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -1325,7 +1397,7 @@ quency, these parameters change accordingly. \\
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQLvlRetr-Sts \\ \hline
+			\bfseries FreqLvlRetr-Sts \\ \hline
 			\emph{Retrace State for the Level Sweep Status} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -1334,13 +1406,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Shows if the signal changes to the start level value while it is waiting for the next trigger event. \\
 			Command: SOUR:SWE:POW:RETR? \\
+			\\
 			
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQPRunnMode-Mon \\ \hline
+			\bfseries FreqPRunnMode-Mon \\ \hline
 			\emph{Level Sweep Monitor} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -1349,13 +1422,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Queries the current state of the level sweep mode. \\
 			Command: SOUR:SWE:POW:RUNN? \\
+			\\
 			
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQLvlShp-Sel \\ \hline
+			\bfseries FreqLvlShp-Sel \\ \hline
 			\emph{Sequence Shape for Level Sweep Selection} \\
 			Data type: enum \\
 			Description: Selects the cycle mode for a sweep sequence.\begin{itemize}[noitemsep]
@@ -1366,13 +1440,14 @@ quency, these parameters change accordingly. \\
 				\item[] One sweep runs from start to stop level and back. The shape of the sweep resembles a triangle. Each subsequent sweep starts at the start level again.			
 			\end{itemize} \\
 			Command: SOUR:SWE:POW:SHAP \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQLvlShp-Sts \\ \hline
+			\bfseries FreqLvlShp-Sts \\ \hline
 			\emph{Sequence Shape for Level Sweep Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -1381,13 +1456,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Shows the sequence shape for the level sweep. \\
 			Command: SOUR:SWE:POW:SHAP? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQPSpacMode-Mon \\ \hline
+			\bfseries FreqPSpacMode-Mon \\ \hline
 			\emph{Spacing Mode for Level Sweep Monitor} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -1395,37 +1471,40 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Queries the sweep spacing mode. The sweep spacing for level sweeps is always linear. \\
 			Command: SOUR:SWE:POW:SPAC:MODE? \\
+			\\
 			
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQPStepLog-SP \\ \hline
+			\bfseries FreqPStepLog-SP \\ \hline
 			\emph{Logarithmic Step Size for Level Sweep Set Point} \\
 			Data type: float \\
 			Unit: dB \\ 
 			Description: Sets a logarithmically determined sweep step size for the RF level sweep. This parameter correlates with the number of steps (SOUR:SWE:POW:POIN) whtihin the sweep range. If the step size is changed, the number of steps changes accordingly. The sweep range remains the same. \\
 			Command: SOUR:SWE:POW:STEP:LOG \emph{value} \\
+			\\
 			
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQPStepLog-RB \\ \hline
+			\bfseries FreqPStepLog-RB \\ \hline
 			\emph{Logarithmic Step Size for Level Sweep Read Back} \\
 			Data type: float \\
 			Unit: dB \\
 			Description: Reads logarithmic step size for the level sweep. \\
 			Command: SOUR:SWE:POW:STEP:LOG? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQFreqMode-Sel \\ \hline
+			\bfseries FreqFreqMode-Sel \\ \hline
 			\emph{RF Signal Frequency Mode Selection} \\
 			Data type: enum \\
 			Description: Selects the frequency mode for the generating RF output signal. The selected mode determines the parameters to be used for further frequency settings.\begin{itemize}[noitemsep]
@@ -1438,13 +1517,14 @@ quency, these parameters change accordingly. \\
 				\item[] Sets the list mode. The instrument processes the frequency and level settings by means of values loaded from a list.
 			\end{itemize} \\
 			Command: FREQ:MODE \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQFreqMode-Sts \\ \hline
+			\bfseries FreqFreqMode-Sts \\ \hline
 			\emph{RF Signal Frequency Mode Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -1454,13 +1534,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Shows the frequency mode for the RF output signal. \\
 			Command: FREQ:MODE? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQLFSweepMode-Sel \\ \hline
+			\bfseries FreqLFSweepMode-Sel \\ \hline
 			\emph{RF Signal Frequency Mode Selection} \\
 			Data type: enum \\
 			Description: Selects the cycle mode of the LF sweep.\begin{itemize}[noitemsep]
@@ -1473,13 +1554,14 @@ quency, these parameters change accordingly. \\
 				\item[] Each trigger triggers one sweep step only.
 			\end{itemize} \\
 			Command: SOUR:LFO:SWE:FREQ:MODE \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQLFSweepMode-Sts \\ \hline
+			\bfseries FreqLFSweepMode-Sts \\ \hline
 			\emph{RF Signal Frequency Mode Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -1489,13 +1571,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Reads the cycle mode of the LF sweep. \\
 			Command: SOUR:LFO:SWE:FREQ:MODE? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQLFMode-Sel \\ \hline
+			\bfseries FreqLFMode-Sel \\ \hline
 			\emph{Instruments Operating Mode Selection} \\
 			Data type: enum \\
 			Description: Sets the instrument operating mode, and determines the commands to be used for frequency settings.\begin{itemize}[noitemsep]
@@ -1506,13 +1589,14 @@ quency, these parameters change accordingly. \\
 				\item[] Sets the sweep mode. The instrument processes the frequency settings in defined sweep steps.
 			\end{itemize} \\
 			Command: SOUR:LFO:FREQ:MODE \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQLFMode-Sts \\ \hline
+			\bfseries FreqLFMode-Sts \\ \hline
 			\emph{Instruments Operating Mode Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -1521,13 +1605,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Reads the instrument operating mode. \\
 			Command: SOUR:LFO:FREQ:MODE? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQLFSweepSrc-Sel \\ \hline
+			\bfseries FreqLFSweepSrc-Sel \\ \hline
 			\emph{LF Sweep Source Selection} \\
 			Data type: enum \\
 			Description: Selects the source for the LF sweep.\begin{itemize}[noitemsep]
@@ -1538,13 +1623,14 @@ quency, these parameters change accordingly. \\
 				\item[] Selects LF generator 2.
 			\end{itemize} \\
 			Command: SOUR:LFO:SWE:FREQ:LFS \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQLFSweepSrc-Sts \\ \hline
+			\bfseries FreqLFSweepSrc-Sts \\ \hline
 			\emph{LF Sweep Source Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -1553,63 +1639,68 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Reads the source for the LF sweep. \\
 			Command: SOUR:LFO:SWE:FREQ:LFS? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQLFStartFreq-SP \\ \hline
+			\bfseries FreqLFStartFreq-SP \\ \hline
 			\emph{Start Frequency for LF Sweep Set Point} \\
 			Data type: float \\
 			Unit: Hz \\ 
 			Range: 9 kHz to 3 GHz
 			Description: Sets the start frequency for the LF sweeep.\\
 			Command: SOUR:LFO:FREQ:STAR \emph{value} \\
+			\\
 			
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQLFStartFreq-RB \\ \hline
+			\bfseries FreqLFStartFreq-RB \\ \hline
 			\emph{Start Frequency for LF Sweep Read Back} \\
 			Data type: float \\
 			Unit: Hz \\
 			Description: Reads the start frequency for the LF sweep. \\
 			Command: SOUR:LFO:FREQ:STAR? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQLFStopFreq-SP \\ \hline
+			\bfseries FreqLFStopFreq-SP \\ \hline
 			\emph{Stop Frequency for LF Sweep Set Point} \\
 			Data type: float \\
 			Unit: Hz \\ 
 			Range: 9 kHz to 3 GHz
 			Description: Sets the stop frequency for the LF sweeep.\\
 			Command: SOUR:LFO:FREQ:STOP \emph{value} \\
+			\\
 			
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQLFStopFreq-RB \\ \hline
+			\bfseries FreqLFStopFreq-RB \\ \hline
 			\emph{Stop Frequency for LF Sweep Read Back} \\
 			Data type: float \\
 			Unit: Hz \\
 			Description: Reads the stop frequency for the LF sweep. \\
 			Command: SOUR:LFO:FREQ:STOP? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQLFSpac-Sel \\ \hline
+			\bfseries FreqLFSpac-Sel \\ \hline
 			\emph{Spacing Mode for LF Sweep Selection} \\
 			Data type: enum \\ 
 			Description: Selects the mode for the calculation of the frequency sweep intervals.The frequency increases or decreases by this value at each step.\begin{itemize}[noitemsep]
@@ -1620,13 +1711,14 @@ quency, these parameters change accordingly. \\
 				\item[] With the logarithmic sweep, the step width is a constant fraction of the current frequency. This fraction is added to the current frequency.
 			\end{itemize} \\
 			Command: SOUR:LFO:SWE:FREQ:SPAC \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQLFSpac-Sts \\ \hline
+			\bfseries FreqLFSpac-Sts \\ \hline
 			\emph{Spacing Mode for LF Sweep Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -1635,13 +1727,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Reads the spacing mode for the LF sweep. \\
 			Command: SOUR:LFO:SWE:FREQ:SPAC? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQLFShp-Sel \\ \hline
+			\bfseries FreqLFShp-Sel \\ \hline
 			\emph{Sequence Shape for LF Sweep Selection} \\
 			Data type: enum \\ 
 			Description: Sets the cycle mode for a sweep sequence (shape).\begin{itemize}[noitemsep]
@@ -1652,13 +1745,14 @@ quency, these parameters change accordingly. \\
 				\item[] A sweep runs from the start to the stop frequency and back, that means the shape of the sweep resembles a triangle. A subsequent sweep starts at the start frequency.
 			\end{itemize} \\
 			Command: SOUR:LFO:SWE:FREQ:SHAP \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQLFShp-Sts \\ \hline
+			\bfseries FreqLFShp-Sts \\ \hline
 			\emph{Sequence Shape for LF Sweep Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -1667,86 +1761,93 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Reads the cycle mode for the LF sweep sequence. \\
 			Command: SOUR:LFO:SWE:FREQ:SHAP? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQLFStepLin-SP \\ \hline
+			\bfseries FreqLFStepLin-SP \\ \hline
 			\emph{Linear Step Size for LF Sweep Set Point} \\
 			Data type: float \\
 			Unit: Hz \\ 
 			Range: 9 kHz to 3 GHz
 			Description: Sets the linear step size for the LF frequency sweep steps.\\
 			Command: SOUR:LFO:SWE:FREQ:STEP:LIN \emph{value} \\
+			\\
 			
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQLFStepLin-RB \\ \hline
+			\bfseries FreqLFStepLin-RB \\ \hline
 			\emph{Linear Step Size for LF Sweep Read Back} \\
 			Data type: float \\
 			Unit: Hz \\
 			Description: Reads the linear step size for the LF sweep. \\
 			Command: SOUR:LFO:SWE:FREQ:STEP:LIN? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQLFStepLog-SP \\ \hline
+			\bfseries FreqLFStepLog-SP \\ \hline
 			\emph{Logarithmic Step Size for LF Sweep Set Point} \\
 			Data type: float \\
 			Range: 0.01 to 100 \\
 			Description: Sets the logarithmically determined sweep step size for the LF frequency sweep. It is expressed in percent and you must enter the value and the unit PCT with the command.\\
 			Command: SOUR:LFO:SWE:FREQ:STEP:LOG \emph{value} \\
+			\\
 			
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQLFStepLog-RB \\ \hline
+			\bfseries FreqLFStepLog-RB \\ \hline
 			\emph{Logarithmic Step Size for LF Sweep Read Back} \\
 			Data type: float \\
 			Description: Reads the logarithmic step size for linear LF sweep. \\
 			Command: SOUR:LFO:SWE:FREQ:STEP:LOG? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQLFDwellTime-SP \\ \hline
+			\bfseries FreqLFDwellTime-SP \\ \hline
 			\emph{Dwell Time for LF Sweep Set Point} \\
 			Data type: float \\
 			Unit: s \\
 			Range: 0.01 to 100 \\
 			Description: Sets the dwell time for each frequency step of the sweep.\\
 			Command: SOUR:LFO:SWE:FREQ:DWEL \emph{value} \\
+			\\
 			
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQLFDwellTime-RB \\ \hline
+			\bfseries FreqLFDwellTime-RB \\ \hline
 			\emph{Dwell Time for LF Sweep Read Back} \\
 			Data type: float \\
 			Unit: s \\
 			Description: Reads the dwell time for each frequency step of the sweep. \\
 			Command: SOUR:LFO:SWE:FREQ:DWEL? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQPExeSweep-Cmd \\ \hline
+			\bfseries FreqPExeSweep-Cmd \\ \hline
 			\emph{Execute Single Level Sweep Command} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -1755,13 +1856,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description:  \\
 			Command: SOUR:SWE:POW:EXEC \emph{value} \\
+			\\
 
 		\end{tabular}
-%=================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries FREQRst-Cmd \\ \hline
+			\bfseries FreqRst-Cmd \\ \hline
 			\emph{Reset All Active Sweeps Command} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -1770,20 +1872,21 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Reset all active sweeps to the starting point. \\
 			Command: SOUR:SWE:RES:ALL \emph{value} \\
+			\\
 
 		\end{tabular}
-%=================================================================================
-%
+
+
 
 	% TABLE: Modulation Functionalities
 	\subsection{Modulation Functionalities}\label{pvgroup:function} %LABEL NOT CHANGED YET
 
 		\paragraph{} % This paragraph aligns the first tabular with the others
 
-%
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODAMSrc-Sel \\ \hline
+			\bfseries ModAMSrc-Sel \\ \hline
 			\emph{Signal Source for Amplitude Modulation Selection} \\
 			Data type: enum \\  
 			Description: Selects the modulation signal source for amplitude modulation. You can use both, the internal and an external modulation signal at a time.\begin{itemize}[noitemsep]
@@ -1796,13 +1899,14 @@ quency, these parameters change accordingly. \\
 				\item[] Uses both, the internal and external modulation signals.
 			\end{itemize} \\
 			Command: SOUR:AM:SOUR \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODAMSrc-Sts \\ \hline
+			\bfseries ModAMSrc-Sts \\ \hline
 			\emph{Signal Source for Amplitude Modulation Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -1812,13 +1916,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Reads the modulation signal source for the amplitude modulation. \\
 			Command: SOUR:AM:SOUR? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODAM-Sel \\ \hline
+			\bfseries ModAM-Sel \\ \hline
 			\emph{Amplitude Modulation Enable Selection} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -1827,13 +1932,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Activates amplitude modulation\\
 			Command: SOUR:AM:STAT \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODAM-Sts \\ \hline
+			\bfseries ModAM-Sts \\ \hline
 			\emph{Amplitude Modulation Enable Status} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -1842,38 +1948,41 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Gets amplitude modulation state. \\
 			Command: SOUR:AM:STAT? \\
+			\\
 			
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODAMDepth-SP \\ \hline
+			\bfseries ModAMDepth-SP \\ \hline
 			\emph{Amplitude Modulation Depth Set Point} \\
 			Data type: float \\
 			Unit: \% \\
 			Range: 0 to 100 \\
 			Description: Sets the modulation depth of the amplitude modulation signal in percent.\
 			Command: SOUR:AM:DEPT \emph{value} \\
+			\\
 			
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODAMDepth-RB \\ \hline
+			\bfseries ModAMDepth-RB \\ \hline
 			\emph{Amplitude Modulation Depth Read Back} \\
 			Data type: float \\
 			Unit: \% \\
 			Description: Reads the amplitude modulation depth. \\
 			Command: SOUR:AM:DEPT? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODAMExtCoup-Sel \\ \hline
+			\bfseries ModAMExtCoup-Sel \\ \hline
 			\emph{AM Signal Coupling Mode Selection} \\
 			Data type: enum \\  
 			Description: Selects the coupling mode for the external amplitude modulation signal.\begin{itemize}[noitemsep]
@@ -1884,13 +1993,14 @@ quency, these parameters change accordingly. \\
 				\item[] Uses the modulation signal as it is, with AC and DC.
 			\end{itemize} \\
 			Command: SOUR:AM:SOUR \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODAMExtCoup-Sts \\ \hline
+			\bfseries ModAMExtCoup-Sts \\ \hline
 			\emph{AM Signal Coupling Mode Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -1899,50 +2009,54 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Reads the coupling mode for the external amplitude modulation signal. \\
 			Command: SOUR:AM:SOUR? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODAMIntDepth-SP \\ \hline
+			\bfseries ModAMIntDepth-SP \\ \hline
 			\emph{Amplitude Modulation Internal Depth Set Point} \\
 			Data type: float \\
 			Unit: \% \\
 			Range: 0 to dynamic \\
 			Description: Sets the depth of the internal amplitude modulation signal in Hz. The sum of the deviations of all active frequency modulation signals may not exceed the total value set with SOUR:AM:DEPT. \\
 			Command: SOUR:AM:INT:DEPT \emph{value} \\
+			\\
 			
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODAMIntDepth-RB \\ \hline
+			\bfseries ModAMIntDepth-RB \\ \hline
 			\emph{Amplitude Modulation Internal Depth Read Back} \\
 			Data type: float \\
 			Unit: \% \\
 			Description: Reads the amplitude modulation internal depth. \\
 			Command: SOUR:AM:INT:DEPT? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODAMSenS-Mon \\ \hline
+			\bfseries ModAMSenS-Mon \\ \hline
 			\emph{Sensitivity Monitor} \\
 			Data type: float \\
 			Unit: \%\\V \\
 			Description: Monitors the amplitude modulation sensitivity. \\
 			Command: SOUR:AM:SENS? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODAMIntSrc-Sel \\ \hline
+			\bfseries ModAMIntSrc-Sel \\ \hline
 			\emph{Amplitude Modulation Internal Source Selection} \\
 			Data type: enum \\  
 			Description: Selects the internal modulation signal source.\begin{itemize}[noitemsep]
@@ -1964,13 +2078,14 @@ quency, these parameters change accordingly. \\
 
 			\end{itemize} \\
 			Command: SOUR:AM:SOUR \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODAMIntSrc-Sts \\ \hline
+			\bfseries ModAMIntSrc-Sts \\ \hline
 			\emph{Amplitude Modulation Internal Source Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -1984,13 +2099,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Reads the coupling mode for the external amplitude modulation signal. \\
 			Command: SOUR:AM:SOUR? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
 %
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODFMSrc-Sel \\ \hline
+			\bfseries ModFMSrc-Sel \\ \hline
 			\emph{Frequency Modulation Source Selection} \\
 			Data type: enum \\  
 			Description: Selects the modulation signal source for frequency modulation. You can use both, the internal and an external modulation signal at a time.\begin{itemize}[noitemsep]
@@ -2005,13 +2121,14 @@ quency, these parameters change accordingly. \\
 				\item[]	Uses an externally applied digital modulation signal.
 			\end{itemize} \\
 			Command: SOUR:FM:SOUR \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODFMSrc-Sts \\ \hline
+			\bfseries ModFMSrc-Sts \\ \hline
 			\emph{Frequency Modulation Source Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -2022,13 +2139,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Reads the modulation signal source for the frquency modulation. \\
 			Command: SOUR:FM:SOUR? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODFMExtCoup-Sel \\ \hline
+			\bfseries ModFMExtCoup-Sel \\ \hline
 			\emph{External FM Coupling Mode Selection} \\
 			Data type: enum \\  
 			Description: Selects the coupling mode for the external frequency modulation signal.\begin{itemize}[noitemsep]
@@ -2039,13 +2157,14 @@ quency, these parameters change accordingly. \\
 				\item[] Uses the modulation signal as it is, with AC and DC.	
 			\end{itemize} \\
 			Command: SOUR:FM:EXT:COUP \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODFMExtCoup-Sts \\ \hline
+			\bfseries ModFMExtCoup-Sts \\ \hline
 			\emph{External FM Coupling Source Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -2054,61 +2173,66 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Reads the coupling mode for the external frequency modulation signal. \\
 			Command: SOUR:FM:EXT:COUP? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODFMExtDev-SP \\ \hline
+			\bfseries ModFMExtDev-SP \\ \hline
 			\emph{External FM Deviation Set Point} \\
 			Data type: float \\
 			Unit: Hz \\ 
 			Description: Sets the deviation of the external frequency modulation signal in Hz. The maximum deviation depends on the set RF frequency and the selected modulation mode (see data sheet). The sum of the deviations of all active frequency modulation signals may not exceed the total deviation value. \\
 			Command: SOUR:FM:EXT:DEV \emph{value} \\
+			\\
 			
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODFMExtDev-RB \\ \hline
+			\bfseries ModFMExtDev-RB \\ \hline
 			\emph{External FM Deviation Read Back} \\
 			Data type: float \\
 			Unit: Hz \\
 			Description: Reads the external frequency modulation deviation. \\
 			Command: SOUR:FM:EXT:DEV? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODFMIntDev-SP \\ \hline
+			\bfseries ModFMIntDev-SP \\ \hline
 			\emph{Internal FM Deviation Set Point} \\
 			Data type: float \\
 			Unit: Hz \\ 
 			Description: Sets the deviation of the internal frequency modulation signals in Hz. The sum of the deviations of all active frequency modulation signals may not exceed the total deviation value. \\
 			Command: SOUR:FM:INT:DEV \emph{value} \\
+			\\
 			
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODFMIntDev-RB \\ \hline
+			\bfseries ModFMIntDev-RB \\ \hline
 			\emph{Internal FM Deviation Read Back} \\
 			Data type: float \\
 			Unit: Hz \\
 			Description: Reads the internal frequency modulation deviation. \\
 			Command: SOUR:FM:INT:DEV? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODFMIntSrc-Sel \\ \hline
+			\bfseries ModFMIntSrc-Sel \\ \hline
 			\emph{Internal FM Source Selection} \\
 			Data type: enum \\  
 			Description: Selects the internal frequency modulation signal source.\begin{itemize}[noitemsep]
@@ -2129,13 +2253,14 @@ quency, these parameters change accordingly. \\
                                 \item[] Internal LF generator 2 and the noise signal. In addition to the AM modulation signal, white noise is used as a modulation signal.
 			\end{itemize} \\
 			Command: SOUR:FM:INT:SOUR \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODFMIntSrc-Sts \\ \hline
+			\bfseries ModFMIntSrc-Sts \\ \hline
 			\emph{Internal FM Source Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -2149,13 +2274,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Reads the internal frequency modulation signal source. \\
 			Command: SOUR:FM:INT:SOUR? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODFM-Sel \\ \hline
+			\bfseries ModFM-Sel \\ \hline
 			\emph{Frequency Modulation Enable Selection} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -2164,13 +2290,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Activates/deactivates frequency modulation\\
 			Command: SOUR:FM:STAT \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODFM-Sts \\ \hline
+			\bfseries ModFM-Sts \\ \hline
 			\emph{Frequency Modulation Enable Status} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -2179,13 +2306,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Gets frequency modulation state. \\
 			Command: SOUR:FM:STAT? \\
+			\\
 			
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODFMExtImpd-Sel \\ \hline
+			\bfseries ModFMExtImpd-Sel \\ \hline
 			\emph{Impedance for External FM Signal Selection} \\
 			Data type: enum \\  
 			Description: Sets the impedance for an externally applied modulation signal.\begin{itemize}[noitemsep]
@@ -2196,13 +2324,14 @@ quency, these parameters change accordingly. \\
                                 \item[] Impedance equal to 50 Ohm.
 			\end{itemize} \\
 			Command: SOUR:INP:MOD:IMP \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODFMExtImpd-Sts \\ \hline
+			\bfseries ModFMExtImpd-Sts \\ \hline
 			\emph{Impedance for External FM Signal Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -2211,88 +2340,95 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Reads the impedance for the external frequency modulation signal. \\
 			Command: SOUR:INP:MOD:IMP? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODFMDev-SP \\ \hline
+			\bfseries ModFMDev-SP \\ \hline
 			\emph{FM Deviation Set Point} \\
 			Data type: float \\
 			Unit: Hz \\  
 			Range: 0 Hz to dynamic \\
 			Description: Sets the deviation of the frequency modulation signals. The maximum deviation depends on the set RF frequency and the selected modulation mode. \\
 			Command: SOUR:FM:DEV \emph{value} \\
+			\\
 			
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODFMDev-RB \\ \hline
+			\bfseries ModFMDev-RB \\ \hline
 			\emph{FM Deviation Read Back} \\
 			Data type: float \\
 			Unit: Hz \\
 			Description: Reads the deviation of the frequency modulation. \\
 			Command: SOUR:FM:DEV? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODPulMPeriod-SP \\ \hline
+			\bfseries ModPulMPeriod-SP \\ \hline
 			\emph{Pulse Modulation Period Set Point} \\
 			Data type: float \\
 			Unit: us \\ 
 			Range: 20 ns to 100 s \\
 			Description: Sets the period of the generated pulse. The period determines the repetition frequency of the internal signal. \\
 			Command: SOUR:PULM:PER \emph{value} \\
+			\\
 			
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODPulMPeriod-RB \\ \hline
+			\bfseries ModPulMPeriod-RB \\ \hline
 			\emph{Pulse Modulation Period Read Back} \\
 			Data type: float \\
 			Unit: us \\
 			Description: Reads the period of the generated pulse. \\
 			Command: SOUR:PULM:PER? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODPulMWid-SP \\ \hline
+			\bfseries ModPulMWid-SP \\ \hline
 			\emph{Pulse Width Set Point} \\
 			Data type: float \\
 			Unit: us \\ 
 			Range: 5 ns to 100 s \\
 			Description: Sets the width of the generated pulse. The width determines the pulse length. The pulse width must be at least 20ns less than the set pulse period. \\
 			Command: SOUR:PULM:WIDTH \emph{value} \\
+			\\
 			
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODPulMWid-RB \\ \hline
+			\bfseries ModPulMWid-RB \\ \hline
 			\emph{Pulse Width Read Back} \\
 			Data type: float \\
 			Unit: us \\
 			Description: Reads the width of the generated pulse. \\
 			Command: SOUR:PULM:WIDTH? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODPulMMode-Sel \\ \hline
+			\bfseries ModPulMMode-Sel \\ \hline
 			\emph{Pulse Modulation Mode Selection} \\
 			Data type: enum \\  
 			Description: Sets the mode of the pulse generator.\begin{itemize}[noitemsep]
@@ -2306,13 +2442,14 @@ quency, these parameters change accordingly. \\
 
 			\end{itemize} \\
 			Command: SOUR:PULM:MODE \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODPulMMode-Sts \\ \hline
+			\bfseries ModPulMMode-Sts \\ \hline
 			\emph{Pulse Modulation Mode Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -2322,13 +2459,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Reads the pulse modulation mode. \\
 			Command: SOUR:PULM:MODE? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODPulMPol-Sel \\ \hline
+			\bfseries ModPulMPol-Sel \\ \hline
 			\emph{Pulse Modulation Polarity Selection} \\
 			Data type: enum \\  
 			Description: Sets the polarity between modulating and modulated signal. This command is effective only for an external modulation signal.\begin{itemize}[noitemsep]
@@ -2342,14 +2480,14 @@ quency, these parameters change accordingly. \\
 			Configuration needed:\begin{itemize}[noitemsep]
 				\small
 				\item[] CONFIG FOR EXTERNAL MODULATION SIGNAL
-			\end{itemize}
+			\end{itemize} \\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODPulMPol-Sts \\ \hline
+			\bfseries ModPulMPol-Sts \\ \hline
 			\emph{Pulse Modulation Polarity Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -2358,13 +2496,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Reads the polarity between modulating and modulated signal. \\
 			Command: SOUR:PULM:POL? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODPulM-Sel \\ \hline
+			\bfseries ModPulM-Sel \\ \hline
 			\emph{Pulse Modulation Enable Selection} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -2373,13 +2512,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Activates/deactivates pulse modulation\\
 			Command: SOUR:PULM:STAT \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODPulM-Sts \\ \hline
+			\bfseries ModPulM-Sts \\ \hline
 			\emph{Pulse Modulation Enable Status} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -2388,38 +2528,41 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Gets pulse modulation state. \\
 			Command: SOUR:PULM:STAT? \\
+			\\
 			
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODPulMDelay-SP \\ \hline
+			\bfseries ModPulMDelay-SP \\ \hline
 			\emph{Pulse Modulation Delay Set Point} \\
 			Data type: float \\
 			Unit: us \\ 
 			Range: 10 ns to 100 s \\
 			Description: Sets the pulse delay. \\
 			Command: SOUR:PULM:DEL \emph{value} \\
+			\\
 			
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODPulMDelay-RB \\ \hline
+			\bfseries ModPulMDelay-RB \\ \hline
 			\emph{Pulse Modulation Delay Read Back} \\
 			Data type: float \\
 			Unit: us \\
 			Description: Reads delay for the pulse modulation. \\
 			Command: SOUR:PULM:DEL? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODPulMSrc-Sel \\ \hline
+			\bfseries ModPulMSrc-Sel \\ \hline
 			\emph{Pulse Modulation Signal Source Selection} \\
 			Data type: enum \\  
 			Description: Selects the source for the pulse modulation signal.\begin{itemize}[noitemsep]
@@ -2430,13 +2573,14 @@ quency, these parameters change accordingly. \\
                                 \item[] The signal applied externally via the EXT MOD connector isused for the pulse modulation.
 			\end{itemize} \\
 			Command: SOUR:PULM:SOUR \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODPulMSrc-Sts \\ \hline
+			\bfseries ModPulMSrc-Sts \\ \hline
 			\emph{Pulse Modulation Signal Source Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -2445,13 +2589,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Reads the source for the pulse modulation signal. \\
 			Command: SOUR:PULM:SOUR? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODPulMTrigMode-Sel \\ \hline
+			\bfseries ModPulMTrigMode-Sel \\ \hline
 			\emph{Pulse Modulation Trigger Mode Selection} \\
 			Data type: enum \\  
 			Description: Selects the trigger mode for pulse modulation. \begin{itemize}[noitemsep]
@@ -2464,13 +2609,14 @@ quency, these parameters change accordingly. \\
 				\item[] The pulse modulation is gated by an external gate signal. The signal is supplied via the PULSE EXT connector.
 			\end{itemize} \\
 			Command: SOUR:PULM:TRIG:MODE \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODPulMTrigMode-Sts \\ \hline
+			\bfseries ModPulMTrigMode-Sts \\ \hline
 			\emph{Pulse Modulation Trigger Mode Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -2480,13 +2626,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Reads the pulse modulation trigger mode. \\
 			Command: SOUR:PULM:TRIG:MODE? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODPulMExtGatePol-Sel \\ \hline
+			\bfseries ModPulMExtGatePol-Sel \\ \hline
 			\emph{Gate Polarity for the Pulse Modulation Selection} \\
 			Data type: enum \\  
 			Description: Selects the polarity of the Gate signal. The signal is supplied via the PULSE EXT connector. \begin{itemize}[noitemsep]
@@ -2495,13 +2642,14 @@ quency, these parameters change accordingly. \\
                                 \item[] \textbf{INVerted}
 			\end{itemize} \\
 			Command: SOUR:PULM:TRIG:EXT:GATE:POL \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODPulMExtGatePol-Sts \\ \hline
+			\bfseries ModPulMExtGatePol-Sts \\ \hline
 			\emph{Gate Polarity Pulse Modulation Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -2510,13 +2658,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Reads the polarity of the Gate signal for the pulse modulation. \\
 			Command: SOUR:PULM:TRIG:EXT:GATE:POL? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODPulMExtImpdTrig-Sel \\ \hline
+			\bfseries ModPulMExtImpdTrig-Sel \\ \hline
 			\emph{Impedance for External Pulse Modulation Trigger Selection} \\
 			Data type: enum \\  
 			Description: Selects the impedance for external pulse trigger. \begin{itemize}[noitemsep]
@@ -2527,13 +2676,14 @@ quency, these parameters change accordingly. \\
 				\item[] 10 kOhm impedance.
 			\end{itemize} \\
 			Command: SOUR:PULM:TRIG:EXT:IMP \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODPulMExtImpdTrig-Sts \\ \hline
+			\bfseries ModPulMExtImpdTrig-Sts \\ \hline
 			\emph{Impedance for External Pulse Modulation Trigger Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -2542,13 +2692,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Reads the impedance for the pulse trigger. \\
 			Command: SOUR:PULM:TRIG:EXT:IMP? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODPulMExtSlopeTrig-Sel \\ \hline
+			\bfseries ModPulMExtSlopeTrig-Sel \\ \hline
 			\emph{Slope Polarity of an External Trigger for Pulse Modulation Selection} \\
 			Data type: enum \\  
 			Description: Selects the polarity of the active slope of an applied trigger ate the PULSE EXT connector. \begin{itemize}[noitemsep]
@@ -2557,13 +2708,14 @@ quency, these parameters change accordingly. \\
                                 \item[] \textbf{POSitive}
 			\end{itemize} \\
 			Command: SOUR:PULM:TRIG:EXT:SLOP \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODPulMExtSlopeTrig-Sts \\ \hline
+			\bfseries ModPulMExtSlopeTrig-Sts \\ \hline
 			\emph{Slope Polarity of an External Trigger for Pulse Modulation Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -2572,13 +2724,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Reads the slope polarity of an external pulse trigger. \\
 			Command: SOUR:PULM:TRIG:EXT:SLOP? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODPG-Sel \\ \hline
+			\bfseries ModPG-Sel \\ \hline
 			\emph{Pulse Generator Enable Selection} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -2587,13 +2740,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Activates/deactivates the output of the video/sync signal at the PULSE VIDEO connector at the rear of the instrument. The signal output and the pulse generator are automatically switched on with activation of pulse modulation if pulse generator is selected as modulation source. The signal output can be switched off subsequently. \\
 			Command: SOUR:PGEN:STAT \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODPG-Sts \\ \hline
+			\bfseries ModPG-Sts \\ \hline
 			\emph{Pulse Generator Enable Status} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -2602,13 +2756,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Gets pulse generator state. \\
 			Command: SOUR:PGEN:STAT? \\
+			\\
 			
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODLFOut-Sel \\ \hline
+			\bfseries ModLFOut-Sel \\ \hline
 			\emph{LF Output Enable Selection} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -2617,13 +2772,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Activates/deactivates the LF output. \\
 			Command: SOUR:LFO:STAT \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODLFOut-Sts \\ \hline
+			\bfseries ModLFOut-Sts \\ \hline
 			\emph{LF Output Enable Status} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -2632,13 +2788,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Gets the LF output state. \\
 			Command: SOUR:LFO:STAT? \\
+			\\
 			
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODLFOutSrc-Sel \\ \hline
+			\bfseries ModLFOutSrc-Sel \\ \hline
 			\emph{Internal LF Source Selection} \\
 			Data type: enum \\  
 			Description: Selects the internal source to be used for the LF Output signal. The available selection depends on the options fitted. If test signals for avionic systems are generated, the sources are preset and cannot be changed. \begin{itemize}[noitemsep]
@@ -2657,13 +2814,14 @@ quency, these parameters change accordingly. \\
                                 \item[] Internal LF generator 2 and the noise signal. In addition to the AM modulation signal, white noise is used as a modulation signal.
 			\end{itemize} \\
 			Command: SOUR:LFO:SOUR \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODLFOutSrc-Sts \\ \hline
+			\bfseries ModLFOutSrc-Sts \\ \hline
 			\emph{Internal LF Source Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -2677,20 +2835,21 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Reads internal LF source. \\
 			Command: SOUR:LFO:SOUR? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 
 	% TABLE: Trigger Functionalities
 	\subsection{Trigger Functionalities}\label{pvgroup:function} %LABEL NOT CHANGED YET
 
 		\paragraph{} % This paragraph aligns the first tabular with the others
 
-%
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries TRIGInpSlopePol-Sel \\ \hline
+			\bfseries TrigInpSlopePol-Sel \\ \hline
 			\emph{Input Trigger Polarity Selection} \\
 			Data type: enum \\   
 			Description: Selects the polarity of the active slope of an externally applied trigger signal at the trigger input (BNC connector at the rear of the instrument). The setting is effective for both inputs at the same time.\begin{itemize}[noitemsep]
@@ -2699,13 +2858,14 @@ quency, these parameters change accordingly. \\
                                 \item[] \textbf{POSitive}
 			\end{itemize} \\
 			Command: SOUR:INP:TRIG:SLOP \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries MODPulMExtSlopeTrig-Sts \\ \hline
+			\bfseries ModPulMExtSlopeTrig-Sts \\ \hline
 			\emph{Input Trigger Polarity Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -2714,13 +2874,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Reads the input trigger polarity. \\
 			Command: SOUR:INP:TRIG:SLOP? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries TRIGFSweepSrc-Sel \\ \hline
+			\bfseries TrigFSweepSrc-Sel \\ \hline
 			\emph{Frequency Sweep Trigger Source Selection} \\
 			Data type: enum \\   
 			Description: Selects the trigger source for the RF frequency sweep.\begin{itemize}[noitemsep]
@@ -2736,13 +2897,14 @@ quency, these parameters change accordingly. \\
 
 			\end{itemize} \\
 			Command: TRIG:FSW:SOUR \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries TRIGFSweepSrc-Sts \\ \hline
+			\bfseries TrigFSweepSrc-Sts \\ \hline
 			\emph{Frequency Sweep Trigger Source Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -2753,13 +2915,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Reads the trigger source for the frequency sweep. \\
 			Command: TRIG:FSW:SOUR? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries TRIGPSweepSrc-Sel \\ \hline
+			\bfseries TrigPSweepSrc-Sel \\ \hline
 			\emph{RF Level Sweep Trigger Source Selection} \\
 			Data type: enum \\   
 			Description: Selects the trigger source for the RF level sweep.\begin{itemize}[noitemsep]
@@ -2775,13 +2938,14 @@ quency, these parameters change accordingly. \\
 
 			\end{itemize} \\
 			Command: TRIG:PSW:SOUR \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries TRIGPSweepSrc-Sts \\ \hline
+			\bfseries TrigPSweepSrc-Sts \\ \hline
 			\emph{RF Level Sweep Trigger Source Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -2792,13 +2956,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Reads the trigger source for the RF level sweep. \\
 			Command: TRIG:PSW:SOUR? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries TRIGLFSweepSrc-Sel \\ \hline
+			\bfseries TrigLFSweepSrc-Sel \\ \hline
 			\emph{LF Sweep Trigger Source Selection} \\
 			Data type: enum \\   
 			Description: Selects the trigger source for the LF sweep.\begin{itemize}[noitemsep]
@@ -2814,13 +2979,14 @@ quency, these parameters change accordingly. \\
 
 			\end{itemize} \\
 			Command: TRIG:LFFS:SOUR \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries TRIGLFSweepSrc-Sts \\ \hline
+			\bfseries TrigLFSweepSrc-Sts \\ \hline
 			\emph{LF Sweep Trigger Source Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -2831,13 +2997,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Reads the trigger source for the LF sweep. \\
 			Command: TRIG:LFFS:SOUR? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries TRIGAllSweepSrc-Sel \\ \hline
+			\bfseries TrigAllSweepSrc-Sel \\ \hline
 			\emph{All Sweeps Trigger Source Selection} \\
 			Data type: enum \\   
 			Description: Selects the trigger source for all the sweeps.\begin{itemize}[noitemsep]
@@ -2853,13 +3020,14 @@ quency, these parameters change accordingly. \\
 
 			\end{itemize} \\
 			Command: TRIG:SWE:SOUR \emph{value} \\
+			\\
 
 		\end{tabular}
-%=================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries TRIGAllSweep-Cmd \\ \hline
+			\bfseries TrigAllSweep-Cmd \\ \hline
 			\emph{Trigger All Sweeps Command} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -2868,13 +3036,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Starts all sweeps which are activated for the respective path. \\
 			Command: TRIG:SWE:IMM \emph{value} \\
+			\\
 
 		\end{tabular}
-%=================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries TRIGSweep-Cmd \\ \hline
+			\bfseries TrigSweep-Cmd \\ \hline
 			\emph{Trigger Activated Sweep Command} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -2883,13 +3052,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: The command immediately starts the activated sweep. The command performs a single sweep and therefore applies to sweep mode AUTO with sweep source SINGle.  \\
 			Command: TRIG:IMM \emph{value} \\
+			\\
 
 		\end{tabular}
-%=================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries TRIGFSweep-Cmd \\ \hline
+			\bfseries TrigFSweep-Cmd \\ \hline
 			\emph{Execute Single Frequency Sweep Command} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -2898,13 +3068,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Immediately starts an RF frequency sweep cycle. The command is only effective for sweep mode "Single". \\
 			Command: TRIG:FSW:IMM \emph{value} \\
+			\\
 
 		\end{tabular}
-%=================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries TRIGPSweep-Cmd \\ \hline
+			\bfseries TrigPSweep-Cmd \\ \hline
 			\emph{Start RF Level Sweep Command} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -2913,19 +3084,20 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Immediately starts an RF level sweep. The command is only effective for sweep mode "Single". \\
 			Command: TRIG:PSW:IMM \emph{value} \\
+			\\
 
 		\end{tabular}
-%=================================================================================
-%
+
+
 	% TABLE: Reference Oscillator Functionalities
 	\subsection{Reference Oscillator Functionalities}\label{pvgroup:function} %LABEL NOT CHANGED YET
 
 		\paragraph{} % This paragraph aligns the first tabular with the others
 
-%
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries ROSC-ExtBwid-Sel \\ \hline
+			\bfseries RoscExtBwid-Sel \\ \hline
 			\emph{Synchronization Bandwidth Mode Selection} \\
 			Data type: enum \\   
 			Description: Sets the synchronization bandwidth for an external reference signal.\begin{itemize}[noitemsep]
@@ -2936,13 +3108,14 @@ quency, these parameters change accordingly. \\
 				\item[] This mode is recommended for precise reference sources of high spectral purity. The internal 10-MHz OCXO is bypassed and the external signal synchronizes a 100-MHz reference oscillator directly.
 			\end{itemize} \\
 			Command: SOUR:ROSC:EXT:SBAN \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries ROSC-ExtBwid-Sts \\ \hline
+			\bfseries RoscExtBwid-Sts \\ \hline
 			\emph{Get Synchronization Bandwidth Mode} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -2951,13 +3124,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Reads the synchronization bandwidth for an external reference signal. \\
 			Command: SOUR:ROSC:EXT:SBAN? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries ROSC-Src-Sel \\ \hline
+			\bfseries RoscSrc-Sel \\ \hline
 			\emph{Reference Frequency Source Selection} \\
 			Data type: enum \\   
 			Description: Selects the reference frequency source.\begin{itemize}[noitemsep]
@@ -2968,13 +3142,14 @@ quency, these parameters change accordingly. \\
 				\item[] An external reference signal is used. It must be input at the REF IN connector at the rear of the instrument.
 			\end{itemize} \\
 			Command: SOUR:ROSC:SOUR \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries ROSC-Src-Sts \\ \hline
+			\bfseries RoscSrc-Sts \\ \hline
 			\emph{Synchronization Bandwidth Mode Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -2983,13 +3158,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Reads the reference frequency source. \\
 			Command: SOUR:ROSC:SOUR? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries ROSC-ExtFreq-Sel \\ \hline
+			\bfseries RoscExtFreq-Sel \\ \hline
 			\emph{External Reference Frequency Selection} \\
 			Data type: enum \\   
 			Description: Selects the external reference frequency.\begin{itemize}[noitemsep]
@@ -3000,13 +3176,14 @@ quency, these parameters change accordingly. \\
 
 			\end{itemize} \\
 			Command: SOUR:ROSC:EXT:FREQ \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries ROSC-ExtFreq-Sts \\ \hline
+			\bfseries RoscExtFreq-Sts \\ \hline
 			\emph{External Reference Frequency Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -3016,13 +3193,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Reads the reference external reference frequency. \\
 			Command: SOUR:ROSC:EXT:FREQ? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries ROSC-Ext-Sel \\ \hline
+			\bfseries RoscExt-Sel \\ \hline
 			\emph{RF Output Switch Off Enable Selection} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -3031,13 +3209,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Selects if RF output is automatically switched off, when in external source mode no reference signal is supplied. This setting ensures that no improper RF signal due to the missing external reference signal is output and used for measurements. \\
 			Command: SOUR:ROSC:EXT:RFOF:STAT \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries ROSC-Ext-Sts \\ \hline
+			\bfseries RoscExt-Sts \\ \hline
 			\emph{RF Output Switch Off Enable Status} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -3046,10 +3225,11 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Gets if the RF output switch off state. \\
 			Command: SOUR:ROSC:EXT:RFOF:STAT? \\
+			\\
 			
 		\end{tabular}
-%==================================================================================
-%
+
+
 	% TABLE: Clock Synthesis Functionalities
 	\subsection{Clock Synthesis Functionalities}\label{pvgroup:function} %LABEL NOT CHANGED YET
 
@@ -3057,32 +3237,34 @@ quency, these parameters change accordingly. \\
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries CSYNFreq-SP \\ \hline
+			\bfseries CsynFreq-SP \\ \hline
 			\emph{Clock Synthesis Frequency Set Point} \\
 			Data type: float \\
 			Unit: Hz \\
 			Range: 100 kHz to 1.5 GHz \\
 			Description: Sets the frequency of the clock synthesis output signal. \\
 			Command: CSYN:FREQ \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries CSYNFreq-RB \\ \hline
+			\bfseries CsynFreq-RB \\ \hline
 			\emph{Clock Synthesis Frequency Read Back} \\
 			Data type: float \\
 			Unit: Hz \\
 			Description: Reads the frequency of the clock synthesis signal. \\
 			Command: CSYN:FREQ? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries CSYN-Sel \\ \hline
+			\bfseries Csyn-Sel \\ \hline
 			\emph{Clock Synthesis Enable Selection} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -3091,13 +3273,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Activates/deactivates generation of a system clock for differential outputs CLK SYN and CLK SYN N at the rear of the instrument. \\
 			Command: CSYN:STAT \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries CSYN-Sts \\ \hline
+			\bfseries Csyn-Sts \\ \hline
 			\emph{Clock Synthesis Enable Status} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -3106,38 +3289,41 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Gets clock synthesis state. \\
 			Command: CSYN:STAT? \\
+			\\
 			
 		\end{tabular}
-%==================================================================================
 %
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries CSYNOffset-SP \\ \hline
+			\bfseries CsynOffset-SP \\ \hline
 			\emph{Clock Synthesis DC Offset Set Point} \\
 			Data type: float \\
 			Unit: V \\
 			Range: -5 V to 5 V \\
 			Description: Sets a DC offset which is added to both clock synthesis output signals. \\
 			Command: CSYN:OFFS \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries CSYNOffset-RB \\ \hline
+			\bfseries CsynOffset-RB \\ \hline
 			\emph{Clock Synthesis DC Offset Read Back} \\
 			Data type: float \\
 			Unit: V \\
 			Description: Reads the DC offset for the clock synthesis signal value. \\
 			Command: CSYN:OFFS? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries CSYNOffset-Sel \\ \hline
+			\bfseries CsynOffset-Sel \\ \hline
 			\emph{Clock Synthesis DC Offset Enable Selection} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -3146,13 +3332,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Activates the addition of the DC offset to both clock synthesis output signals. \\
 			Command: CSYN:OFFS:STAT \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries CSYNOffset-Sts \\ \hline
+			\bfseries CsynOffset-Sts \\ \hline
 			\emph{Clock Synthesis DC Offset Enable Status} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -3161,10 +3348,11 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Gets clock synthesis DC Offset status. \\
 			Command: CSYN:OFFS:STAT? \\
+			\\
 			
 		\end{tabular}
-%==================================================================================
-%
+
+
 	% TABLE: Clock Synthesis Functionalities
 	\subsection{Clock Synthesis Functionalities}\label{pvgroup:function} %LABEL NOT CHANGED YET
 
@@ -3172,32 +3360,34 @@ quency, these parameters change accordingly. \\
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries NOISBwid-SP \\ \hline
+			\bfseries NoisBwid-SP \\ \hline
 			\emph{Noise Bandwidth Set Point} \\
 			Data type: float \\
 			Unit: Hz \\
 			Range: 100 kHz to 10 MHz \\
 			Description: Sets the noise level in the system bandwidth for enabled bandwidth limitation. \\
 			Command: SOUR:NOIS:BWID \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries NOISBwid-RB \\ \hline
+			\bfseries NoisBwid-RB \\ \hline
 			\emph{Noise Bandwidth Read Back} \\
 			Data type: float \\
 			Unit: Hz \\
 			Description: Reads noise bandwidth limitation. \\
 			Command: SOUR:NOIS:BWID? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries NOISBwid-Sel \\ \hline
+			\bfseries NoisBwid-Sel \\ \hline
 			\emph{Noise Bandwidth Limitation Enable Selection} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -3206,13 +3396,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Enables /disables bandwidth limitation of noise. \\
 			Command: SOUR:NOIS:BWID:STAT \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries NOISBwid-Sts \\ \hline
+			\bfseries NoisBwid-Sts \\ \hline
 			\emph{Noise Bandwidth Limitation Enable Status} \\
 			Data type: bool \{\begin{itemize}[noitemsep]
 				\small
@@ -3221,13 +3412,14 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\
 			Description: Gets bandwidth limitation of noise status. \\
 			Command: SOUR:NOIS:BWID:STAT? \\
+			\\
 			
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries NOISDist-Sel \\ \hline
+			\bfseries NoisDist-Sel \\ \hline
 			\emph{Noise Distribution Selection} \\
 			Data type: enum \\   
 			Description: Selects the noise power density distribution.\begin{itemize}[noitemsep]
@@ -3237,13 +3429,14 @@ quency, these parameters change accordingly. \\
 
 			\end{itemize} \\
 			Command: SOUR:NOIS:DIST \emph{value} \\
+			\\
 
 		\end{tabular}
 
 
 		\begin{tabular}{N}
 			\hline
-			\bfseries NOISDist-Sts \\ \hline
+			\bfseries NoisDist-Sts \\ \hline
 			\emph{Noise Distribution Status} \\
 			Data type: enum \{\begin{itemize}[noitemsep]
 				\small
@@ -3253,34 +3446,39 @@ quency, these parameters change accordingly. \\
 			\end{itemize}\} \\ 
 			Description: Reads the noise power density distribution \\
 			Command: SOUR:NOIS:DIST? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries NOISRelatLvl-Mon \\ \hline
+			\bfseries NoisRelatLvl-Mon \\ \hline
 			\emph{Noise Relative Level} \\
 			Data type: float \\
 			Unit: Hz \\
 			Description: Monitors the level of the noise signal pr Hz in the total bandwidth. \\
 			Command: SOUR:NOIS:LEV:REL? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 		\begin{tabular}{N}
 			\hline
-			\bfseries NOISAbsLvl-Mon \\ \hline
+			\bfseries NoisAbsLvl-Mon \\ \hline
 			\emph{Noise Absolute Level} \\
 			Data type: float \\
 			Unit: Hz \\
 			Description: Monitors the noise signal in the system bandwidth for enabled bandwidth limitation. \\
 			Command: SOUR:NOIS:LEV:ABS? \\
+			\\
 
 		\end{tabular}
-%==================================================================================
-%
+
+
 
 
 ---------
+\end{document}
+\grid
