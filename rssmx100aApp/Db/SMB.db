@@ -26,17 +26,18 @@
 ##########################################################################
 # Reset to default state
 
-record(bo, "$(P)$(R)GeneralReset") {
+record(bo, "$(P)$(R)GeneralReset-Cmd") {
   field(DESC, "Reset to default state")
   field(DTYP, "stream")
   field(ZNAM, "0")
   field(ONAM, "1")
+  field(HIGH, "1")
   field(OUT, "@rssmb100a.proto outRst $(PORT)")
 }
 
 # Get identification
 
-record(stringin, "$(P)$(R)GeneralIdn") {
+record(stringin, "$(P)$(R)GeneralIdn-Mon") {
   field(DESC, "Get device identification")
   field(SCAN, "1 second")
   field(DTYP, "stream")
@@ -80,7 +81,6 @@ record(ai, "$(P)$(R)GeneralLvl-RB") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "1")
-  field(LINR, "NO CONVERSION")
   field(EGU, "dBm")
   field(INP, "@rssmb100a.proto inLvl $(PORT)")
 }
@@ -120,7 +120,6 @@ record(ai, "$(P)$(R)GeneralRFLvl-RB") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "2")
-  field(LINR, "NO CONVERSION")
   field(EGU, "dBm")
   field(INP, "@rssmb100a.proto inRFLvl $(PORT)")
 }
@@ -191,7 +190,6 @@ record(ai, "$(P)$(R)GeneralPwrLim-RB") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "1")
-  field(LINR, "NO CONVERSION")
   field(EGU, "dBm")
   field(INP, "@rssmb100a.proto inGPwrLim $(PORT)")
 }
@@ -231,7 +229,6 @@ record(ai, "$(P)$(R)GeneralPPwr-RB") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "1")
-  field(LINR, "NO CONVERSION")
   field(EGU, "dBm")
   field(INP, "@rssmb100a.proto inGPPwr $(PORT)")
 }
@@ -251,7 +248,6 @@ record(ai, "$(P)$(R)GeneralLvlStart-RB") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "1")
-  field(LINR, "NO CONVERSION")
   field(EGU, "dBm")
   field(INP, "@rssmb100a.proto inGLvlStart $(PORT)")
 }
@@ -271,7 +267,6 @@ record(ai, "$(P)$(R)GeneralPwrStep-RB") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "2")
-  field(LINR, "NO CONVERSION")
   field(EGU, "dB")
   field(INP, "@rssmb100a.proto inGPwrStep $(PORT)")
 }
@@ -312,7 +307,6 @@ record(ai, "$(P)$(R)GeneralLvlStop-RB") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "1")
-  field(LINR, "NO CONVERSION")
   field(EGU, "dBm")
   field(INP, "@rssmb100a.proto inGLvlStop $(PORT)")
 }
@@ -332,7 +326,6 @@ record(ai, "$(P)$(R)GeneralAttFixLow-Mon") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "2")
-  field(LINR, "NO CONVERSION")
   field(EGU, "dBm")
   field(INP, "@rssmb100a.proto inGAttFixLow $(PORT)")
 }
@@ -344,7 +337,6 @@ record(ai, "$(P)$(R)GeneralAttFixUpp-Mon") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "2")
-  field(LINR, "NO CONVERSION")
   field(EGU, "dBm")
   field(INP, "@rssmb100a.proto inGAttFixUpp $(PORT)")
 }
@@ -376,7 +368,6 @@ record(ai, "$(P)$(R)GeneralPwrMan-RB") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "1")
-  field(LINR, "NO CONVERSION")
   field(EGU, "dBm")
   field(INP, "@rssmb100a.proto inGPwrMan $(PORT)")
 }
@@ -595,7 +586,6 @@ record(ai, "$(P)$(R)FreqStartFreq-RB") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "1")
-  field(LINR, "NO CONVERSION")
   field(EGU, "Hz")
   field(INP, "@rssmb100a.proto inFStartFreq $(PORT)")
 }
@@ -615,7 +605,6 @@ record(ai, "$(P)$(R)FreqStopFreq-RB") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "1")
-  field(LINR, "NO CONVERSION")
   field(EGU, "Hz")
   field(INP, "@rssmb100a.proto inFStopFreq $(PORT)")
 }
@@ -635,7 +624,6 @@ record(ai, "$(P)$(R)FreqFStepLin-RB") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "2")
-  field(LINR, "NO CONVERSION")
   field(EGU, "Hz")
   field(INP, "@rssmb100a.proto inFStepLin $(PORT)")
 }
@@ -656,7 +644,6 @@ record(ai, "$(P)$(R)FreqCenterFreq-RB") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "1")
-  field(LINR, "NO CONVERSION")
   field(EGU, "Hz")
   field(INP, "@rssmb100a.proto inFCenterFreq $(PORT)")
 }
@@ -676,7 +663,6 @@ record(ai, "$(P)$(R)FreqFreqMan-RB") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "1")
-  field(LINR, "NO CONVERSION")
   field(EGU, "Hz")
   field(INP, "@rssmb100a.proto inFFreqMan $(PORT)")
 }
@@ -696,7 +682,6 @@ record(ai, "$(P)$(R)FreqFreqSpan-RB") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "1")
-  field(LINR, "NO CONVERSION")
   field(EGU, "Hz")
   field(INP, "@rssmb100a.proto inFFreqSpan $(PORT)")
 }
@@ -716,7 +701,6 @@ record(ai, "$(P)$(R)FreqStepVar-RB") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "1")
-  field(LINR, "NO CONVERSION")
   field(EGU, "Hz")
   field(INP, "@rssmb100a.proto inFStepVar $(PORT)")
 }
@@ -736,7 +720,6 @@ record(ai, "$(P)$(R)FreqPDwellTime-RB") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "2")
-  field(LINR, "NO CONVERSION")
   field(EGU, "s")
   field(INP, "@rssmb100a.proto inPDwellTime $(PORT)")
 }
@@ -785,7 +768,6 @@ record(ai, "$(P)$(R)FreqPSweepPts-RB") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "1")
-  field(LINR, "NO CONVERSION")
   field(INP, "@rssmb100a.proto inPSweepPts $(PORT)")
 }
 
@@ -834,7 +816,6 @@ record(ai, "$(P)$(R)FreqPStepLog-RB") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "2")
-  field(LINR, "NO CONVERSION")
   field(EGU, "dB")
   field(INP, "@rssmb100a.proto inPStepLog $(PORT)")
 }
@@ -928,7 +909,6 @@ record(ai, "$(P)$(R)FreqFDwellTime-RB") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "3")
-  field(LINR, "NO CONVERSION")
   field(EGU, "s")
   field(INP, "@rssmb100a.proto inFDwellTime $(PORT)")
 }
@@ -960,7 +940,6 @@ record(ai, "$(P)$(R)FreqFSweepPts-RB") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "1")
-  field(LINR, "NO CONVERSION")
   field(INP, "@rssmb100a.proto inFSweepPts $(PORT)")
 }
 
@@ -1010,7 +989,6 @@ record(ai, "$(P)$(R)FreqFStepLog-RB") {
   field(DTYP, "stream")
   field(PREC, "2")
   field(EGU, "%")
-  field(LINR, "NO CONVERSION")
   field(INP, "@rssmb100a.proto inFStepLog $(PORT)")
 }
 
@@ -1253,7 +1231,6 @@ record(ai, "$(P)$(R)FreqLFStepLog-RB") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "2")
-  field(LINR, "NO CONVERSION")
   field(EGU, "%")
   field(INP, "@rssmb100a.proto inFLFStepLog $(PORT)")
 }
@@ -1594,7 +1571,6 @@ record(ai, "$(P)$(R)ModAMDepth-RB") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "2")
-  field(LINR, "NO CONVERSION")
   field(EGU, "%")
   field(INP, "@rssmb100a.proto inAMDepth $(PORT)")
 }
@@ -1635,7 +1611,6 @@ record(ai, "$(P)$(R)ModAMIntDepth-RB") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "1")
-  field(LINR, "NO CONVERSION")
   field(EGU, "%")
   field(INP, "@rssmb100a.proto inAMIntDepth $(PORT)")
 }
@@ -1737,7 +1712,6 @@ record(ai, "$(P)$(R)ModFMDev-RB") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "1")
-  field(LINR, "NO CONVERSION")
   field(EGU, "Hz")
   field(INP, "@rssmb100a.proto inMFMDev $(PORT)")
 }
@@ -1777,7 +1751,6 @@ record(ai, "$(P)$(R)ModFMExtDev-RB") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "1")
-  field(LINR, "NO CONVERSION")
   field(EGU, "Hz")
   field(INP, "@rssmb100a.proto inMFMExtDev $(PORT)")
 }
@@ -1797,7 +1770,6 @@ record(ai, "$(P)$(R)ModFMIntDev-RB") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "1")
-  field(LINR, "NO CONVERSION")
   field(EGU, "Hz")
   field(INP, "@rssmb100a.proto inMFMIntDev $(PORT)")
 }
@@ -2299,7 +2271,6 @@ record(ai, "$(P)$(R)NoisRelatLvl-Mon") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "1")
-  field(LINR, "NO CONVERSION")
   field(EGU, "dBV/Hz")
   field(INP, "@rssmb100a.proto inNRelatLvl $(PORT)")
 }
@@ -2311,7 +2282,6 @@ record(ai, "$(P)$(R)NoisAbsLvl-Mon") {
   field(SCAN, "1 second")
   field(DTYP, "stream")
   field(PREC, "1")
-  field(LINR, "NO CONVERSION")
   field(EGU, "dBV")
   field(INP, "@rssmb100a.proto inNAbsLvl $(PORT)")
 }

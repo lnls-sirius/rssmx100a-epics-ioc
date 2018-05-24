@@ -27,7 +27,7 @@
 ##########################################################################
 # Reset to default state
 
-record(bo, "$(P)$(R)GeneralReset") {
+record(bo, "$(P)$(R)GeneralReset-Cmd") {
   field(DESC, "Reset to default state")
   field(DTYP, "stream")
   field(ZNAM, "0")
@@ -38,7 +38,7 @@ record(bo, "$(P)$(R)GeneralReset") {
 
 # Get identification
 
-record(stringin, "$(P)$(R)GeneralIdn") {
+record(stringin, "$(P)$(R)GeneralIdn-Mon") {
   field(DESC, "Get device identification")
   field(PINI, "YES")
   field(DTYP, "stream")
@@ -2557,12 +2557,12 @@ record(bo, "$(P)$(R)NoisBwid-Sel") {
 # AUTOSAVE
 # Desc: Save "-Sel" and '-SP' PV values
 
-record(bi, "$(P)$(R)Save-Cmd") {
+record(bo, "$(P)$(R)Save-Cmd") {
   field(DESC, "Save PV values")
   field(ZNAM, "OFF")
   field(ONAM, "ON")
   field(HIGH, "1")
-  field(INP, "$(P)$(R)SaveTrg")
+  field(FLNK, "$(P)$(R)SaveTrg")
 }
 
 # This PV is monitored by autosave
