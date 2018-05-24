@@ -1,4 +1,4 @@
-##########################################################################
+#########################################################################
 # INFN - LNL
 #
 # Database Definition file to Rohde&Schwarz SMA100A
@@ -158,7 +158,7 @@ record(bo, "$(P)$(R)GeneralSearchOnce-Cmd") {
 
 # AUTOMATIC LEVEL CONTROL STATE
 
-record(mbbi, "$(P)$(R)oscExtBwid-Sts") {
+record(mbbi, "$(P)$(R)GeneralAlc-Sts") {
   field(DESC, "Get Alc State (ON|OFF|AUTO)")
   field(SCAN, "1 second")
   field(DTYP, "stream")
@@ -2336,9 +2336,26 @@ record(bo, "$(P)$(R)NoisBwid-Sel") {
   field(FLNK,"$(P)$(R)NoisBwid-Sts")
 }
 ##########################################################################
+##########################################################################
+##########################################################################
 
+# AUTOSAVE
+# Desc: Save "-Sel" and '-SP' PV values
 
+record(bo, "$(P)$(R)Save-Cmd") {
+  field(DESC, "Save PV values")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  field(HIGH, "1")
+  field(FLNK, "$(P)$(R)SaveTrg")
+}
 
-
-
+# This PV is monitored by autosave
+record(calc, "$(P)$(R)SaveTrg") {
+  field(DESC, "Save PV values trigger")
+  field(ASG, "Reserved")
+  field(INPA, "$(P)$(R)Save-Cmd.VAL")
+  field(CALC, "A=1?!VAL:VAL")
+  field(VAL, "0")
+}
 

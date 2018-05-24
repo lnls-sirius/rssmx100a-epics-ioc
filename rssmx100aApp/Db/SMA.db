@@ -32,6 +32,7 @@ record(bo, "$(P)$(R)GeneralReset") {
   field(DTYP, "stream")
   field(ZNAM, "0")
   field(ONAM, "1")
+  field(HIGH, "1")
   field(OUT, "@rssma100a.proto outRst $(PORT)")
 }
 
@@ -39,7 +40,7 @@ record(bo, "$(P)$(R)GeneralReset") {
 
 record(stringin, "$(P)$(R)GeneralIdn") {
   field(DESC, "Get device identification")
-  field(SCAN, "1 second")
+  field(PINI, "YES")
   field(DTYP, "stream")
   field(INP, "@rssma100a.proto inIdn $(PORT)")
 }
@@ -2550,9 +2551,26 @@ record(bo, "$(P)$(R)NoisBwid-Sel") {
   field(FLNK,"$(P)$(R)NoisBwid-Sts")
 }
 ##########################################################################
+##########################################################################
+##########################################################################
 
+# AUTOSAVE
+# Desc: Save "-Sel" and '-SP' PV values
 
+record(bi, "$(P)$(R)Save-Cmd") {
+  field(DESC, "Save PV values")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  field(HIGH, "1")
+  field(INP, "$(P)$(R)SaveTrg")
+}
 
-
-
+# This PV is monitored by autosave
+record(calc, "$(P)$(R)SaveTrg") {
+  field(DESC, "Save PV values trigger")
+  field(ASG, "Reserved")
+  field(INPA, "$(P)$(R)Save-Cmd.VAL")
+  field(CALC, "A=1?!VAL:VAL")
+  field(VAL, "0")
+}
 

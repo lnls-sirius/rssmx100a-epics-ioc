@@ -6,6 +6,10 @@ include $(TOP)/configure/CONFIG
 #=============================
 
 #=============================
+# Build the IOC support library
+LIBRARY_IOC += rssmx100aSupport
+rssmx100aSupport_LIBS += $(EPICS_BASE_IOC_LIBS)
+
 # Build the IOC application
 
 PROD_IOC = rssmx100a
@@ -40,13 +44,15 @@ include $(TOP)/configure/RULES
 #----------------------------------------
 #  ADD RULES AFTER THIS LINE
 
-rssmx100a_DBD += asyn.dbd
+#rssmx100a_DBD += asyn.dbd
 rssmx100a_DBD += drvAsynIPPort.dbd
 rssmx100a_DBD += drvVxi11.dbd
 rssmx100a_DBD += stream.dbd
 rssmx100a_DBD += calcSupport.dbd
+rssmx100a_DBD += asSupport.dbd
 #rssmx100a_DBD += rssmx100aInclude.dbd
 
 rssmx100a_LIBS += asyn
 rssmx100a_LIBS += stream
 rssmx100a_LIBS += calc
+rssmx100a_LIBS += autosave
