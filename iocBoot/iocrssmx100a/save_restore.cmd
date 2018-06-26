@@ -1,6 +1,6 @@
 ### save_restore setup
 # status-PV prefix
-save_restoreSet_status_prefix("RSSMX100A:")
+save_restoreSet_status_prefix("${P}${R}")
 # Debug-output level
 save_restoreSet_Debug(0)
 
@@ -33,10 +33,10 @@ set_pass0_restoreFile("auto_settings_${P}${R}.sav")
 set_pass1_restoreFile("auto_settings_${P}${R}.sav")
 
 # specify directories in which to to search for included request files
-set_requestfile_path("$(TOP)/iocBoot/$(IOC)", "")
+#set_requestfile_path("$(TOP)/iocBoot/$(IOC)", "")
 set_requestfile_path("$(TOP)/iocBoot/$(IOC)", "autosave")
 set_requestfile_path("$(TOP)", "rssmx100aApp/Db")
-set_requestfile_path("$(AUTOSAVE)", "asApp/Db")
+#set_requestfile_path("$(AUTOSAVE)", "asApp/Db")
 
 dbLoadRecords("$(AUTOSAVE)/asApp/Db/save_restoreStatus.db", "P=${P}${R}")
 

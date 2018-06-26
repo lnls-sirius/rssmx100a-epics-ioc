@@ -1,4 +1,7 @@
 < envPaths
+
+epicsEnvSet("TOP", "../..")
+
 < RSSMX100A.config
 
 ####################################################
@@ -25,9 +28,9 @@ iocInit
 
 ## Start any sequence programs
 
-# Sequencer STATE MACHINES Initialization
-
-# No sequencer program
+# Create monitor for Autosave
+create_monitor_set("autosave_SMB.req", 300, "P=${P}, R=${R}")
 
 # Create manual trigger for Autosave
-create_triggered_set("auto_settings_dcct.req", "${P}${R}SaveTrg", "P=${P}, R=${R}")
+create_triggered_set("autosave_SMB.req", "${P}${R}SaveTrg", "P=${P}, R=${R}")
+set_savefile_name("autosave_SMB.req", "auto_settings_${P}${R}.sav")
