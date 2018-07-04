@@ -20,17 +20,12 @@ if [ -z "$IPADDR" ]; then
     exit 3
 fi
 
-if [ -z "$DEVICE" ]; then
+if [ -z "$DEVICE_TYPE" ]; then
     echo "Device type is not set. Please use -d option" >&2
     exit 4
 fi
 
-if [ -z "$DEVICE" ]; then
-    echo "Device type is not set. Please use -d option" >&2
-    exit 5
-fi
-
-case ${DEVICE} in
+case ${DEVICE_TYPE} in
     SMA)
         ST_CMD_FILE=stSMA.cmd
 	;;
