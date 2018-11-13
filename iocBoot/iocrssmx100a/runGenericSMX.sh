@@ -35,7 +35,7 @@ case ${DEVICE_TYPE} in
 	;;
 
     *)
-        echo "Invalid RSSMX100A type: "${DEVICE} >&2
+        echo "Invalid RSSMX100A type: "${DEVICE_TYPE} >&2
         exit 7
         ;;
 esac
