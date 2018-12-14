@@ -36,7 +36,7 @@ case ${DEVICE} in
 	;;
 
     SMB)
-	ST_CMD_FILE=stSMB.cmd
+        ST_CMD_FILE=stSMB.cmd
 	;;
 
     *)
