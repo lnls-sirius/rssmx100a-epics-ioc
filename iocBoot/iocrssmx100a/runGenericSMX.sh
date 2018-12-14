@@ -20,17 +20,20 @@ if [ -z "$IPADDR" ]; then
     exit 3
 fi
 
-if [ -z "$DEVICE" ]; then
+if [ -z "$DEVICE_TYPE" ]; then
     echo "Device type is not set. Please use -d option" >&2
     exit 4
 fi
 
-if [ -z "$DEVICE" ]; then
-    echo "Device type is not set. Please use -d option" >&2
-    exit 5
+# Just in case we pass a trailling number (as systemd entry point requires it)
+RSSMX100A_TYPE=$(echo ${DEVICE_TYPE} | grep -Eo "[^0-9]+");
+
+if [ -z "$RSSMX100A_TYPE" ]; then
+    echo "RSSMX100A device type is not valid. Please check the -d option" >&2
+    exit 6
 fi
 
-case ${DEVICE} in
+case ${RSSMX100A_TYPE} in
     SMA)
         ST_CMD_FILE=stSMA.cmd
 	;;
@@ -40,7 +43,7 @@ case ${DEVICE} in
 	;;
 
     *)
-        echo "Invalid RSSMX100A type: "${DEVICE} >&2
+        echo "Invalid RSSMX100A type: "${RSSMX100A_TYPE} >&2
         exit 7
         ;;
 esac
