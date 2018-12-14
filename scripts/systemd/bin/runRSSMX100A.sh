@@ -31,6 +31,7 @@ if [ -z "$DEVICE_TYPE" ]; then
 fi
 
 ./runProcServ.sh \
+    -t "${RSSMX100A_DEVICE_TELNET_PORT}" \
     -i "${RSSMX100A_DEVICE_IP}" \
     -d "${DEVICE_TYPE}" \
     -P "${RSSMX100A_PV_AREA_PREFIX}" \
