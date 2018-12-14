@@ -29,9 +29,6 @@ O.*/
 op/opi/logs.*
 op/opi/.metadata
 
-# Autosave files
-iocBoot/iocrssmx100a/autosave/*
-
 # Documentation files
 documentation/*.aux
 documentation/*.log
