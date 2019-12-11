@@ -61,7 +61,7 @@ record(ai, "$(P)$(R)GeneralFreq-RB") {
   field(DESC, "Get Freq")
   field(SCAN, "1 second")
   field(DTYP, "stream")
-  field(PREC, "1")
+  field(PREC, "3")
   field(EGU, "Hz")
   field(INP, "@rssmb100a.proto inFrq $(PORT)")
 }
@@ -69,6 +69,7 @@ record(ai, "$(P)$(R)GeneralFreq-RB") {
 record(ao, "$(P)$(R)GeneralFreq-SP") {
   field(DESC, "Set Freq")
   field(DTYP, "stream")
+  field(PREC, "3")
   field(EGU, "Hz")
   field(OUT, "@rssmb100a.proto outFrq($1) $(PORT)")
   field(FLNK,"$(P)$(R)GeneralFreq-RB")
