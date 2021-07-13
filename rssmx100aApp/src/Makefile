@@ -47,7 +47,6 @@ include $(TOP)/configure/RULES
 rssmx100a_DBD += drvAsynIPPort.dbd
 rssmx100a_DBD += stream.dbd
 rssmx100a_DBD += calcSupport.dbd
-rssmx100a_DBD += calc.dbd
 rssmx100a_DBD += caPutLog.dbd
 
 rssmx100a_LIBS += asyn
