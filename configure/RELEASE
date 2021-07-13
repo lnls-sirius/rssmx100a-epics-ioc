@@ -7,6 +7,6 @@ ASYN=$(SUPPORT)/asyn-4-26
 STREAM=$(SUPPORT)/stream-2-7-7
 CALC=$(SUPPORT)/calc-3-4-2-1
 AUTOSAVE=$(SUPPORT)/autosave-5-6-1
-CAPUTLOG=$(EPICS_MODULES)/$(CAPUTLOG)
+CAPUTLOG=
 
 EPICS_BASE=/usr/local/epics/base
