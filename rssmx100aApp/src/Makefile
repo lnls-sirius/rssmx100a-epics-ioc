@@ -44,15 +44,14 @@ include $(TOP)/configure/RULES
 #----------------------------------------
 #  ADD RULES AFTER THIS LINE
 
-#rssmx100a_DBD += asyn.dbd
 rssmx100a_DBD += drvAsynIPPort.dbd
-rssmx100a_DBD += drvVxi11.dbd
 rssmx100a_DBD += stream.dbd
 rssmx100a_DBD += calcSupport.dbd
-rssmx100a_DBD += asSupport.dbd
-#rssmx100a_DBD += rssmx100aInclude.dbd
+rssmx100a_DBD += calc.dbd
+rssmx100a_DBD += caPutLog.dbd
 
 rssmx100a_LIBS += asyn
 rssmx100a_LIBS += stream
 rssmx100a_LIBS += calc
 rssmx100a_LIBS += autosave
+rssmx100a_LIBS += caPutLog
