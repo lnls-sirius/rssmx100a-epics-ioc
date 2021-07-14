@@ -5,6 +5,8 @@ epicsEnvSet("TOP", "../..")
 < RSSMX100A.config
 
 ####################################################
+epicsEnvSet("EPICS_IOC_LOG_INET", "$(EPICS_IOC_LOG_INET)")
+epicsEnvSet("EPICS_IOC_LOG_PORT", "$(EPICS_IOC_LOG_PORT)")
 
 epicsEnvSet("STREAM_PROTOCOL_PATH", "$(TOP)/rssmx100aApp/Db")
 
@@ -25,6 +27,8 @@ dbLoadRecords("${TOP}/db/SMB.db", "P=${P}, R=${R}, PORT=${PORT}")
 #traceIocInit
 
 iocInit
+iocLogInit
+caPutLogInit "$(EPICS_IOC_CAPUTLOG_INET):$(EPICS_IOC_CAPUTLOG_PORT)" 2
 
 ## Start any sequence programs
 
