@@ -1,12 +1,12 @@
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 
-SUPPORT=/usr/local/epics/synApps_5_8/support
+SUPPORT=/opt/epics/synApps/support
 
-SNCSEQ=$(SUPPORT)/seq-2-2-1
-ASYN=$(SUPPORT)/asyn-4-26
-STREAM=$(SUPPORT)/stream-2-7-7
-CALC=$(SUPPORT)/calc-3-4-2-1
-AUTOSAVE=$(SUPPORT)/autosave-5-6-1
-CAPUTLOG=
+SNCSEQ=$(SUPPORT)/seq-2-2-6
+ASYN=$(SUPPORT)/asyn-R4-35
+STREAM=$(SUPPORT)/stream-R2-8-8/StreamDevice-2-8-8
+CALC=$(SUPPORT)/calc-R3-7-2
+AUTOSAVE=$(SUPPORT)/autosave-R5-9
+CAPUTLOG=$(SUPPORT)/caPutLog-R3.7
 
-EPICS_BASE=/usr/local/epics/base
+EPICS_BASE=/opt/epics/base
