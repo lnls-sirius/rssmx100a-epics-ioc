@@ -6,9 +6,9 @@ set +u
 # Parse command-line options
 . ./parseCMDOpts.sh "$@"
 
-# Use defaults if not set
+UNIX_SOCKET=""
 if [ -z "${DEVICE_TELNET_PORT}" ]; then
-   DEVICE_TELNET_PORT="20000"
+    UNIX_SOCKET="true"
 fi
 
 if [ -z "${RSSMX100A_INSTANCE}" ]; then
@@ -17,5 +17,21 @@ fi
 
 set -u
 
-# Run run*.sh scripts with procServ
-/usr/local/bin/procServ -f -n rssmx100a_${RSSMX100A_INSTANCE} -i ^C^D ${DEVICE_TELNET_PORT} ./runGenericSMX.sh "$@"
+# Use UNIX socket telnet port is not set
+if [ "${UNIX_SOCKET}" ]; then
+    /usr/local/bin/procServ \
+        --logfile - \
+        --foreground \
+        --name rssmx100a_${RSSMX100A_INSTANCE} \
+        --ignore ^C^D \
+        unix:./procserv.sock \
+            ./runGenericSMX.sh "$@"
+else
+    /usr/local/bin/procServ \
+        --logfile - \
+        --foreground \
+        --name rssmx100a_${RSSMX100A_INSTANCE} \
+        --ignore ^C^D \
+        ${DEVICE_TELNET_PORT} \
+            ./runGenericSMX.sh "$@"
+fi
