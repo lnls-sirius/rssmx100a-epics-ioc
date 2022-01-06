@@ -43,7 +43,7 @@ rssmx100a_LIBS += $(EPICS_BASE_IOC_LIBS)
 include $(TOP)/configure/RULES
 #----------------------------------------
 #  ADD RULES AFTER THIS LINE
-#rssmx100a_DBD += asyn.dbd
+rssmx100a_DBD += asyn.dbd
 #rssmx100a_DBD += rssmx100aInclude.dbd
 rssmx100a_DBD += asSupport.dbd
 rssmx100a_DBD += caPutLog.dbd

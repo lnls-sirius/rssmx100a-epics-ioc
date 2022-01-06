@@ -1,0 +1,30 @@
+record(asyn,"$(P)$(R)") {
+    field(DESC, "Asyn record")
+    field(DTYP, "asynRecordDevice")
+    field(PORT, "$(PORT)")
+    field(ADDR, "0")
+    field(OMAX, "80")
+    field(IMAX, "80")
+}
+
+record(mbbo, "$(P)$(R)Hw-Sel") {
+    field(DESC, "HW connection settings")
+
+    field(ZRST, "$(D1) TCP")
+    field(ONST, "$(D2) TCP")
+
+    field(OMSL, "supervisory")
+    field(PINI, "1")
+    field(FLNK, "$(P)$(R)Hw-str")
+
+    field(NOBT, "1")
+}
+
+record(stringout, "$(P)$(R)Hw-str") {
+    field(DESC, "String value from mbbo")
+    field(SCAN, "Passive")
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(P)$(R)Hw-Sel")
+
+    field(OUT,  "$(P)$(R).HOSTINFO")
+}

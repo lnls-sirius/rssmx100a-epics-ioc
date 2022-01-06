@@ -13,6 +13,7 @@ include $(TOP)/configure/CONFIG
 #DB += xxx.db
 DB += SMA.db
 DB += SMB.db
+DB += hotswap.db
 
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add
