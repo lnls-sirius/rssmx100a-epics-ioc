@@ -1,5 +1,4 @@
 #!/bin/sh
-
 set -e
 set +u
 
@@ -11,8 +10,8 @@ set +u
 
 # Check last command return status
 if [ $? -ne 0 ]; then
-        echo "Could not parse command-line options" >&2
-        exit 1
+    echo "Could not parse command-line options" >&2
+    exit 1
 fi
 
 if [ -z "$IPADDR" ]; then
@@ -36,16 +35,16 @@ fi
 case ${RSSMX100A_TYPE} in
     SMA)
         ST_CMD_FILE=stSMA.cmd
-	;;
+    ;;
 
     SMB)
         ST_CMD_FILE=stSMB.cmd
-	;;
+    ;;
 
     *)
         echo "Invalid RSSMX100A type: "${RSSMX100A_TYPE} >&2
         exit 7
-        ;;
+    ;;
 esac
 
 echo "Using st.cmd file: "${ST_CMD_FILE}
