@@ -1,4 +1,6 @@
 $(P)$(R)Hw-Sel
+$(P)$(R)Hw-Sel.ZRST
+$(P)$(R)Hw-Sel.ONST
 $(P)$(R)FreqStartFreq-SP
 $(P)$(R)FreqFStepLin-SP
 $(P)$(R)FreqStopFreq-SP
