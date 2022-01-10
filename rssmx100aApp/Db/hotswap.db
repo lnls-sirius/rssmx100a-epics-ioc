@@ -28,3 +28,7 @@ record(stringout, "$(P)$(R)Hw-str") {
 
     field(OUT,  "$(P)$(R).HOSTINFO")
 }
+
+record(sub, "$(P)$(R)SubReload-Cmd") {
+    field(SNAM, "streamReloadSub")
+}

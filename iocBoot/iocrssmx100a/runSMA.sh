@@ -41,4 +41,5 @@ IPADDR2="$IPADDR2" \
 IPPORT2="$IPPORT2" \
 P="$P" \
 R="$R" \
-$IOC_BIN" stSMA.cmd
+"$IOC_BIN" \
+stSMA.cmd
