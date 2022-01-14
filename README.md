@@ -195,4 +195,14 @@ The user can check this tab for connection erros.
 
 ![asynRecod advanced tag](./documentation/asynRecord-advanced.png)
 
-### Procedures
+### Connect to another hardware
+1. Open the asynRecod interface.
+2. Select the correct ip address on the `Selector` combobox.
+3. Click on the `Reload` button to reinitialize the database.
+
+### Disconnect the IOC
+The generator only supports a single connection. In order to disconnect the IOC:
+1. Open the asynRecod interface.
+2. Select `no autoConnect`
+3. Select `disconnect`
+
