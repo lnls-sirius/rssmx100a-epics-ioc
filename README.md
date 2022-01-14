@@ -173,7 +173,7 @@ These values are persisted using autosave `./rssmx100aApp/Db/autosave_SMA.req` a
 In oder to open the hardware connection interface click on the `Connection` button at the top right side of the screen.
 ![SMA main](./documentation/SMA-100A.png)
 
-On top to the tab panel there are 3 buttons *Connect*, *Enable* and *autoConnect*.
+There are 3 buttons *Connect*, *Enable* and *autoConnect*.
 
 - **Connect** open and closes the IOC connection to the hardware.
 
