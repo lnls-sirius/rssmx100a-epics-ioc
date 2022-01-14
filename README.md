@@ -1,9 +1,6 @@
 # rssmx100a-epics-ioc
 
-## Overall
-
-Repository containing the EPICS IOC support for the R&S SMA100A and
-SMB100A signal generators. Some functionalities are exclusive to SMA100A.
+EPICS IOC support for the R&S SMA100A and SMB100A signal generators. Some functionalities are exclusive to SMA100A.
 
 ## Documentation
 
@@ -13,34 +10,40 @@ The IOC documentation can be found in *documentation/*. There you can find a man
 
 To build the IOC, you can follow the standard EEPICS build procedure for IOC applications. The following EPICS modules are required:
 
-- Asyn (tested with 4.26)
-- StreamDevice (tested with version 2.7.7)
+- Asyn
+- StreamDevice
 
 The path to the required EPICS modules should be configured in the file configure/RELEASE, as the example below:
 
-   SUPPORT=/<path>/<to>/<synApps>
-   EPICS_BASE=/<path>/<to>/<epics>/<base>
-   ...
-   ASYN=$(SUPPORT)/<path to asyn>
-   STREAM=<path to stream device>
-   CALC=$(SUPPORT)/<path to calc module>
-   AUTOSAVE=$(SUPPORT)/<path to autosave>
+```
+SUPPORT=/<path>/<to>/<synApps>
+...
+ASYN=$(SUPPORT)/<path to asyn>
+CALC=$(SUPPORT)/<path to calc module>
+AUTOSAVE=$(SUPPORT)/<path to autosave>
 
-Afterwards, from the root repository directory, run 'make install'. At any time, if a reuild is required, simply run the following commands:
+STREAM=<path to stream device>
 
-$ make clean uninstall install
+EPICS_BASE=/<path>/<to>/<epics>/<base>
+```
+
+Afterwards, from the root repository directory, run 'make install'. At any time, if a rebuild is required, simply run the following commands:
+
+```command
+make clean uninstall install
+```
 
 ## Initialization
 
 For the IOC on this repository, the initialization can be done through
 the following commands starting at the top level directory:
 
-
 ```sh
-$ make clean uninstall install
-$ cd iocBoot/iocrssmx100a
-$ ./runGenericSMX.sh -i IPADDR -p IPPORT -P PREFIX1 -R PREFIX2 -d DEVICE
+make clean uninstall install
+cd iocBoot/iocrssmx100a
+./runGenericSMX.sh -i IPADDR -p IPPORT -P PREFIX1 -R PREFIX2 -d DEVICE
 ```
+
 - `-i IPADDR`: device IP address to connect to (required)
 - `-p IPPORT`: device IP port number to connect to (default: 5025)
 - `-d DEVICE`: device identifier (SMA|SMB) (required)
@@ -67,7 +70,7 @@ $ caget ${P}${R}:GENFreq-RB
 
 The PV's are divided in 7 major groups: GENERAL, FREQ, MOD,
 TRIG, ROSC, CSYN and NOIS. To set values, use the given name. To read
-them, add *_RBV* after it.
+them, add *\_RBV* after it.
 
 - **GENERAL** - General functionalities
 
@@ -97,55 +100,55 @@ The suffixes indicate the PV type and can be one of the following:
 The IOC directory structure is the following:
 
 - **configure** *(IOC configuration files)*
-    - RELEASE *(It is necessary to edit the support modules' paths before building the IOC)*
-    - ...
+  - RELEASE *(It is necessary to edit the support modules' paths before building the IOC)*
+  - ...
 - **rssmx100aApp** *(Applications sources)*
-    - **Db** *(The database files can be found here)*
-        - SMA.db *(SMA Signal Generator records)*
-        - SMB.db *(SMB Signal Generator records)*
-        - rssma100a.proto *(Protocol file for SMA records used by Stream Device)*        
-        - rssmb100a.proto *(Protocol file for SMB records used by Stream Device)*
-        - autosave_SMA.req *(SMA application autosave request file)*
-        - autosave_SMB.req *(SMB application autosave request file)*
-        - accessSecurityFile.acf *(Access security file)*
-        - Makefile
-    - **src** *(IOC source files)*
+  - **Db** *(The database files can be found here)*
+    - SMA.db *(SMA Signal Generator records)*
+    - SMB.db *(SMB Signal Generator records)*
+    - rssma100a.proto *(Protocol file for SMA records used by Stream Device)*
+    - rssmb100a.proto *(Protocol file for SMB records used by Stream Device)*
+    - autosave_SMA.req *(SMA application autosave request file)*
+    - autosave_SMB.req *(SMB application autosave request file)*
+    - accessSecurityFile.acf *(Access security file)*
     - Makefile
+  - **src** *(IOC source files)*
+  - Makefile
 - **documentation**
-    - RSSMX100A_App_User_Guide.tex *(SMX LaTeX documentation source)*
+  - RSSMX100A_App_User_Guide.tex *(SMX LaTeX documentation source)*
 - **iocBoot** *(Boot)*
-    - **iocrssmx100a**
-        - Makefile
-        - **autosave** *(Save files are placed here by autosave)*
-        - RSSMX100A.config *(RSSMX100A environment variables)*
-        - README
-        - runProcServ.sh *(Run runGenericCT.sh in procServ)*
-        - save_restore.cmd *(Contain all autosave configurations)*
-        - checkEnv.sh
-        - parseCMDOpts.sh
-        - runSMA.sh *(Run SMA PVs)*
-        - runSMB.sh *(Run SMB PVs)*
-        - runGenericSMX.sh *(Run SMA or SMB mode depending on the given -d option)*
-        - stSMA.cmd *(SMA startup file)*
-        - stSMB.cmd *(SMB startup file)*
+  - **iocrssmx100a**
     - Makefile
+    - **autosave** *(Save files are placed here by autosave)*
+    - RSSMX100A.config *(RSSMX100A environment variables)*
+    - README
+    - runProcServ.sh *(Run runGenericCT.sh in procServ)*
+    - save_restore.cmd *(Contain all autosave configurations)*
+    - checkEnv.sh
+    - parseCMDOpts.sh
+    - runSMA.sh *(Run SMA PVs)*
+    - runSMB.sh *(Run SMB PVs)*
+    - runGenericSMX.sh *(Run SMA or SMB mode depending on the given -d option)*
+    - stSMA.cmd *(SMA startup file)*
+    - stSMB.cmd *(SMB startup file)*
+  - Makefile
 - Makefile *(IOC Makefile)*
 - op *(Operator Interfaces)*
-    - **opi**
-        - Config_AM.opi
-        - Config_AutomLevel-Control.opi
-        - Config_ClockSyn.opi
-        - Config_FM.opi
-        - Config_Freq-Phase.opi
-        - Config_Freq-Sweep.opi
-        - Config_Level-Sweep.opi
-        - Config_LF_FreqSweep.opi
-        - Config_LF-Gen_Output.opi
-        - Config_Lvl-Attenuator.opi
-        - Config_PulM.opi
-        - Config_PulseGen.opi
-        - Config_ROSC.opi
-        - Config_SMA.opi
+  - **opi**
+    - Config_AM.opi
+    - Config_AutomLevel-Control.opi
+    - Config_ClockSyn.opi
+    - Config_FM.opi
+    - Config_Freq-Phase.opi
+    - Config_Freq-Sweep.opi
+    - Config_Level-Sweep.opi
+    - Config_LF_FreqSweep.opi
+    - Config_LF-Gen_Output.opi
+    - Config_Lvl-Attenuator.opi
+    - Config_PulM.opi
+    - Config_PulseGen.opi
+    - Config_ROSC.opi
+    - Config_SMA.opi
 - install *(Installation scripts)*
 - scripts *(General scripts)*
 - README.md *(This file)*
@@ -153,3 +156,16 @@ The IOC directory structure is the following:
 ## Running the OPIs
 
 The *op/opi*/ directory provide CSS OPIs for easily controlling the signal generator and applications process variables. In order to run the operator interfaces it is necessary to have Control System Studio installed. It is recommended to run `cs-studio` in the OPIs folder, in order to avoid having to reconfigure CS-Studio preferences.
+
+## Hardware Replacement
+
+The IOC supports hardware replacement by connecting the asyn port into another endpoint (SMA only).
+The records defined at `./rssmx100aApp/Db/hotswap.db` impplement this behaviour.
+
+| type | name                  | desc                              |
+| ---- | --------------------- | --------------------------------- |
+| asyn | $(P)$(R)              | asyn record for the specific port |
+| mbbo | $(P)$(R)Hw-Sel        | hardware endpoints                |
+| sub  | $(P)$(R)SubReload-Cmd | reload protocol @init             |
+
+These values are persisted using autosave `./rssmx100aApp/Db/autosave_SMA.req` and the `$(P)$(R)Hw-Sel` record has it's PINI field enabled.
