@@ -169,3 +169,30 @@ The records defined at `./rssmx100aApp/Db/hotswap.db` impplement this behaviour.
 | sub  | $(P)$(R)SubReload-Cmd | reload protocol @init             |
 
 These values are persisted using autosave `./rssmx100aApp/Db/autosave_SMA.req` and the `$(P)$(R)Hw-Sel` record has it's PINI field enabled.
+
+In oder to open the hardware connection interface click on the `Connection` button at the top right side of the screen.
+![SMA main](./documentation/SMA-100A.png)
+
+On top to the tab panel there are 3 buttons *Connect*, *Enable* and *autoConnect*.
+
+- **Connect** open and closes the IOC connection to the hardware.
+
+- **Enable** button is not particulary usefull for the end-user, so it is disabled by default.
+
+- **autoConnect** controls whether or not the IOC will automatically reconnect to the configured hardware address.
+
+![asynRecord](./documentation/asynRecord-buttons.png)
+
+The *Hardware Selection* contains the current hardware as well as controls for changing it.
+
+- **Selector** is a combobox that sets the HW address.
+- **Option #n** contents of the combobox.
+- **Reload** button that will reinitialize the protocol (ie. initialize records), should be selected after a hw change.
+
+![asynRecord](./documentation/asynRecord-hw.png)
+
+The user can check this tab for connection erros.
+
+![asynRecod advanced tag](./documentation/asynRecord-advanced.png)
+
+### Procedures
